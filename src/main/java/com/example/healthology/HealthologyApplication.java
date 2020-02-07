@@ -8,6 +8,7 @@ public class HealthologyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HealthologyApplication.class, args);
+        System.out.println("DONE");
     }
 
 }
