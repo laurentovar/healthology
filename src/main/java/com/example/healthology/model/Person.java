@@ -26,6 +26,9 @@ public class Person {
     @Column(nullable = false, columnDefinition = "BLOB")
     private String about_me;
 
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<User> user;
+
     public Person() {}
 
     public Person(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me) {
@@ -100,6 +103,14 @@ public class Person {
 
     public void setAbout_me(String about_me) {
         this.about_me = about_me;
+    }
+
+    public List<User> getUser() {
+        return user;
+    }
+
+    public void setUser(List<User> user) {
+        this.user = user;
     }
 }
 
