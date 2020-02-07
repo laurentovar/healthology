@@ -1,4 +1,4 @@
-package com.example.healthology.model;
+package com.example.healthology.models;
 
 //many to one for the admin
 
