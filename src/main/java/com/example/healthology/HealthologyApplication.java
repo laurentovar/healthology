@@ -8,7 +8,14 @@ public class HealthologyApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HealthologyApplication.class, args);
-        System.out.println("DONE");
+        System.out.println("      _.-'''''-._\n" +
+                "    .'  _     _  '.\n" +
+                "   /   (o)   (o)   \\\n" +
+                "  |                 |\n" +
+                "  |  \\           /  |\n" +
+                "   \\  '.       .'  /\n" +
+                "    '.  `'---'`  .'\n" +
+                "      '-._____.-");
     }
 
 }
