@@ -1,4 +1,4 @@
-package com.example.healthology.model;
+package com.example.healthology.models;
 
 import javax.persistence.*;
 import java.util.List;
