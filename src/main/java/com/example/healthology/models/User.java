@@ -14,6 +14,9 @@ public class User {
     @Column(nullable = false, columnDefinition = "BOOLEAN")
     private boolean agreed_to_terms;
 
+    @Column(nullable = false, length = 100)
+    private String username;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Journal> journals;
 
@@ -22,6 +25,21 @@ public class User {
     private Person person;
 
     public User() {
+    }
+
+    public User(boolean agreed_to_terms, String username, List<Journal> journals, Person person) {
+        this.agreed_to_terms = agreed_to_terms;
+        this.username = username;
+        this.journals = journals;
+        this.person = person;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public User(boolean agreed_to_terms) {
