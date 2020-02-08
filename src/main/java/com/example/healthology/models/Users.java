@@ -12,7 +12,7 @@ public class Users {
     @Column()
     private Long id;
     @Column(nullable = false, length = 100)
-    private String fist_name;
+    private String first_name;
     @Column(nullable = false, length = 100)
     private String last_name;
     @Column(nullable = false, length = 200)
@@ -23,9 +23,9 @@ public class Users {
     private String phone_number;
     @Column(nullable = false, length = 200, unique = true)
     private String email;
-    @Column(nullable = false, columnDefinition = "BLOB")
+    @Column(nullable = true, columnDefinition = "BLOB")
     private String about_me;
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, unique = true)
     private String username;
 
 
@@ -37,8 +37,8 @@ public class Users {
 
     public Users() {}
 
-    public Users(String fist_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
-        this.fist_name = fist_name;
+    public Users(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
+        this.first_name = first_name;
         this.last_name = last_name;
         this.profile_img = profile_img;
         this.password = password;
@@ -48,17 +48,14 @@ public class Users {
         this.username = username;
         this.client = client;
     }
-//
-//    public Users(Users copy) {
-//        id = copy.id;
-//        username = copy.username;
-//        fist_name = copy.fist_name;
-//        last_name = copy.last_name;
-//        profile_img = copy.profile_img;
-//        password = copy.password;
-//        phone_number = copy.phone_number;
-//        email = copy.email;
-//    }
+
+
+    public Users(Users copy) {
+        id = copy.id;
+        username = copy.username;
+        password = copy.password;
+        email = copy.email;
+    }
 
 
     public String getUsername() {
@@ -77,12 +74,12 @@ public class Users {
         this.id = id;
     }
 
-    public String getFist_name() {
-        return fist_name;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFist_name(String fist_name) {
-        this.fist_name = fist_name;
+    public void setFirst_name(String fist_name) {
+        this.first_name = fist_name;
     }
 
     public String getLast_name() {
