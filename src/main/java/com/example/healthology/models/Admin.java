@@ -13,14 +13,14 @@ public class Admin {
 	@Column(columnDefinition = "TEXT")
 	private String qualifications;
 
-	@ManyToOne
-	@JoinColumn (name = "person_id")
-	private Person person;
+	@OneToOne
+	@JoinColumn (name = "user_id", referencedColumnName = "id")
+	private Users user_id;
 
 
-	public Admin(String qualifications, Person person) {
+	public Admin(String qualifications, Users user_id) {
 		this.qualifications = qualifications;
-		this.person = person;
+		this.user_id = user_id;
 	}
 
 	public Admin () {};
@@ -41,11 +41,11 @@ public class Admin {
 		this.qualifications = qualifications;
 	}
 
-	public Person getPerson() {
-		return person;
+	public Users getUser_id() {
+		return user_id;
 	}
 
-	public void setPerson(Person person) {
-		this.person = person;
+	public void setUser_id(Users user_id) {
+		this.user_id = user_id;
 	}
 }

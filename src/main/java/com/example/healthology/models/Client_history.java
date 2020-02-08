@@ -3,8 +3,8 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name= "user_history")
-public class User_history {
+@Table(name= "client_history")
+public class Client_history {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,16 +20,20 @@ public class User_history {
     private String previousCounseling;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client_id;
 
-    public User_history (){}
+//    @OneToOne(mappedBy = "users") //, cascade = CascadeType.ALL)
+//    private Client client;
 
-    public User_history(String description, String otherInformation, String previousCounseling, User user) {
+
+    public Client_history(){}
+
+    public Client_history(String description, String otherInformation, String previousCounseling, Client client_id) {
         this.description = description;
         this.otherInformation = otherInformation;
         this.previousCounseling = previousCounseling;
-        this.user = user;
+        this.client_id = client_id;
     }
 
     public Long getId() {
@@ -64,11 +68,11 @@ public class User_history {
         this.previousCounseling = previousCounseling;
     }
 
-    public User getUser() {
-        return user;
+    public Client getClient() {
+        return client_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient(Client client) {
+        this.client_id = client;
     }
 }

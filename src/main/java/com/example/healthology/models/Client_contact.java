@@ -2,8 +2,8 @@ package com.example.healthology.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_contact")
-public class User_contact {
+@Table(name = "client_contact")
+public class Client_contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column()
@@ -21,18 +21,22 @@ public class User_contact {
     @Column(nullable = false, length = 20)
     private String provider_contact_number;
 
+//    @OneToOne
+//    @JoinColumn(name = "client_id")
+//    private Client client_id;
+
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client_id;
 
-    public User_contact (){}
+    public Client_contact(){}
 
-    public User_contact(String emergency_contact_name, String emergency_contact_number, String provider_name, String provider_contact_number, User user) {
+    public Client_contact(String emergency_contact_name, String emergency_contact_number, String provider_name, String provider_contact_number, Client user) {
         this.emergency_contact_name = emergency_contact_name;
         this.emergency_contact_number = emergency_contact_number;
         this.provider_name = provider_name;
         this.provider_contact_number = provider_contact_number;
-        this.user = user;
+        this.client_id = client_id;
     }
 
     public Long getId() {
@@ -75,11 +79,11 @@ public class User_contact {
         this.provider_contact_number = provider_contact_number;
     }
 
-    public User getUser() {
-        return user;
+    public Client getClient_id() {
+        return client_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setClient_id(Client client_id) {
+        this.client_id = client_id;
     }
 }

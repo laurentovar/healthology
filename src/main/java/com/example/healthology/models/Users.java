@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "users")
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,20 +25,48 @@ public class Person {
     private String email;
     @Column(nullable = false, columnDefinition = "BLOB")
     private String about_me;
+    @Column(nullable = false, length = 100)
+    private String username;
 
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
-    private List<User> user;
-    public Person() {}
+    @OneToOne(mappedBy = "user_id")
+    private Admin admin;
 
-    public Person(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me) {
-        this.fist_name = first_name;
+    @OneToOne(mappedBy = "user_id") //, cascade = CascadeType.ALL)
+    private Client client;
+
+    public Users() {}
+
+    public Users(String fist_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
+        this.fist_name = fist_name;
         this.last_name = last_name;
         this.profile_img = profile_img;
         this.password = password;
         this.phone_number = phone_number;
         this.email = email;
         this.about_me = about_me;
+        this.username = username;
+        this.client = client;
+    }
+//
+//    public Users(Users copy) {
+//        id = copy.id;
+//        username = copy.username;
+//        fist_name = copy.fist_name;
+//        last_name = copy.last_name;
+//        profile_img = copy.profile_img;
+//        password = copy.password;
+//        phone_number = copy.phone_number;
+//        email = copy.email;
+//    }
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Long getId() {
@@ -106,12 +134,12 @@ public class Person {
     }
 
 
-    public List<User> getUser() {
-        return user;
+    public Client getClient() {
+        return client;
     }
 
-    public void setUser(List<User> user) {
-        this.user = user;
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
 

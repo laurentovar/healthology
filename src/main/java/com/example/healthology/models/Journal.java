@@ -21,14 +21,14 @@ public class Journal {
     private String entry;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private Client client;
 
     public Journal() {}
 
     public Journal(String title, String rating, String date, String entry) {
         this.title = title;
-        this.rating = rating = rating;
+        this.rating = rating;
         this.date = date;
         this.entry = entry;
     }
