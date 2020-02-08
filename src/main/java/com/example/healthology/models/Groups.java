@@ -18,6 +18,11 @@ public class Groups {
     private String category_name;
 
 
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
+    private Admin admin;
+
+
     public Groups (){}
 
     public Groups(String group_name, String category_name) {
