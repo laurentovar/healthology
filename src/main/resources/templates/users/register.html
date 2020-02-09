@@ -6,6 +6,9 @@
     <title>Sign up</title>
 </head>
 <body>
+
+<div th:insert="fragment/navbar.html :: main-nav"></div>
+
 <h1>Create an account</h1>
 <form th:action="@{/register}" method="POST" th:object="${users}">
     <label for="username">Username</label>

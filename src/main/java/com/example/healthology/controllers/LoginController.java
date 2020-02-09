@@ -20,7 +20,7 @@ public class LoginController {
                             Model model) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
-        return "index";
+        return "users/profile";
     }
 
 }
