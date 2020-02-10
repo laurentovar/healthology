@@ -11,7 +11,7 @@ public class Group_client {
 
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private Groups group_id;
+    private Group group_id;
 
     @ManyToOne
     @JoinColumn(name = "client_id")

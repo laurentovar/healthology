@@ -15,10 +15,10 @@ public class Admin {
 
 	@OneToOne
 	@JoinColumn (name = "user_id", referencedColumnName = "id")
-	private Users user_id;
+	private User user_id;
 
 
-	public Admin(String qualifications, Users user_id) {
+	public Admin(String qualifications, User user_id) {
 		this.qualifications = qualifications;
 		this.user_id = user_id;
 	}
@@ -41,11 +41,11 @@ public class Admin {
 		this.qualifications = qualifications;
 	}
 
-	public Users getUser_id() {
+	public User getUser_id() {
 		return user_id;
 	}
 
-	public void setUser_id(Users user_id) {
+	public void setUser_id(User user_id) {
 		this.user_id = user_id;
 	}
 }

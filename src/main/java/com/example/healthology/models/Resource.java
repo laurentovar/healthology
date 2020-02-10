@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "resources")
-public class Resources {
+public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column()
@@ -19,9 +19,9 @@ public class Resources {
     @JoinColumn (name = "admin_id")
     private Admin admin;
 
-    public Resources (){}
+    public Resource(){}
 
-    public Resources(String category, String type_Resource, Admin admin) {
+    public Resource(String category, String type_Resource, Admin admin) {
         this.category = category;
         this.type_Resource = type_Resource;
         this.admin = admin;
