@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="../CSS/css_stylesheet.css">
-    <!--<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
-</head>
-<body>
+<!--<head>-->
+<!--<style>-->
+       <!--.navbar-item{-->
+           <!--color: red !important;-->
 
-
-<div th:fragment="main-nav">
-    <!--<h3>Links through the site</h3>-->
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <!--<a class="navbar-item" href="https://bulma.io">-->
-            <!--<img class="logo-img" src="../CSS/img/hearthandlogo.png" width="100" height="300">-->
-            <!--<p class="main-logo">-->
-            <!--Healthology-->
-            <!--</p>-->
-        <!--</a>-->
+       <!--}-->
+<!--</style>-->
+<!--</head>-->
+<nav th:fragment="main-nav">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">.
         <p class="main-logo">
             Healthology
         </p>
@@ -32,55 +23,53 @@
         </a>
     </div>
 
-<!--<div th:fragment="main-nav">-->
-<!--<h3>Links through the site</h3>-->
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <ul>
+            <!--<ul>-->
 
 
-            <li>
+
             <a class="navbar-item navbar-right">
                 Home
             </a>
-            </li>
 
 
-                <li sec:authorize="isAuthenticated()">
-            <a class="navbar-item navbar-right">
+
+                <!--<li sec:authorize="isAuthenticated()">-->
+            <a sec:authorize="isAuthenticated()" class="navbar-item navbar-right">
                 Profile
             </a>
-                </li>
+                <!--</li>-->
 
-                <li sec:authorize="isAuthenticated()">
-            <a class="navbar-item navbar-right">
+                <!--<li sec:authorize="isAuthenticated()">-->
+            <a  sec:authorize="isAuthenticated()" class="navbar-item navbar-right">
                 Chat
             </a>
-                </li>
 
 
-                <li>
+
+
             <a class="navbar-item navbar-right">
                 Crisis Resource
             </a>
-                </li>
 
 
 
-                <li>
+
+
             <a class="navbar-item navbar-right">
                 About
             </a>
-                </li>
 
 
-                <li th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" >
-            <a class="navbar-item navbar-right" >
+
+                <!--<li th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" >-->
+            <a th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" class="navbar-item navbar-right" >
                 Logout
             </a>
-                </li>
-            </ul>
+                <!--</li>-->
+            <!--</ul>-->
         </div>
     </div>
 
@@ -89,23 +78,5 @@
         </div>
     </div>
 </nav>
-
-    <!--<nav>-->
-    <!--<ul>-->
-        <!--<li sec:authorize="!isAuthenticated()">-->
-            <!--<a  th:href="@{/login}">Login</a>-->
-        <!--</li>-->
-        <!--<li sec:authorize="!isAuthenticated()">-->
-            <!--<a th:href="@{/register}">Sign Up</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a href="/profile">Profile</a>-->
-        <!--</li>-->
-            <!--<form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">-->
-                <!--<button type="submit">Logout</button>-->
-            <!--</form>-->
-    <!--</ul>-->
-<!--</nav>-->
-</div>
-</body>
+</nav>
 </html>
