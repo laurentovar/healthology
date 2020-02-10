@@ -18,4 +18,4 @@ insert into client (agreed_to_terms, user_id)
 
 INSERT INTO journal (date, entry, rating, title, client_id)
 VALUES
-    ('2001-12-11', 'This has been an eventful week for me', 10, 'Week One', 1);
+    ('2001-12-11', 'This has been an eventful week for me', 10, 'Week One', 2);
