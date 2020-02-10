@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,20 +9,18 @@
 <h3>Links through the site</h3>
 <nav>
     <ul>
-        <li>
-            <a href="/register">Register</a>
+        <li sec:authorize="!isAuthenticated()">
+            <a  th:href="@{/login}">Login</a>
         </li>
-        <li>
-            <a href="/login">Login</a>
+        <li sec:authorize="!isAuthenticated()">
+            <a th:href="@{/register}">Sign Up</a>
         </li>
         <li>
             <a href="/profile">Profile</a>
         </li>
-        <li>
-            <form th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            <form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
+                <button type="submit">Logout</button>
             </form>
-        </li>
     </ul>
 </nav>
 </div>
