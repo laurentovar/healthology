@@ -5,6 +5,40 @@
     <title>Client Setup</title>
 </head>
 <body>
-It worked!
+    <div th:insert="fragment/navbar.html :: main-nav"></div>
+
+    <h1>Client setup - Agree to consent form Part 1 of 3</h1>
+
+    <form th:action="@{/client_setup/}" method="POST" th:object="${clients}">
+        <input hidden th:name="userId" th:value="${clients.id}">
+        <H2>Consent Form</H2>
+        <h3>Confidentiality</h3>
+        <p>Healthology values privacy of clients and acts accordingly. No information about you will be shared without your permission and disclosure. The clinician involved in your group is obligated by law or professional ethics to report incidents of threat to self, threat to others, child abuse/neglect, elderly or dependent adult abuse/neglect, or client abuse. In the event of litigation case is filed that concerns your information, your records may be subpoenaed and we may be obligated to honor these subpoenas.</p>
+        <h3>Emergency information</h3>
+        <p>If the clinicain is worried about you they have the right to contact you via phone. If you do not answer the phone the clinician will take the next steps to contact your emergency contacts provided. They will also contact your primary physician to talk about your well being.</p>
+        <h3>Informed Consent</h3>
+        <p>I understand that I can contact the clinician and leave Healthology whenever I see fit. I understand that all information shared in the group should remain in the group. I understand that the clinician has certain duties to protect everyone in the group.</p>
+
+        <label for="agreed_to_terms"> I agree</label><br>
+        <input type="checkbox" id="agreed_to_terms" name="agreed_to_terms" th:checked="${isChecked}">
+
+<!--        <span class="text-danger" th:text="${errorTermsChecked}"></span>-->
+
+        <button type="submit">Next</button>
+
+<!--        <label th:for="agreed_to_terms" th:text="agreed_to_terms">Covered</label>-->
+<!--        <input type="checkbox" th:name = "*{agreed_to_terms}" checked/>-->
+
+<!--        <label th:for="singleCheckboxField" th:text="'Agree to Terms'"></label>-->
+<!--        <input type="checkbox" th:field="*{singleCheckboxField}" />-->
+<!--        -->
+<!--            <input type="checkbox" name="agreed_to_terms" value="Boat"  id="agreed_to_terms" checked>-->
+<!--            <label for="agreed_to_terms"> I agree</label><br><br>-->
+
+
+<!--            <input value="Next" type="submit" />-->
+
+    </form>
+
 </body>
 </html>
