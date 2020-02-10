@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
 </head>
 <body>
@@ -11,8 +12,24 @@
 <h1>username: <span th:text="${user.username}">user</span></h1>
 
 <!--will trigger modal-->
-<button>Add a New Journal Entry</button>
-
+<button class="addJournal">Add a New Journal Entry</button>
+<!--<div class="modal myModal">-->
+<!--    <div class="modal-background"></div>-->
+<!--    <div class="modal-content">-->
+<!--        <form th:action="@{/journal/create}" th:method="POST" th:object="${post}">-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="title">Title</label>-->
+<!--                <input class="form-control" id="title" type ="text" th:field="*{title}" placeholder="Enter title">-->
+<!--            </div>-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="body">Body</label>-->
+<!--                <textarea class="form-control" id="body" th:field="*{body}" placeholder="Enter body"></textarea>-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary form-control mt-3">Create Post</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <button class="modal-close is-large" aria-label="close"></button>-->
+<!--</div>-->
 
 <div class="container">
     <h1>Journal Entries:</h1>
@@ -26,5 +43,18 @@
         </div>
     </div>
 </div>
+<!--<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>-->
+<!--​<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+<!--<script>-->
+<!--    -->
+<!--    $(".add-journal").click(function() {-->
+<!--        $(".modal").addClass("is-active");-->
+<!--    });-->
+<!--    $(".modal-close").click(function() {-->
+<!--        $(".modal").removeClass("is-active");-->
+<!--    });-->
+<!--    -->
+<!--    -->
+<!--</script>-->
 </body>
 </html>
