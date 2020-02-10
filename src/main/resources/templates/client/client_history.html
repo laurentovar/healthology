@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client History</title>
+</head>
+<body>
+<div th:insert="fragment/navbar.html :: main-nav"></div>
+
+<h1>Client Setup - Client Information 2 of 3</h1>
+<form th:action="@{/client_history}" method="POST" th:object="${clients_history}">
+    <label for="description">Description about what you want to work on in these group sessions.</label>
+    <input id="description" th:field="*{description}" />
+
+    <label for="other_information">Other information that you think the clinician should know.</label>
+    <input id="other_information" th:field="*{otherInformation}" />
+
+    <label for="previous_counseling">List any previous counseling. List why you went, the place and clinician that you saw.</label>
+    <input id="previous_counseling" th:field="*{previousCounseling}" />
+    <input value="Next" type="submit" />
+
+</form>
+
+</body>
+</html>
