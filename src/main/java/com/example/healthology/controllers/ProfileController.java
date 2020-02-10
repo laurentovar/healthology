@@ -20,7 +20,7 @@ public class ProfileController {
         this.userDao = userDao;
     }
 
-    @GetMapping("/users/profile")
+    @GetMapping("/profile")
     public String postsIndex(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", user);
