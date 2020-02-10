@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Contact</title>
+</head>
+<body>
+<h1>Client Setup - Client Emergency Contact Information 3 of 3</h1>
+<form th:action="@{/client_contact}" method="POST" th:object="${clients_contact}">
+
+    <label for="emergency_contact_name">Please enter full name for your emergency contact</label>
+    <input id="emergency_contact_name" th:field="*{emergency_contact_name}" />
+
+    <label for="emergency_contact_number">Please enter a number for your emergency contact</label>
+    <input id="emergency_contact_number" th:field="*{emergency_contact_number}" />
+
+    <label for="provider_contact_name">Please enter full name for your provider</label>
+    <input id="provider_contact_name" th:field="*{provider_name}" />
+
+    <label for="provider_contact_phone">Please enter a number for your provider</label>
+    <input id="provider_contact_phone" th:field="*{provider_contact_number}" />
+
+
+    <input value="Finish" type="submit" />
+
+
+
+</form>
+
+
+</body>
+</html>

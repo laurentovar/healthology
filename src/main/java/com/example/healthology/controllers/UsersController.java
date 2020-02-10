@@ -37,12 +37,15 @@ public class UsersController {
             user.setProfile_img("");
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
-            usersDao.save(user);
-            return "redirect:client/client_setup";
+            usersDao.saveAndFlush(user);
+            //Users createdUser = usersDao.findByUsername(user.getUsername());
+
+            //System.out.println(createdUser.getId());
+            return "redirect:/login/";// + createdUser.getId();
         }
 
         //Else
-        return "/errorforreal";
+        return "/HelloWorld";
 
     }
 

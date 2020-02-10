@@ -1,5 +1,6 @@
 package com.example.healthology.controllers;
 
+import com.example.healthology.models.Client;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,11 @@ public class LoginController {
                             Model model) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
+
+
+        //check to see if they have done client terms, client history , client contact
+
+        //direct to profile
         return "users/profile";
     }
 

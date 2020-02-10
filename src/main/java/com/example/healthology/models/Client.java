@@ -21,10 +21,10 @@ public class Client {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private Users user_id;
 
-    @OneToOne(mappedBy = "client_id") //, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "client_id", cascade = CascadeType.ALL)
     private Client_history client_history;
 
-    @OneToOne(mappedBy = "client_id") //, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "client_id", cascade = CascadeType.ALL)
     private Client_contact client_contact;
 
 

@@ -21,9 +21,6 @@ public class Client_contact {
     @Column(nullable = false, length = 20)
     private String provider_contact_number;
 
-//    @OneToOne
-//    @JoinColumn(name = "client_id")
-//    private Client client_id;
 
     @OneToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")

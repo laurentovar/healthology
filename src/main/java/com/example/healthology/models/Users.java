@@ -29,10 +29,10 @@ public class Users {
     private String username;
 
 
-    @OneToOne(mappedBy = "user_id")
+    @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL)
     private Admin admin;
 
-    @OneToOne(mappedBy = "user_id") //, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL) //, cascade = CascadeType.ALL)
     private Client client;
 
     public Users() {}
