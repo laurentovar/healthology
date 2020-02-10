@@ -1,9 +1,6 @@
 package com.example.healthology.models;
 import javax.persistence.*;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Table;
-
 @Entity
 @Table(name= "groups")
 public class Group {
