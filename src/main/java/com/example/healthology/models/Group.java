@@ -1,12 +1,9 @@
 package com.example.healthology.models;
 import javax.persistence.*;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Table;
-
 @Entity
 @Table(name= "groups")
-public class Groups {
+public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,9 +20,9 @@ public class Groups {
     private Admin admin;
 
 
-    public Groups (){}
+    public Group(){}
 
-    public Groups(String group_name, String category_name) {
+    public Group(String group_name, String category_name) {
         this.group_name = group_name;
         this.category_name = category_name;
     }

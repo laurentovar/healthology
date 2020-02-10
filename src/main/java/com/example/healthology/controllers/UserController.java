@@ -1,6 +1,6 @@
 package com.example.healthology.controllers;
 
-import com.example.healthology.models.Users;
+import com.example.healthology.models.User;
 import com.example.healthology.repositories.UsersRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class UsersController {
+public class UserController {
 
     // These two next steps are often called dependency injection, where we create a Repository instance and initialize it in the controller class constructor.
     private final UsersRepository usersDao;
     private PasswordEncoder passwordEncoder;
 
-    public UsersController(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
+    public UserController(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
     }
@@ -25,12 +25,12 @@ public class UsersController {
 
     @GetMapping("/register")
     public String showRegisterForm(Model model){
-        model.addAttribute("users", new Users());
+        model.addAttribute("users", new User());
         return "users/register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@RequestParam(name = "client_token") String client_token, @ModelAttribute Users user){
+    public String saveUser(@RequestParam(name = "client_token") String client_token, @ModelAttribute User user){
 
         //Check if token is correct, If it is do this
         if (client_token.equals("ABC")){

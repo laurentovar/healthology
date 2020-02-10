@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +35,9 @@ public class Users {
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL) //, cascade = CascadeType.ALL)
     private Client client;
 
-    public Users() {}
+    public User() {}
 
-    public Users(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
+    public User(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.profile_img = profile_img;
@@ -50,7 +50,7 @@ public class Users {
     }
 
 
-    public Users(Users copy) {
+    public User(User copy) {
         id = copy.id;
         username = copy.username;
         password = copy.password;
