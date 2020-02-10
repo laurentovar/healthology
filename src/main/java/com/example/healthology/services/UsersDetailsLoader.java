@@ -1,7 +1,7 @@
 package com.example.healthology.services;
 
-import com.example.healthology.models.Users;
-import com.example.healthology.models.UsersWithRoles;
+import com.example.healthology.models.User;
+import com.example.healthology.models.UserWithRoles;
 import com.example.healthology.repositories.UsersRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,11 +18,11 @@ public class UsersDetailsLoader implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users user = usersDao.findByUsername(username);
+        User user = usersDao.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("No user found for " + username);
         }
 
-        return new UsersWithRoles(user);
+        return new UserWithRoles(user);
     }
 }

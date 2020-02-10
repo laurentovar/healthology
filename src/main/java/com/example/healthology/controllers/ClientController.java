@@ -2,7 +2,7 @@ package com.example.healthology.controllers;
 import com.example.healthology.models.Client;
 import com.example.healthology.models.Client_contact;
 import com.example.healthology.models.Client_history;
-import com.example.healthology.models.Users;
+import com.example.healthology.models.User;
 import com.example.healthology.repositories.ClientContactRepository;
 import com.example.healthology.repositories.ClientHistoryRepository;
 import com.example.healthology.repositories.ClientRepository;
@@ -44,7 +44,7 @@ public class ClientController {
             return "redirect:/register";
         }
         // Get the current User
-        Users currentUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         //Update the client's user_id using the current user
         client.setUser(currentUser);
@@ -74,7 +74,7 @@ public class ClientController {
     public String clientHistorycheck(@ModelAttribute Client_history client_history) {
 
         //Get the current user
-        Users currentUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         //Get the current users ID
         Client client = clientDao.findClientByUser_id(currentUser);
@@ -103,7 +103,7 @@ public class ClientController {
     public String clientContactCheck(@ModelAttribute Client_contact client_contact) {
 
         //Get the current user
-        Users currentUser = (Users) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         //Get the current users ID
         Client client = clientDao.findClientByUser_id(currentUser);

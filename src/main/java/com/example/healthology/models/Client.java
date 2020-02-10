@@ -19,7 +19,7 @@ public class Client {
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Users user_id;
+    private User user_id;
 
     @OneToOne(mappedBy = "client_id", cascade = CascadeType.ALL)
     private Client_history client_history;
@@ -30,7 +30,7 @@ public class Client {
 
     public Client() {}
 
-    public Client(boolean agreed_to_terms, List<Journal> journals, Users user) {
+    public Client(boolean agreed_to_terms, List<Journal> journals, User user) {
         this.agreed_to_terms = agreed_to_terms;
         this.journals = journals;
         this.user_id = user;
@@ -56,11 +56,11 @@ public class Client {
         this.agreed_to_terms = agreed_to_terms;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user_id;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user_id = user;
     }
 }
