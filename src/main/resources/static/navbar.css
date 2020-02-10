@@ -1,31 +1,51 @@
+body {
+    margin: 0;
+}
+/*need this for takign away white space on either side*/
 
-
-
-
-.navbar, .navbar-item{
-    background-color: rgb(222, 237, 246) !important;
-    color: rgb(96, 150, 180 );
-    font-size: 110%;
+a{
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    padding-right: 10px;
 
 }
 
-/*.navbar-menu{*/
-    /*margin-left: 30% !important;*/
-/*}*/
+.navbar, .navbar-item{
+    width: 110%;
 
-/*.main-logo{*/
-    /*padding: 2%;*/
-    /*padding-left:5%;*/
-    /*font-weight: bolder;*/
-    /*font-size: 250%;*/
+    background-color: rgb(222, 237, 246) !important;
+    color: rgb(96, 150, 180 );
 
-    /*!*margin-left: 40%;*!*/
+    margin-top: -5%;
 
-/*}*/
+}
 
-/*.logo-img{*/
-    /*margin-left: 40%;*/
-/*}*/
+.navbar-item{
+    margin-bottom: 100px;
+}
+
+.navbar-menu{
+    margin-left: 70% !important;
+
+
+}
+
+.navbar-start{
+
+    margin-bottom: 100px !important;
+}
+.main-logo{
+
+    padding-left:5%;
+    font-weight: bolder;
+    font-size: 50px !important;
+    margin-top: 10%;
+
+}
+
+.logo-img{
+    margin-left: 40%;
+}
 
 /*#about-healthology{*/
     /*padding: 10%;*/

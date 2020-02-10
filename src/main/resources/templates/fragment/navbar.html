@@ -8,9 +8,9 @@
        <!--}-->
 <!--</style>-->
 <!--</head>-->
-<nav th:fragment="main-nav">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">.
+<!--<nav th:fragment="main-nav">-->
+    <nav th:fragment="main-nav" class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
         <p class="main-logo">
             Healthology
         </p>
@@ -26,7 +26,7 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <!--<ul>-->
+
 
 
 
@@ -68,15 +68,17 @@
             <a th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" class="navbar-item navbar-right" >
                 Logout
             </a>
+            <div class="navbar-end">
                 <!--</li>-->
             <!--</ul>-->
         </div>
     </div>
 
-    <div class="navbar-end">
-        <div class="navbar-item">
-        </div>
+    <!--<div class="navbar-end">-->
+        <!--<div class="navbar-item">-->
+        <!--</div>-->
     </div>
+
 </nav>
-</nav>
+
 </html>
