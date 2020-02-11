@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Client History</title>
-    <th:block th:include="fragment/header :: main-header"></th:block>
+<head th:replace="fragment/header :: main-header">
+
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
@@ -22,6 +20,6 @@
     <input value="Next" type="submit" />
 
 </form>
-
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>

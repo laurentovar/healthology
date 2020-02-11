@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Client Setup</title>
+<head th:replace="fragment/header :: main-header">
+
 </head>
 <body>
     <div th:insert="fragment/navbar.html :: main-nav"></div>
@@ -25,6 +24,6 @@
         <button type="submit">Next</button>
 
     </form>
-
+    <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
