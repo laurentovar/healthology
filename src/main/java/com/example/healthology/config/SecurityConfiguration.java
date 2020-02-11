@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/client_setup/"  //only authenticated users can do client setup
+                        "/client_setup/" //only authenticated users can do client setup
                 )
                 .authenticated()
         ;
