@@ -30,6 +30,11 @@
                     About
                 </a>
 
+
+                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item">
+                    Register
+                </a>
+
                     <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
                         Login
                     </a>
