@@ -131,8 +131,14 @@ public class ClientController {
 
     @PostMapping("/client_groupSelection")
     public String clientGroupCheck(//@ModelAttribute Group_client group_client,
-                                   @RequestParam(name = "depression",required = false) String depression,
-                                   @RequestParam(name = "ptsd",required = false) String ptsd) {
+                                   @RequestParam(name = "Depression",required = false) String Depression,
+                                   @RequestParam(name = "PTSD",required = false) String PTSD,
+                                   @RequestParam(name = "Anxiety",required = false) String Anxiety,
+                                   @RequestParam(name = "OCD",required = false) String OCD,
+                                   @RequestParam(name = "Eating disorders",required = false) String Eatingdisorders,
+                                   @RequestParam(name = "Insomnia",required = false) String Insomnia,
+                                   @RequestParam(name = "Postpartum",required = false) String Postpartum)
+    {
 
         //Get the current user
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -145,8 +151,13 @@ public class ClientController {
 
         //Set the groupID group Client
         ArrayList<String> groupOptions = new ArrayList<String>();
-        groupOptions.add(depression);
-        groupOptions.add(ptsd);
+        groupOptions.add(Depression);
+        groupOptions.add(PTSD);
+        groupOptions.add(Anxiety);
+        groupOptions.add(OCD);
+        groupOptions.add(Eatingdisorders);
+        groupOptions.add(Insomnia);
+        groupOptions.add(Postpartum);
 
         //Need to check if an option was at all before doing loop
 
@@ -173,8 +184,7 @@ public class ClientController {
 
         }
 
-        return "users/profile";
-
+        return "redirect:/profile";
 
     }
 }
