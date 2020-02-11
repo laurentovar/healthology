@@ -5,21 +5,42 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1>Log In</h1>
-<div th:if="${param.error}">
-    Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
 
+<!--<div th:if="${param.error}">-->
+    <!--Invalid Username and Password.-->
+<!--</div>-->
+<!--<div th:if="${param.logout}">-->
+    <!--You have been logged out.-->
+<!--</div>-->
+<!--<h1>Log In</h1>-->
+
+
+<div class="login-box">
+    <h1 class="blue-font" id="login-main-header">Sign In</h1>
+    <h5 class="blue-font" id="login-sub-header">Welcome back!</h5>
+    <p class="blue-font" id="login-about">Please sign in with your username and password you registered with and start talking to your group.</p>
+    <div class ="blue-font warning-text" th:if="${param.error}">
+        Invalid Username and Password.
+    </div>
+    <div class="blue-font warning-text" th:if="${param.logout}">
+        You have been logged out.
+    </div>
 <form th:action="@{/login}" method="post">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" />
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <input type="submit" value="Log In" />
+
+
+    <div class="form-group">
+
+        <input id="username" name ="username" type= "text" class="form-control"  placeholder="Username">
+    </div>
+
+    <div class="form-group">
+
+        <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+    </div>
+
+    <button id="submit" type="submit" class="btn login-button">Login</button>
 </form>
+</div>
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
