@@ -173,7 +173,7 @@ public class ClientController {
 
         }
 
-        return "users/profile";
+        return "redirect:/profile";
 
 
     }
