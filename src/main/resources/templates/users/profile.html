@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">-->
+    <!--<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">-->
     <title>Title</title>
-<!--need to add header tag here-->
+    <th:block th:include="fragment/header :: main-header"></th:block>
+
+    <!--need to add header tag here-->
 </head>
 <body>
 
