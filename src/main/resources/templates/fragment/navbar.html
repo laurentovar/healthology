@@ -70,7 +70,7 @@
 <!--</nav>-->
 <th:block th:fragment="main-nav">
     <nav class="d-flex flex-row navbar sticky-top navbar-expand-lg  navbar-lighter nav-background" id="nav-line">
-        <a id="index-navbar" href="/"><p class="navbar-brand animal">HEALTH<span id="heart" >OLOGY</span></p></a>
+        <a id="index-navbar" href="/"><p class="navbar-brand health">HEALTH<span id="ology" >OLOGY</span></p></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">	&equiv; </span>
         </button>
@@ -102,21 +102,10 @@
                     </a>
 
 
-                <!--<li class="nav-item">-->
-                    <!--<div sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/login}">-->
-                        <!--<a th:href="@{/login}" class="login">Login</a>-->
-                    <!--</div>-->
-                <!--</li>-->
-                <li class="nav-item navbar-right">
                     <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                         <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
                     </form>
-                </li>
-                <!--<li class="nav-item navbar-right">-->
-                    <!--<form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">-->
-                        <!--<a th:href="@{/sign-up}" class="login">Sign Up</a>-->
-                    <!--</form>-->
-                <!--</li>-->
+
             </ul>
         </div>
     </nav>
