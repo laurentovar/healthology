@@ -9,10 +9,7 @@ import com.example.healthology.repositories.UsersRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProfileController {
@@ -32,18 +29,18 @@ public class ProfileController {
     @GetMapping("/profile")
     public String postsIndex(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user", user);
+        model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
         return "users/profile";
     }
 
-    @PostMapping("/edit")
-    public String editProfile(@RequestParam(name = "aboutMe") String aboutMe, @ModelAttribute User user){
-
-        User updatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    @PostMapping("/users/{id}/edit")
+    public String editProfile(@PathVariable long id, @ModelAttribute User user){
+        User updatedUser = userDao.getOne(id);
+//        User updatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        User newUser = userDao.findByUsername(newUser.getUsername());
-        updatedUser.setAbout_me(aboutMe);
+        updatedUser.setAbout_me(user.getAbout_me());
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
