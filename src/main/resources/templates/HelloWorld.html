@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
 </head>
 <body>
-<h1>Hello World</h1>
+
+<th:block th:include="fragment/photoUpload :: upload"></th:block>
+
 </body>
 </html>
