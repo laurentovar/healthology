@@ -25,5 +25,5 @@ VALUES
 INSERT INTO admins (qualifications) VALUES ('Here are my qualifications');
 INSERT INTO `groups` (category_name, group_name, admin_id) VALUES ('depression','Depression group', 1);
 INSERT INTO `groups` (category_name, group_name, admin_id) VALUES ('ptsd','PTSD group', 1);
-INSERT INTO group_client (client_id, group_id) VALUES (1,1);
+INSERT INTO group_client (client_id, group_id) VALUES (2,1);
 
