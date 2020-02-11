@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+<head th:replace="fragment/header :: main-header">
 <!--need to add header tag here-->
 </head>
 <body>
@@ -12,24 +9,35 @@
 
 <h1>username: <span th:text="${user.username}">user</span></h1>
 
-<h1> ABout Me: </h1>
+<h1> About Me: </h1>
 <p th:text="${user.about_me}"></p>
 
-<button class="edit-profile">Edit Profile</button>
+<button type="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
 
-<div class="edit-modal modal myModal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <form th:action="@{/edit}" th:method="POST" th:object="${user}">
-            <div class="form-row mt-1">
-                <label for="about_me">About Me:</label>
-                <input class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
-                       placeholder="Tell us about you...">
+<div class="edit-modal modal" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">About Me:</h5>
+                <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <button type="submit" class="btn btn-primary form-control mt-3">Save Edits</button>
-        </form>
+            <form th:action="@{/edit}" th:method="POST" th:object="${user}">
+            <div class="modal-body">
+                <div class="form-row mt-1">
+                    <label for="about_me">About Me:</label>
+                    <input class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
+                           placeholder="Tell us about you...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary form-control mt-3">Save Edits</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
     </div>
-    <button class="edit-modal-close is-large" aria-label="close"></button>
 </div>
 
 <div class="container">
@@ -46,56 +54,35 @@
 </div>
 
 <!--will trigger modal-->
-<button class="add-journal">Add a New Journal Entry</button>
+<!--<button class="add-journal">Add a New Journal Entry</button>-->
 
 
-<div class="add-modal modal myModal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <form th:action="@{/journal/create}" th:method="POST" th:object="${journal}">
-            <div class="form-row mt-1">
-                <label for="title">Title</label>
-                <input class="form-control" id="title" type ="text" th:field="*{title}" placeholder="Enter title">
-            </div>
-            <div class="form-row mt-1">
-                <label for="body">Body</label>
-                <textarea class="form-control" id="body" th:field="*{entry}" placeholder="Enter body"></textarea>
-            </div>
-            <div class="form-row mt-1">
-                <label for="rating">Rating</label>
-                <input class="form-control" id="rating" th:field="*{rating}" placeholder="Enter body">
-            </div>
-            <div class="form-row mt-1">
-                <label for="date">Date (YYYY-MM-DD) </label>
-                <input class="form-control" id="date" th:field="*{date}" placeholder="Enter body">
-            </div>
-            <button type="submit" class="btn btn-primary form-control mt-3">Create Journal Entry</button>
-        </form>
-    </div>
-    <button class="add-modal-close is-large" aria-label="close"></button>
-</div>
+<!--<div class="add-modal modal myModal">-->
+<!--    <div class="modal-background"></div>-->
+<!--    <div class="modal-content">-->
+<!--        <form th:action="@{/journal/create}" th:method="POST" th:object="${journal}">-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="title">Title</label>-->
+<!--                <input class="form-control" id="title" type ="text" th:field="*{title}" placeholder="Enter title">-->
+<!--            </div>-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="body">Body</label>-->
+<!--                <textarea class="form-control" id="body" th:field="*{entry}" placeholder="Enter body"></textarea>-->
+<!--            </div>-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="rating">Rating</label>-->
+<!--                <input class="form-control" id="rating" th:field="*{rating}" placeholder="Enter body">-->
+<!--            </div>-->
+<!--            <div class="form-row mt-1">-->
+<!--                <label for="date">Date (YYYY-MM-DD) </label>-->
+<!--                <input class="form-control" id="date" th:field="*{date}" placeholder="Enter body">-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary form-control mt-3">Create Journal Entry</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--    <button class="add-modal-close is-large" aria-label="close"></button>-->
+<!--</div>-->
 
-
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-​<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script>
-    
-    $(".add-journal").click(function() {
-        $(".add-modal").addClass("is-active");
-    });
-    $(".add-modal-close").click(function() {
-        $(".add-modal").removeClass("is-active");
-    });
-    
-</script>
-<script>
-    
-    $(".edit-profile").click(function() {
-        $(".edit-modal").addClass("is-active");
-    });
-    $(".edit-modal-close").click(function() {
-        $(".edit-modal").removeClass("is-active");
-    });
-</script>
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
