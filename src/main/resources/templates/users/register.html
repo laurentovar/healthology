@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Sign up</title>
+    <th:block th:include="fragment/header :: main-header"></th:block>
+    <!--<th:block th:include="fragment/nav :: main-nav"></th:block>-->
 </head>
 <body>
-
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<th:block th:replace="fragment/navbar :: main-nav"> </th:block>
+<!--<div th:include="fragment/navbar :: main-nav"></div>-->
 
 <h1>Create an account</h1>
 <form th:action="@{/register}" method="POST" th:object="${users}">

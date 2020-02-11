@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--need to add header tag here-->
 </head>
 <body>
 
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 
 <h1>username: <span th:text="${user.username}">user</span></h1>
 
