@@ -9,76 +9,129 @@
 <!--</style>-->
 <!--</head>-->
 <!--<nav th:fragment="main-nav">-->
-    <nav th:fragment="main-nav" class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <p class="main-logo">
-            Healthology
-        </p>
-        <a role="button" class="navbar-burger burger " aria-label="menu" aria-expanded="false"
-           data-target="navbarBasicExample">
-            <span class="thick-lines" aria-hidden="true"></span>
-            <span class="thick-lines" aria-hidden="true"></span>
-            <span class="thick-lines" aria-hidden="true"></span>
+    <!--<nav th:fragment="main-nav" class="navbar" role="navigation" aria-label="main navigation">-->
+        <!--<div class="navbar-start">-->
 
-        </a>
-    </div>
+        <!--<p class="main-logo">-->
+            <!--Healthology-->
+        <!--</p>-->
 
 
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
+            <!--<a class="navbar-item navbar-right">-->
+                <!--Home-->
+            <!--</a>-->
 
 
 
+                <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()">&ndash;&gt;-->
+            <!--<a sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
+                <!--Profile-->
+            <!--</a>-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
 
-            <a class="navbar-item navbar-right">
-                Home
-            </a>
-
-
-
-                <!--<li sec:authorize="isAuthenticated()">-->
-            <a sec:authorize="isAuthenticated()" class="navbar-item navbar-right">
-                Profile
-            </a>
-                <!--</li>-->
-
-                <!--<li sec:authorize="isAuthenticated()">-->
-            <a  sec:authorize="isAuthenticated()" class="navbar-item navbar-right">
-                Chat
-            </a>
+                <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()">&ndash;&gt;-->
+            <!--<a  sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
+                <!--Chat-->
+            <!--</a>-->
 
 
 
 
-            <a class="navbar-item navbar-right">
-                Crisis Resource
-            </a>
+            <!--<a class="navbar-item navbar-right">-->
+                <!--Crisis Resource-->
+            <!--</a>-->
 
 
 
 
 
-            <a class="navbar-item navbar-right">
-                About
-            </a>
+            <!--<a class="navbar-item navbar-right">-->
+                <!--About-->
+            <!--</a>-->
 
 
 
-                <!--<li th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" >-->
-            <a th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" class="navbar-item navbar-right" >
-                Logout
-            </a>
-            <div class="navbar-end">
-                <!--</li>-->
-            <!--</ul>-->
-        </div>
-    </div>
+                <!--&lt;!&ndash;<li th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" >&ndash;&gt;-->
+            <!--<a th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" class="navbar-item navbar-right" >-->
+                <!--Logout-->
+            <!--</a>-->
+            <!--<div class="navbar-end">-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
 
-    <!--<div class="navbar-end">-->
-        <!--<div class="navbar-item">-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<div class="navbar-end">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="navbar-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
         <!--</div>-->
-    </div>
+<!--</nav>-->
+<th:block th:fragment="main-nav">
+    <nav class="d-flex flex-row navbar sticky-top navbar-expand-lg  navbar-lighter nav-background" id="nav-line">
+        <a id="index-navbar" href="/"><p class="navbar-brand animal">HEALTH<span id="heart" >OLOGY</span></p></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">	&equiv; </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
 
-</nav>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="#" id="navbarDropdownAnimalLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        View Animals
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownAnimalLink">
+                        <a class="navbar-brand dropdown-item pl-3" href="/animal/showAll">List</a>
+                        <a class="navbar-brand dropdown-item pl-3" href="/map">Map</a>
+                    </div>
+                </li>
 
+                <li class="nav-item d-lg-none">
+                    <a class="navbar-brand dropdown-item" href="/animal/showAll">View Animals</a>
+                </li>
+
+                <li class="nav-item d-lg-none">
+                    <a class="navbar-brand dropdown-item" href="/events/showAll">Events</a>
+                </li>
+
+                <li class="nav-item d-lg-none">
+                    <a class="navbar-brand dropdown-item" href="/organizations">Rescues</a>
+                </li>
+
+                <li class="nav-item d-lg-none" sec:authorize="isAuthenticated()">
+                    <a class="navbar-brand dropdown-item" href="/user-profile">My Profile</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        More Links
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="navbar-brand dropdown-item pl-3" href="/events/showAll">Events</a>
+                        <a class="navbar-brand dropdown-item pl-3" href="/organizations">Rescues</a>
+                        <th:block sec:authorize="isAuthenticated()">
+                            <a class="navbar-brand dropdown-item pl-3" href="/user-profile" >My Profile</a>
+                        </th:block>
+                    </div>
+                </li>
+                <li class="nav-item navbar-right">
+                    <div sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/login}">
+                        <a th:href="@{/login}" class="login">Login</a>
+                    </div>
+                </li>
+                <li class="nav-item navbar-right">
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                        <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
+                    </form>
+                </li>
+                <li class="nav-item navbar-right">
+                    <form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">
+                        <a th:href="@{/sign-up}" class="login">Sign Up</a>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>
 </html>

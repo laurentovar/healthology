@@ -1,51 +1,117 @@
-body {
-    margin: 0;
-}
-/*need this for takign away white space on either side*/
+
 
 a{
     font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    padding-right: 10px;
-
+    color: #49484A;
+    font-size: 23px;
 }
 
-.navbar, .navbar-item{
-    width: 110%;
-
-    background-color: rgb(222, 237, 246) !important;
-    color: rgb(96, 150, 180 );
-
-    margin-top: -5%;
-
+#logo{
+    font-family: 'Playfair Display', serif;
 }
 
-.navbar-item{
-    margin-bottom: 100px;
-}
-
-.navbar-menu{
-    margin-left: 70% !important;
-
-
-}
-
-.navbar-start{
-
-    margin-bottom: 100px !important;
-}
-.main-logo{
-
-    padding-left:5%;
-    font-weight: bolder;
+.navbar-brand{
     font-size: 50px !important;
-    margin-top: 10%;
-
+    /*margin-top: 10px;*/
+    padding: 0 !important;
+    margin-bottom: -5px;
 }
 
-.logo-img{
-    margin-left: 40%;
+#logout-btn {
+    font-size: 20px;
+    margin-left: 11px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 22px!important;
+    background-color: #E2252B;
+    border: #49484A;
+    color: white;
 }
+
+.nav-background{
+    background-color: rgb(222, 237, 246);
+}
+/*#nav-line{*/
+    /*border-bottom: 3px solid #E2252B;*/
+/*}*/
+
+#index-navbar{
+    font-family: 'Playfair Display', serif;
+    color: #49484A;
+
+    /*font-size: 50px;*/
+}
+
+/*.nav-link {*/
+    /*padding: 0.2rem 0rem;*/
+/*}*/
+
+#about-us-nav {
+    -webkit-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.2);
+    border-bottom: 5px solid #E2252B;
+}
+
+#heart{
+    color: rgb(96, 150, 180);
+}
+
+.dropdown-item{
+    color: #49484A;
+    padding: 0;
+}
+
+#navbarDropdownMenuLink,
+#navbarDropdownAnimalLink{
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+.login{
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    padding-left: 17px;
+}
+
+
+
+/*.navbar, .navbar-item{*/
+    /*width: 110%;*/
+
+    /*background-color: rgb(222, 237, 246) !important;*/
+    /*color: rgb(96, 150, 180 );*/
+
+    /*!*margin-top: -5%;*!*/
+
+/*}*/
+
+/*.navbar-item{*/
+    /*!*margin-bottom: 100px;*!*/
+/*}*/
+
+/*.navbar-menu {*/
+    /*margin-left: 70% !important;*/
+/*}*/
+
+/*}*/
+
+/*.navbar-start{*/
+
+    /*margin-bottom: 100px !important;*/
+/*}*/
+/*.main-logo{*/
+
+    /*padding-left:5%;*/
+    /*font-weight: bolder;*/
+    /*font-size: 50px !important;*/
+    /*margin-top: 10%;*/
+
+/*}*/
+
+/*.logo-img{*/
+    /*margin-left: 40%;*/
+/*}*/
 
 /*#about-healthology{*/
     /*padding: 10%;*/
@@ -71,3 +137,29 @@ a{
     /*background-color:red !important;*/
 /*}*/
 
+
+/*.navbar, .navbar-item{*/
+    /*!*line-height: 20%;*!*/
+    /*!*height: 20%;*!*/
+    /*!*padding-top: 0;*!*/
+    /*background-color: rgb(222, 237, 246) !important;*/
+    /*color: rgb(96, 150, 180 );*/
+    /*font-size: 110%;*/
+
+/*}*/
+
+/*.navbar-menu {*/
+    /*margin-left: 30% !important;*/
+
+/*}*/
+
+
+/*.main-logo{*/
+    /*padding: 2%;*/
+    /*padding-left:5%;*/
+    /*font-weight: bolder;*/
+    /*font-size: 250%;*/
+
+    /*!*margin-left: 40%;*!*/
+
+/*}*/
