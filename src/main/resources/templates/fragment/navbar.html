@@ -1,28 +1,124 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div th:fragment="main-nav">
-<h3>Links through the site</h3>
-<nav>
-    <ul>
-        <li sec:authorize="!isAuthenticated()">
-            <a  th:href="@{/login}">Login</a>
-        </li>
-        <li sec:authorize="!isAuthenticated()">
-            <a th:href="@{/register}">Sign Up</a>
-        </li>
-        <li>
-            <a href="/profile">Profile</a>
-        </li>
-            <form th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()">
-                <button type="submit">Logout</button>
-            </form>
-    </ul>
-</nav>
-</div>
-</body>
+<!--<head>-->
+<!--<style>-->
+       <!--.navbar-item{-->
+           <!--color: red !important;-->
+
+       <!--}-->
+<!--</style>-->
+<!--</head>-->
+<!--<nav th:fragment="main-nav">-->
+    <!--<nav th:fragment="main-nav" class="navbar" role="navigation" aria-label="main navigation">-->
+        <!--<div class="navbar-start">-->
+
+        <!--<p class="main-logo">-->
+            <!--Healthology-->
+        <!--</p>-->
+
+
+            <!--<a class="navbar-item navbar-right">-->
+                <!--Home-->
+            <!--</a>-->
+
+
+
+                <!--<li sec:authorize="isAuthenticated()">-->
+            <!--<a sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
+                <!--Profile-->
+            <!--</a>-->
+                <!--</li>-->
+
+                <!--<li sec:authorize="isAuthenticated()">-->
+            <!--<a  sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
+                <!--Chat-->
+            <!--</a>-->
+
+
+
+
+            <!--<a class="navbar-item navbar-right">-->
+                <!--Crisis Resource-->
+            <!--</a>-->
+
+
+
+
+
+            <!--<a class="navbar-item navbar-right">-->
+                <!--About-->
+            <!--</a>-->
+
+
+
+                <!--&lt;!&ndash;<li th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" >&ndash;&gt;-->
+            <!--<a th:action="@{/logout}" th:method="post" sec:authorize="isAuthenticated()" class="navbar-item navbar-right" >-->
+                <!--Logout-->
+            <!--</a>-->
+            <!--<div class="navbar-end">-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<div class="navbar-end">&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="navbar-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+        <!--</div>-->
+<!--</nav>-->
+<th:block th:fragment="main-nav">
+    <nav class="d-flex flex-row navbar sticky-top navbar-expand-lg  navbar-lighter nav-background" id="nav-line">
+        <a id="index-navbar" href="/"><p class="navbar-brand animal">HEALTH<span id="heart" >OLOGY</span></p></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">	&equiv; </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <a class="navbar-item">
+                    Home
+                </a>
+
+
+                <a sec:authorize="isAuthenticated()" class="navbar-item">
+                    Profile
+                </a>
+
+                <a  sec:authorize="isAuthenticated()" class="navbar-item">
+                    Chat
+                </a>
+
+                <a class="navbar-item">
+                    Crisis Resource
+                </a>
+
+                <a class="navbar-item">
+                    About
+                </a>
+
+                    <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
+                        Login
+                    </a>
+
+
+                <!--<li class="nav-item">-->
+                    <!--<div sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/login}">-->
+                        <!--<a th:href="@{/login}" class="login">Login</a>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <li class="nav-item navbar-right">
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                        <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
+                    </form>
+                </li>
+                <!--<li class="nav-item navbar-right">-->
+                    <!--<form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">-->
+                        <!--<a th:href="@{/sign-up}" class="login">Sign Up</a>-->
+                    <!--</form>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </nav>
+</th:block>
 </html>

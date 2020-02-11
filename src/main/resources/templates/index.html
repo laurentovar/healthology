@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:include="fragment/header :: main-header"></th:block>
+
 </head>
 <body>
-
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragmemt/navbar :: main-nav"></div>
 
 </body>
 </html>
