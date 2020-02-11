@@ -5,6 +5,9 @@ a{
     color: #49484A;
     font-size: 23px;
 }
+.navbar-item:hover{
+    color:red !important;
+}
 
 #logo{
     font-family: 'Playfair Display', serif;
@@ -17,6 +20,12 @@ a{
     margin-bottom: -5px;
 }
 
+.navbar-item {
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(96, 150, 180) !important;
+    font-size: 23px;
+    padding-right: 15px;
+}
 #logout-btn {
     font-size: 20px;
     margin-left: 11px;
@@ -69,9 +78,9 @@ a{
 }
 
 .login{
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-    padding-left: 17px;
+    /*font-family: 'Raleway', sans-serif;*/
+    /*font-size: 20px;*/
+    /*padding-left: 17px;*/
 }
 
 

@@ -23,13 +23,13 @@
 
 
 
-                <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()">&ndash;&gt;-->
+                <!--<li sec:authorize="isAuthenticated()">-->
             <!--<a sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
                 <!--Profile-->
             <!--</a>-->
-                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--</li>-->
 
-                <!--&lt;!&ndash;<li sec:authorize="isAuthenticated()">&ndash;&gt;-->
+                <!--<li sec:authorize="isAuthenticated()">-->
             <!--<a  sec:authorize="isAuthenticated()" class="navbar-item navbar-right">-->
                 <!--Chat-->
             <!--</a>-->
@@ -76,60 +76,47 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
+                <a class="navbar-item">
+                    Home
+                </a>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="#" id="navbarDropdownAnimalLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        View Animals
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownAnimalLink">
-                        <a class="navbar-brand dropdown-item pl-3" href="/animal/showAll">List</a>
-                        <a class="navbar-brand dropdown-item pl-3" href="/map">Map</a>
-                    </div>
-                </li>
 
-                <li class="nav-item d-lg-none">
-                    <a class="navbar-brand dropdown-item" href="/animal/showAll">View Animals</a>
-                </li>
+                <a sec:authorize="isAuthenticated()" class="navbar-item">
+                    Profile
+                </a>
 
-                <li class="nav-item d-lg-none">
-                    <a class="navbar-brand dropdown-item" href="/events/showAll">Events</a>
-                </li>
+                <a  sec:authorize="isAuthenticated()" class="navbar-item">
+                    Chat
+                </a>
 
-                <li class="nav-item d-lg-none">
-                    <a class="navbar-brand dropdown-item" href="/organizations">Rescues</a>
-                </li>
+                <a class="navbar-item">
+                    Crisis Resource
+                </a>
 
-                <li class="nav-item d-lg-none" sec:authorize="isAuthenticated()">
-                    <a class="navbar-brand dropdown-item" href="/user-profile">My Profile</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-none d-lg-block" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More Links
+                <a class="navbar-item">
+                    About
+                </a>
+
+                    <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
+                        Login
                     </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="navbar-brand dropdown-item pl-3" href="/events/showAll">Events</a>
-                        <a class="navbar-brand dropdown-item pl-3" href="/organizations">Rescues</a>
-                        <th:block sec:authorize="isAuthenticated()">
-                            <a class="navbar-brand dropdown-item pl-3" href="/user-profile" >My Profile</a>
-                        </th:block>
-                    </div>
-                </li>
-                <li class="nav-item navbar-right">
-                    <div sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/login}">
-                        <a th:href="@{/login}" class="login">Login</a>
-                    </div>
-                </li>
+
+                <!--<li class="nav-item">-->
+                    <!--<div sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/login}">-->
+                        <!--<a th:href="@{/login}" class="login">Login</a>-->
+                    <!--</div>-->
+                <!--</li>-->
                 <li class="nav-item navbar-right">
                     <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                         <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
                     </form>
                 </li>
-                <li class="nav-item navbar-right">
-                    <form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">
-                        <a th:href="@{/sign-up}" class="login">Sign Up</a>
-                    </form>
-                </li>
+                <!--<li class="nav-item navbar-right">-->
+                    <!--<form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">-->
+                        <!--<a th:href="@{/sign-up}" class="login">Sign Up</a>-->
+                    <!--</form>-->
+                <!--</li>-->
             </ul>
         </div>
     </nav>
