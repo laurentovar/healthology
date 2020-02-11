@@ -8,12 +8,26 @@
 <h1>This is the group selection page</h1>
 <form th:action="@{/client_groupSelection/}" method="POST" th:object="${clients_group}">
 
-    <label for="depression"> Depression</label><br>
-    <input type="checkbox" id="depression" name="depression" th:value="1 ">
+    <label for="Depression"> Depression</label>
+    <input type="checkbox" id="Depression" name="Depression" th:value="1 ">
 
-    <label for="ptsd"> PTSD </label><br>
-    <input type="checkbox" id="ptsd" name="ptsd" th:value="2">
+    <label for="PTSD"> PTSD </label>
+    <input type="checkbox" id="PTSD" name="PTSD" th:value="2">
 
+    <label for="Anxiety"> Anxiety </label>
+    <input type="checkbox" id="Anxiety" name="Anxiety" th:value="3">
+
+    <label for="OCD"> OCD </label>
+    <input type="checkbox" id="OCD" name="OCD" th:value="4">
+
+    <label for="Eating disorders"> Eating disorder </label>
+    <input type="checkbox" id="Eating disorders" name="Eating disorders" th:value="5">
+
+    <label for="Insomnia"> Insomnia </label>
+    <input type="checkbox" id="Insomnia" name="Insomnia" th:value="6">
+
+    <label for="Postpartum"> Postpartum </label>
+    <input type="checkbox" id="Postpartum" name="Postpartum" th:value="7">
 
     <button type="submit">Submit</button>
 
