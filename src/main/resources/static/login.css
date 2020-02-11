@@ -1,0 +1,41 @@
+.login-box{
+    background-color: rgb(235, 235, 235);
+    padding: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+     margin-top: 10%;
+}
+
+.form-group{
+    margin-top: 10px;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.blue-font{
+    color: rgb(96, 150, 180) !important;
+}
+
+.login-button{
+    background-color: rgb(96, 150, 180) !important;
+    color: white !important;
+    margin-top: 10px;
+    margin-left: 20%;
+}
+
+.warning-text{
+    margin-left: 20%;
+}
+
+#login-main-header{
+    margin-left: 43%;
+}
+
+#login-sub-header{
+    margin-left: 42%;
+}
+
+#login-about{
+    margin-left: 10%;
+}
+
