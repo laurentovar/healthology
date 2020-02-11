@@ -72,4 +72,12 @@ public class Journal {
     public void setEntry(String entry) {
         this.entry = entry;
     }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }
