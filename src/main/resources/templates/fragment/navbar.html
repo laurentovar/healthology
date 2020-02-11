@@ -107,11 +107,14 @@
                         <!--<a th:href="@{/login}" class="login">Login</a>-->
                     <!--</div>-->
                 <!--</li>-->
-                <li class="nav-item navbar-right">
+                <!--<a sec:authorize="isAuthenticated()"  th:action="@{/logout}" th:method="post" class="logout navbar-item" id="logout-btn">-->
+                    <!--Logout-->
+                <!--</a>-->
+
                     <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                         <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
                     </form>
-                </li>
+
                 <!--<li class="nav-item navbar-right">-->
                     <!--<form sec:authorize="!isAuthenticated()" class="m-1" th:href="@{/sign-up}" th:method="GET">-->
                         <!--<a th:href="@{/sign-up}" class="login">Sign Up</a>-->
