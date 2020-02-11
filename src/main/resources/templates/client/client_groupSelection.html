@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Group Selection</title>
+</head>
+<body>
+<div th:insert="fragment/navbar.html :: main-nav"></div>
+<h1>This is the group selection page</h1>
+<form th:action="@{/client_groupSelection/}" method="POST" th:object="${clients_group}">
+
+    <label for="depression"> Depression</label><br>
+    <input type="checkbox" id="depression" name="depression" th:value="1 ">
+
+    <label for="ptsd"> PTSD </label><br>
+    <input type="checkbox" id="ptsd" name="ptsd" th:value="2">
+
+
+    <button type="submit">Submit</button>
+
+
+</form>
+</body>
+</html>

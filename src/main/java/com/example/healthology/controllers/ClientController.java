@@ -1,15 +1,12 @@
 package com.example.healthology.controllers;
-import com.example.healthology.models.Client;
-import com.example.healthology.models.Client_contact;
-import com.example.healthology.models.Client_history;
-import com.example.healthology.models.User;
-import com.example.healthology.repositories.ClientContactRepository;
-import com.example.healthology.repositories.ClientHistoryRepository;
-import com.example.healthology.repositories.ClientRepository;
+import com.example.healthology.models.*;
+import com.example.healthology.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 
 @Controller
@@ -18,11 +15,15 @@ public class ClientController {
     private final ClientRepository clientDao;
     private final ClientHistoryRepository clientHistoryDao;
     private final ClientContactRepository clientContactDao;
+    private final GroupClientRepository groupClientDao;
+    private final GroupRepository groupDao;
 
-    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao) {
+    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao, GroupClientRepository groupClientDao, GroupRepository groupDao) {
         this.clientDao = clientDao;
         this.clientHistoryDao = clientHistoryDao;
         this.clientContactDao = clientContactDao;
+        this.groupClientDao = groupClientDao;
+        this.groupDao = groupDao;
     }
 
 
@@ -114,11 +115,66 @@ public class ClientController {
         //clientHistoryDao.save(clientHistory)
         clientContactDao.save(client_contact);
 
-        return "users/profile";
+        return "redirect:/client_groupSelection";
 
 
     }
 
+    //========Client group selection======
+    @GetMapping("/client_groupSelection")
+    public String clientGroups(Model model) {
+        Group_client group_client = new Group_client();
+        model.addAttribute("clients_group", group_client);
+
+        return "client/client_groupSelection";
+    }
+
+    @PostMapping("/client_groupSelection")
+    public String clientGroupCheck(//@ModelAttribute Group_client group_client,
+                                   @RequestParam(name = "depression",required = false) String depression,
+                                   @RequestParam(name = "ptsd",required = false) String ptsd) {
+
+        //Get the current user
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        //Get the current users ID
+        Client client = clientDao.findClientByUser_id(currentUser);
+
+        //Set The client ID for groupClient
+        //group_client.setClient_id(client);
+
+        //Set the groupID group Client
+        ArrayList<String> groupOptions = new ArrayList<String>();
+        groupOptions.add(depression);
+        groupOptions.add(ptsd);
+
+        //Need to check if an option was at all before doing loop
+
+        for (int i=0; i <= groupOptions.size() - 1; i++){
+            if (groupOptions.get(i) != null){
+                System.out.println(groupOptions.get(i));
+
+                //Create Instance of Group_client
+                Group_client group_client = new Group_client();
+
+                //Set Group_client.clientId to the client found outside loop
+                group_client.setClient_id(client);
+
+                //Get the group by ID
+                Group group = groupDao.getOne(Long.parseLong(groupOptions.get(i)));
+
+                //Set Group_client.group_id to the group found above
+                group_client.setGroup_id(group);
+
+                //Save Group_Client
+                groupClientDao.save(group_client);
+
+            }
+
+        }
+
+        return "users/profile";
 
 
+    }
 }

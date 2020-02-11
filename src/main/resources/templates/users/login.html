@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:include="fragment/header :: main-header"></th:block>
 </head>
 <body>
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 <h1>Log In</h1>
 <div th:if="${param.error}">
     Invalid Username and Password.

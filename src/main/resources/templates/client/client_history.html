@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Client History</title>
+    <th:block th:include="fragment/header :: main-header"></th:block>
 </head>
 <body>
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 
 <h1>Client Setup - Client Information 2 of 3</h1>
 <form th:action="@{/client_history}" method="POST" th:object="${clients_history}">
