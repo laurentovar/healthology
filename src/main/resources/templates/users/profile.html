@@ -4,17 +4,29 @@
 <!--need to add header tag here-->
 </head>
 <body>
-
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
-<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>
+<div class="container profile-container">
+
+<div class="card p-4 mt-5 blue-font" id="profile-card">
+        <h2 class="card-title">Welcome to your profile, <span th:text="${user.username}">user</span>!</h2>
+        <div class="card-text media">
+            <img th:src="${user.profile_img}" alt="profile" class="img-fluid align-self-center mr-3" width="25%" height="25%">
+            <div class="media-body">
+                <h4 class="mt-0">About Me:</h4>
+                <p><span th:text="${user.about_me}"></span></p>
+            </div>
+        </div>
+        <p class="align-self-end">
+            <button type="button" class="btn btn-light" data-toggle="modal" id="add-picture" data-target="#pictureModal">Edit
+                Picture</button>
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+        </p>
+</div>
+
+<!--<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>-->
 
 
-
-<img th:src="${user.profile_img}" alt="profile" height="50px"
-      width="50px">
-
-<button type="button" data-toggle="modal" id="add-picture" data-target="#pictureModal">Edit Picture</button>
 
 
 <div class="picture-modal modal" id="pictureModal" tabindex="-1" role="dialog">
@@ -40,12 +52,10 @@
         </div>
     </div>
 </div>
-</div>
 
-<h1> About Me: <span th:text="${user.about_me}"></span> </h1>
+
 
 <!--EDIT PROFILE MODAL-->
-<button type="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
 
 <div class="edit-modal modal" id="myModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -61,8 +71,8 @@
                 <div class="modal-body">
                     <div class="form-row mt-1">
                         <label for="about_me" class="col-form-label">About Me:</label>
-                        <input class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
-                               placeholder="Tell us about you...">
+                        <textarea class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
+                                  placeholder="Tell us about you..."></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -71,13 +81,13 @@
                 </div>
                 </form>
             </div>
-            </div>
         </div>
     </div>
 </div>
 
+
 <!--JOURNAL ENTRY CARDS-->
-<div class="container">
+<div class="mt-3">
     <h1>Journal Entries:</h1>
     <div class="card text-center mt-2" th:each="journal: ${journals}">
         <div class="card-body">
@@ -85,13 +95,15 @@
                 <span th:text="${journal.title}"></span></a>
             </h5>
             <p>Posted on <span th:text="${journal.date}">date goes here</span></p>
+            <p>Rating: <span th:text="${journal.rating}"></span></p>
             <p class="card-text" th:text="${journal.entry}"></p>
         </div>
     </div>
 </div>
 
 <!--JOURNAL ENTRY MODAL-->
-<button type="button" data-toggle="modal" data-target="#myJournalModal">Add a New Journal Entry</button>
+<button type="button" data-toggle="modal" data-target="#myJournalModal" class="btn mt-2 form-control">Add a New Journal
+    Entry</button>
 
 <div class="add-modal modal" id="myJournalModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -132,6 +144,7 @@
     </div>
 </div>
 
+</div>
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
