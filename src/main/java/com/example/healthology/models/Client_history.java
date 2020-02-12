@@ -23,6 +23,7 @@ public class Client_history {
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client_id;
 
+
 //    @OneToOne(mappedBy = "users") //, cascade = CascadeType.ALL)
 //    private Client client;
 
@@ -74,5 +75,9 @@ public class Client_history {
 
     public void setClient(Client client) {
         this.client_id = client;
+    }
+
+    public Client getClient_id() {
+        return client_id;
     }
 }

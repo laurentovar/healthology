@@ -63,4 +63,21 @@ public class  Client {
     public void setUser(User user) {
         this.user_id = user;
     }
+
+    public Client_history getClient_history() {
+        return client_history;
+    }
+
+    public void setClient_history(Client_history client_history) {
+        this.client_history = client_history;
+    }
+
+    public Client_contact getClient_contact() {
+        return client_contact;
+    }
+
+    public void setClient_contact(Client_contact client_contact) {
+        this.client_contact = client_contact;
+    }
+
 }

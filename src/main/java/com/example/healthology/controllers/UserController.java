@@ -41,7 +41,7 @@ public class UserController {
             //Users createdUser = usersDao.findByUsername(user.getUsername());
 
             //System.out.println(createdUser.getId());
-            return "redirect:/login/";// + createdUser.getId();
+            return "redirect:/login";// + createdUser.getId();
         }
 
         //Else

@@ -12,5 +12,4 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findClientByUser_id(User id);
 
 
-
 }
