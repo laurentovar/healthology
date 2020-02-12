@@ -9,8 +9,40 @@
 
 <h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>
 
-<h1> About Me: </h1>
-<p th:text="${user.about_me}"></p>
+
+
+<img th:src="${user.profile_img}" alt="profile" height="50px"
+      width="50px">
+
+<button type="button" data-toggle="modal" id="add-picture" data-target="#pictureModal">Edit Picture</button>
+
+
+<div class="picture-modal modal" id="pictureModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">About Me:</h5>
+                <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="form-group">
+                <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST" th:object="${user}">
+                    <div class="modal-body" id="image">
+                        <th:block th:include="fragment/photoUpload :: upload"></th:block>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary form-control">Save Picture</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<h1> About Me: <span th:text="${user.about_me}"></span> </h1>
 
 <!--EDIT PROFILE MODAL-->
 <button type="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
@@ -24,8 +56,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <di class="form-group">
-                <form th:action="@{/edit}" th:method="POST" th:object="${user}">
+            <div class="form-group">
+                <form th:action="@{'/users/' + ${user.id} + '/edit'}" th:method="POST" th:object="${user}">
                 <div class="modal-body">
                     <div class="form-row mt-1">
                         <label for="about_me" class="col-form-label">About Me:</label>
@@ -39,6 +71,7 @@
                 </div>
                 </form>
             </div>
+            </div>
         </div>
     </div>
 </div>
@@ -46,7 +79,7 @@
 <!--JOURNAL ENTRY CARDS-->
 <div class="container">
     <h1>Journal Entries:</h1>
-    <div class="card text-center mt-2"  th:each="journal: ${journals}">
+    <div class="card text-center mt-2" th:each="journal: ${journals}">
         <div class="card-body">
             <h5 class="card-title">
                 <span th:text="${journal.title}"></span></a>
