@@ -16,7 +16,7 @@ insert into users (first_name, last_name, password, phone_number, profile_img, e
     'adminFirst', 'adminLast', 'adminPassword', '8030947827', '', 'admin@gmail.com','admin', 'My name is Molly, I am excited to go on this journey with you. I hope that all the resources and groups will give you a positive experience!'
  );
 
-INSERT INTO admins (qualifications, user_id) VALUES ('I graduated from UT Austin inb 2008, with my doctorate in clinical psychology. I did my residency at the 59th Medical Wing, which is clinical psychology intership with the Airforce. I make my goal in life to understanding human behaviour and providing psychological services. I typically have worked with people that are in the military or are veterans. I work with individuals that are suffering from depression, PTSD and anxiety. I believe that having a support group can be beneficial and brighten your day to day life.', 1);
+INSERT INTO admins (qualifications, user_id) VALUES ('I graduated from UT Austin inb 2008, with my doctorate in clinical psychology. I did my residency at the 59th Medical Wing, which is clinical psychology intership with the Airforce. I make my goal in life to understanding human behaviour and providing psychological services. I typically have worked with people that are in the military or are veterans. I work with individuals that are suffering from depression, PTSD and anxiety. I believe that having a support group can be beneficial and brighten your day to day life.', 5);
 
 
 INSERT INTO `groups` (category_name, group_name, admin_id) VALUES

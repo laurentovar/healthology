@@ -32,8 +32,17 @@ public class ProfileController {
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
-        return "users/profile";
+
+        if (user.getUsername().equalsIgnoreCase("admin")){
+            return "redirect:/admin_profile";
+            //return "admin/admin_profile";
+        }
+        else {
+            return "users/profile";
+
+        }
     }
+
 
     @PostMapping("/users/{id}/edit")
     public String editProfile(@PathVariable long id, @ModelAttribute User user){
@@ -42,6 +51,7 @@ public class ProfileController {
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
+
 
 
     @PostMapping("/users/{id}/photo")
