@@ -1,0 +1,71 @@
+
+a{
+    font-family: 'Raleway', sans-serif;
+    color: #49484A;
+    font-size: 23px;
+}
+.navbar-item:hover{
+    color:  #49484A !important;
+    background-color: transparent !important;
+}
+
+#logo{
+    font-family: 'Playfair Display', serif;
+
+}
+
+.navbar-brand{
+    font-size: 50px !important;
+    /*margin-top: 10px;*/
+    padding: 0 !important;
+    margin-bottom: -5px;
+}
+
+.navbar-item {
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(222, 237, 246) !important;
+    font-size: 23px;
+    padding-right: 15px;
+}
+#logout-btn {
+    font-family: 'Raleway', sans-serif !important;
+    color: rgb(222, 237, 246) !important;
+    font-size: 23px !important;
+    padding-right: 15px;
+    background-color: transparent;
+    border: none !important;
+
+}
+
+#logout-btn:hover{
+    color:  #49484A !important;
+    background-color: transparent !important;
+}
+
+.nav-background{
+    background-color: rgb(96, 150, 180);
+}
+
+
+#index-navbar{
+    font-family: 'Playfair Display', serif;
+    color: #49484A;
+
+}
+
+
+#ology{
+
+    color: rgb(222, 237, 246);
+}
+
+.dropdown-item{
+    color: #49484A;
+    padding: 0;
+}
+
+#navbarDropdownMenuLink,
+#navbarDropdownAnimalLink{
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
