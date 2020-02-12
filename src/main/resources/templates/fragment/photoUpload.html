@@ -18,7 +18,7 @@
             const client = filestack.init(filestackKey);
             const options = {
                 onUploadDone: (res) =>
-                        $('#image').append(`<input type="text" value="https://cdn.filestackcontent.com/${res.filesUploaded[0].handle}">`),
+                        $('#image').append(`<input type="text" name="profile_img" value="https://cdn.filestackcontent.com/${res.filesUploaded[0].handle}">`),
             };
             $('#add-picture').click(function () {
                 client.picker(options).open();
