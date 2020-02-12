@@ -27,7 +27,7 @@
                 </button>
             </div>
             <div class="form-group">
-                <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST" th:object="${user}">
+                <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST">
                     <div class="modal-body" id="image">
                         <th:block th:include="fragment/photoUpload :: upload"></th:block>
                     </div>
