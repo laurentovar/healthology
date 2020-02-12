@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/keys.js"></script>
+<script
+        src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<script>
+    (function(t,a,l,k,j,s){
+        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+        ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+</script>
+
+<!-- container element in which TalkJS will display a chat UI -->
+<div id="talkjs-container" style="width: 90%; margin: 30px; height: 90vh"><i>Loading chat...</i></div>
+
+<!-- TalkJS initialization code, which we'll customize in the next steps -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    Talk.ready.then(function() {
+        var me = new Talk.User({
+            id: [[${user.id}]],
+            name: [[${user.username}]],
+            email: [[${user.email}]],
+            // photoUrl: [[${user.profile_img}]],
+            welcomeMessage: [[${user.username}]] + " has joined the chat"
+        });
+        window.talkSession = new Talk.Session({
+            //--------------talkJS key
+            appId: talkJsKey,
+            me: me
+        });
+        var other1 = new Talk.User({
+            id: [[${user2.id}]],
+            name: [[${user2.username}]],
+            email: [[${user2.email}]],
+            // photoUrl: [[${user2.profile_img}]],
+            welcomeMessage: [[${user2.username}]] + " has joined the chat"
+        });
+        var other2 = new Talk.User({
+            id: [[${user3.id}]],
+            name: [[${user3.username}]],
+            email: [[${user3.email}]],
+            // photoUrl: [[${user3.profile_img}]],
+            welcomeMessage: [[${user3.username}]] + " has joined the chat"
+        });
+        var other3 = new Talk.User({
+            id: [[${user4.id}]],
+            name: [[${user4.username}]],
+            email: [[${user4.email}]],
+            // photoUrl: [[${user4.profile_img}]],
+            welcomeMessage: [[${user4.username}]] + " has joined the chat"
+        });
+
+        var conversation = window.talkSession.getOrCreateConversation("PTSD Support");
+        conversation.setParticipant(me);
+        conversation.setParticipant(other1);
+        conversation.setParticipant(other2);
+        conversation.setParticipant(other3);
+        var inbox = talkSession.createInbox({selected: conversation});
+        inbox.mount(document.getElementById("talkjs-container"));
+
+    });
+    /*]]>*/
+</script>
+</body>
+</html>
