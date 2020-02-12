@@ -35,8 +35,17 @@ public class ProfileController {
         model.addAttribute("user", user);
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
-        return "users/profile";
+
+        if (user.getUsername().equalsIgnoreCase("admin")){
+            return "redirect:/admin_profile";
+            //return "admin/admin_profile";
+        }
+        else {
+            return "users/profile";
+
+        }
     }
+
 
     @PostMapping("/edit")
     public String editProfile(@RequestParam(name = "aboutMe") String aboutMe, @ModelAttribute User user){
