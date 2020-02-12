@@ -1,0 +1,16 @@
+#profile-card {
+    background-color: rgb(235, 235, 235) !important;
+}
+
+.blue-font{
+    color: rgb(96, 150, 180) !important;
+}
+
+.media-body p{
+    font-size: 18px !important;
+}
+
+.profile-container button {
+    background-color: rgb(96, 150, 180) !important;
+    color: white !important;
+}
