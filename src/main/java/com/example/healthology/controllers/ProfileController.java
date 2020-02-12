@@ -43,7 +43,6 @@ public class ProfileController {
         }
     }
 
-
     @PostMapping("/users/{id}/edit")
     public String editProfile(@PathVariable long id, @ModelAttribute User user){
         User updatedUser = userDao.getOne(id);
@@ -52,15 +51,22 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-
-
     @PostMapping("/users/{id}/photo")
-    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
+    public String editPhoto(@PathVariable long id,
+                            @RequestParam(name = "profile_img") String profile_img){
         User updatedUser = userDao.getOne(id);
-        updatedUser.setProfile_img(user.getProfile_img());
+        updatedUser.setProfile_img(profile_img);
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
+
+//    @PostMapping("/users/{id}/photo")
+//    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
+//        User updatedUser = userDao.getOne(id);
+//        updatedUser.setProfile_img(user.getProfile_img());
+//        userDao.save(updatedUser);
+//        return "redirect:/profile";
+//    }
 
 
     @PostMapping("/journal/create")
