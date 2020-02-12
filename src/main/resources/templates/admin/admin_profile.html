@@ -18,6 +18,7 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Phone number</th>
+
     </tr>
     </thead>
     <tbody>
@@ -28,9 +29,50 @@
         <td th:text="${user.last_name}">last Name</td>
         <td th:text="${(user.phone_number)}">phone</td>
     </tr>
-
     </tbody>
 </table>
+
+<table class="table" th:value="Users">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Client history</th>
+        <th scope="col">Client information</th>
+        <th scope="col">Previous counseling</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">username</td>
+                <td th:text="${user.client.client_history.description}">history</td>
+                <td th:text="${user.client.client_history.otherInformation}">other info</td>
+                <td th:text="${user.client.client_history.previousCounseling}">previous counseling</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<table class="table" th:value="Users">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Emergency contact name</th>
+        <th scope="col">Emergency contact phone number</th>
+        <th scope="col">Provider name</th>
+        <th scope="col">Provider contact number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.username}">username</td>
+        <td th:text="${user.client.client_contact.emergency_contact_name}">Emergency contact name </td>
+        <td th:text="${user.client.client_contact.emergency_contact_number}">Emergency contact phone number</td>
+        <td th:text="${user.client.client_contact.provider_name}">Provider name </td>
+        <td th:text="${user.client.client_contact.provider_contact_number}">Provider contact number</td>
+    </tr>
+    </tbody>
+</table>
+
 
 
 </body>

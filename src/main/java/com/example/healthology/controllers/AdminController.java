@@ -2,6 +2,7 @@ package com.example.healthology.controllers;
 
 import com.example.healthology.models.Admin;
 import com.example.healthology.models.Client;
+import com.example.healthology.models.Client_history;
 import com.example.healthology.models.User;
 import com.example.healthology.repositories.AdminRepository;
 import com.example.healthology.repositories.ClientRepository;
@@ -36,18 +37,14 @@ public class AdminController {
 
         ArrayList<User> x = new ArrayList<>();
         x.add(adminList.get(0).getUser_id());
-//        x.add(adminList.get(1).getUser_id());
-
-
+        x.add(adminList.get(1).getUser_id());
+        //try find all in admins (.findall)
 
         //Get all the users that do not have these adminIDS
         List<User> allUsersList = userDao.getNonAdminUsers(x);
-        //ist<User> allUsersList =  userDao.findNonAdminUsers(x);
-
 
         model.addAttribute("users", allUsersList);
 
-//        List <Client> allClientsList = clientDao.findClientByUser_id()
 
 
         return "admin/admin_profile";

@@ -33,7 +33,7 @@ public class ProfileController {
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
 
-        if (user.getUsername().equalsIgnoreCase("admin")){
+        if (user.getUsername().equalsIgnoreCase("admin2")){
             return "redirect:/admin_profile";
             //return "admin/admin_profile";
         }

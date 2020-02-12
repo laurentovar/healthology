@@ -36,6 +36,7 @@ public class Client_contact {
         this.client_id = client_id;
     }
 
+
     public Long getId() {
         return id;
     }
@@ -83,4 +84,9 @@ public class Client_contact {
     public void setClient_id(Client client_id) {
         this.client_id = client_id;
     }
+
+
+
+
+
 }

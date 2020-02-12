@@ -46,4 +46,5 @@ public class Group_client {
     public void setClient_id(Client client_id) {
         this.client_id = client_id;
     }
+
 }
