@@ -10,12 +10,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-                <a class="navbar-item">
+                <a class="navbar-item" th:href="@{/index}">
                     Home
                 </a>
 
 
-                <a sec:authorize="isAuthenticated()" class="navbar-item">
+                <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="navbar-item">
                     Profile
                 </a>
 
@@ -24,11 +24,16 @@
                 </a>
 
                 <a class="navbar-item">
-                    Crisis Resource
+                    Crisis Resources
                 </a>
 
                 <a class="navbar-item">
                     About
+                </a>
+
+
+                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item">
+                    Register
                 </a>
 
                     <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
