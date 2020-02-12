@@ -1,7 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<th:block th:fragment="admin-nav">
-<body>
 
-</body>
+<th:block th:fragment="admin-nav">
+    <nav class="d-flex flex-row navbar sticky-top navbar-expand-lg  navbar-lighter nav-background" id="nav-line">
+        <a id="index-navbar" href="/"><p class="navbar-brand health">HEALTH<span id="ology" >OLOGY </span> <i class="fas fa-user-check"  ></i> </p></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">	&equiv; </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+
+
+                <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="navbar-item">
+                    Profile
+                </a>
+
+                <a  sec:authorize="isAuthenticated()" class="navbar-item">
+                    Chat
+                </a>
+
+                <a class="navbar-item">
+                    Crisis Resources
+                </a>
+
+                <a class="navbar-item">
+                    About
+                </a>
+
+
+                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item">
+                    Register
+                </a>
+
+                <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
+                    Login
+                </a>
+
+
+                <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                    <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
+                </form>
+
+            </ul>
+        </div>
+    </nav>
+    </nav>
+</th:block>
 </html>
