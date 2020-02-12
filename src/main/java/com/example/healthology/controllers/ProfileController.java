@@ -38,9 +38,16 @@ public class ProfileController {
     @PostMapping("/users/{id}/edit")
     public String editProfile(@PathVariable long id, @ModelAttribute User user){
         User updatedUser = userDao.getOne(id);
-//        User updatedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User newUser = userDao.findByUsername(newUser.getUsername());
         updatedUser.setAbout_me(user.getAbout_me());
+        userDao.save(updatedUser);
+        return "redirect:/profile";
+    }
+
+
+    @PostMapping("/users/{id}/photo")
+    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
+        User updatedUser = userDao.getOne(id);
+        updatedUser.setProfile_img(user.getProfile_img());
         userDao.save(updatedUser);
         return "redirect:/profile";
     }

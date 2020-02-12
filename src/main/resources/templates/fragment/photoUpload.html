@@ -17,9 +17,12 @@
         $(document).ready(function () {
             const client = filestack.init(filestackKey);
             const options = {
-                onUploadDone: (res) => $('#image').append(`<input type="text" value="https://cdn.filestackcontent.com/${res.filesUploaded[0].handle}">`),
+                onUploadDone: (res) =>
+                        $('#image').append(`<input type="text" value="https://cdn.filestackcontent.com/${res.filesUploaded[0].handle}">`),
             };
-            client.picker(options).open();
+            $('#add-picture').click(function () {
+                client.picker(options).open();
+            });
             console.log(options.onUploadDone(res));
         });
     </script>

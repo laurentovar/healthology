@@ -10,16 +10,14 @@
 <h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>
 
 
-    <form action="" id="image">
-        <input type="submit" value="Submit">
-    </form>
 
-<img src="https://parentnetworkwny.org/wp-content/uploads/mentalhealth-01.png" alt="profile" height="50px"
+<img th:src="${user.profile_img}" alt="profile" height="50px"
       width="50px">
 
-<button type="button" data-toggle="modal" data-target="#pictureModal">Edit Picture</button>
+<button type="button" data-toggle="modal" id="add-picture" data-target="#pictureModal">Edit Picture</button>
 
-<div class="edit-modal modal" id="pictureModal" tabindex="-1" role="dialog">
+
+<div class="picture-modal modal" id="pictureModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -29,7 +27,15 @@
                 </button>
             </div>
             <div class="form-group">
-                    <th:block th:include="fragment/photoUpload :: upload"></th:block>
+                <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST" th:object="${user}">
+                    <div class="modal-body" id="image">
+                        <th:block th:include="fragment/photoUpload :: upload"></th:block>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary form-control">Save Picture</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
