@@ -9,48 +9,53 @@
 
 <form th:action="@{/register}" method="POST" th:object="${users}">
 
+    <div class="register-box">
+        <h1 class="blue-font" id="register-main-header">Register</h1>
+
+        <p class="blue-font" id="register-about">Please enter your information, including the Client Token given to you by your provider.</p>
     <div class="form-group">
-        <label for="first_name">First Name</label>
+        <label for="first_name" class="blue-font">First Name</label>
         <input id="first_name" th:field="*{first_name}" class="form-control" placeholder="Enter first name">
     </div>
 
         <div class="form-group">
-            <label for="last_name">Last Name</label>
+            <label for="last_name" class="blue-font">Last Name</label>
             <input id="last_name"  th:field="*{last_name}" class="form-control" placeholder="Enter last name">
 
         </div>
 
     <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username" class="blue-font">Username</label>
         <input id="username" th:field="*{username}"  class="form-control" placeholder="Enter username">
 
     </div>
 
     <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password" class="blue-font">Password</label>
         <input id="password" type="password" th:field="*{password}"  class="form-control" placeholder="Password">
     </div>
 
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email" class="blue-font">Email</label>
         <input id="email" th:field="*{email}" type="email" class="form-control" placeholder="Enter email">
 
     </div>
 
     <div class="form-group">
-        <label for="phone_number">Phone Number</label>
+        <label for="phone_number" class="blue-font">Phone Number</label>
         <input id="phone_number"  th:field="*{phone_number}"  class="form-control" placeholder="Enter phone number">
     </div>
 
 
     <div class="form-group">
-        <label for="client_token">Client Token</label>
+        <label for="client_token" class="blue-font">Client Token</label>
         <input id="client_token"  name="client_token" class="form-control field" placeholder="Enter client token">
 
     </div>
-    <input value="Sign me up!" type="submit" />
+    <input value="Sign In" class="blue-font register-button" type="submit" />
 
 </form>
+</div>
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
