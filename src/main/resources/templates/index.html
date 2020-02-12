@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <th:block th:include="fragment/header :: main-header"></th:block>
-
+<head th:replace="fragment/header :: main-header">
 </head>
 <body>
-<div th:include="fragmemt/navbar :: main-nav"></div>
-
+<div th:include="fragment/navbar.html :: main-nav"></div>
+<h1>Welcome to Healthology</h1>
 </body>
 </html>

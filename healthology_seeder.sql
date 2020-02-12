@@ -1,7 +1,6 @@
 USE healthology_db;
 # DROP database healthology_db;
 
-
 #
 # insert into client (agreed_to_terms, user_id)
 #  VALUES
@@ -31,4 +30,3 @@ INSERT INTO `groups` (category_name, group_name, admin_id) VALUES
 
 
 # INSERT INTO group_client (client_id, group_id) VALUES (1,1);
-

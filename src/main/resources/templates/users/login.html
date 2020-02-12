@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <th:block th:include="fragment/header :: main-header"></th:block>
+<head th:replace="fragment/header :: main-header">
+
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
@@ -21,6 +19,7 @@
     </div>
 <form th:action="@{/login}" method="post">
 
+
     <div class="form-group">
 
         <input id="username" name ="username" type= "text" class="form-control"  placeholder="Username">
@@ -34,5 +33,6 @@
     <button id="submit" type="submit" class="btn login-button">Login</button>
 </form>
 </div>
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>

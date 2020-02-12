@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Sign up</title>
-    <th:block th:include="fragment/header :: main-header"></th:block>
-    <!--<th:block th:include="fragment/nav :: main-nav"></th:block>-->
+<head th:replace="fragment/header :: main-header">
+
 </head>
 <body>
 <th:block th:replace="fragment/navbar :: main-nav"> </th:block>
@@ -54,5 +51,6 @@
     <input value="Sign me up!" type="submit" />
 
 </form>
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
