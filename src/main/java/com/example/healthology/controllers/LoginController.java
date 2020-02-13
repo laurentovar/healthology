@@ -31,8 +31,10 @@ public class LoginController {
         model.addAttribute("password", password);
 
         //check to see if user is an admin
+
         if (username.equalsIgnoreCase("admin")){
             return "redirect:/admin_profile";
+
         }
         else {
             return "users/profile";

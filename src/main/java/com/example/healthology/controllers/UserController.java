@@ -46,12 +46,13 @@ public class UserController {
     }
 
     @PostMapping("/register")
+
     public String saveUser(@ModelAttribute User user, @RequestParam(name = "client_token") String client_token) {
         if (client_token.equals("ABC")) {
             user.setProfile_img("<i class=\"fas fa-user\"></i>");
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             usersDao.save(user);
-            authenticate(user); // Programmatically login the new user
+
 
             return "redirect:/client_setup/"; // Redirect directly to whatever path your home page is
         }else {
