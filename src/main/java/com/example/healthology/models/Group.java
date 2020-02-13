@@ -50,4 +50,12 @@ public class Group {
     public void setCategory_name(String category_name) {
         this.category_name = category_name;
     }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 }

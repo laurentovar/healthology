@@ -1,0 +1,24 @@
+.register-box{
+    background-color: rgb(235, 235, 235);
+    padding: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    border: none; !important;
+    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+}
+
+.register-button{
+    background-color: rgb(96, 150, 180) !important;
+    color: white !important;
+    margin-top: 10px;
+    margin-left: 20%;
+}
+
+#register-main-header{
+    margin-left: 40%;
+}
+
+#register-about{
+    margin-left: 10%;
+}

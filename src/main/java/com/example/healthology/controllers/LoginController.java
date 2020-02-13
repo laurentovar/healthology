@@ -23,7 +23,7 @@ public class LoginController {
         model.addAttribute("password", password);
 
         //check to see if user is an admin
-        if (username.equalsIgnoreCase("admin")){
+        if (username.equalsIgnoreCase("admin2")){
             return "admin/admin_profile";
         }
         else {
