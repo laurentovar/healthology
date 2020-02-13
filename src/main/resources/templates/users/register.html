@@ -8,14 +8,16 @@
 <th:block th:replace="fragment/navbar :: main-nav"> </th:block>
 
 <form th:action="@{/register}" method="POST" th:object="${users}">
+    <div class="container register-box">
 
-    <div class="register-box">
-        <h1 class="blue-font" id="register-main-header">Register</h1>
+    <div class="card">
+        <div class="card-body">
+        <h1 class="card-title blue-font text-center" >Register</h1>
 
-        <p class="blue-font" id="register-about">Please enter your information, including the Client Token given to you by your provider.</p>
+        <p class="card-subtitle mb-2 text-muted text-center" id="register-about">Please enter your information, including the Client Token given to you by your provider.</p>
     <div class="form-group">
         <label for="first_name" class="blue-font">First Name</label>
-        <input id="first_name" th:field="*{first_name}" class="form-control" placeholder="Enter first name">
+        <input id="first_name" th:field="*{first_name}" class=" card-text form-control" placeholder="Enter first name">
     </div>
 
         <div class="form-group">
@@ -52,10 +54,13 @@
         <input id="client_token"  name="client_token" class="form-control field" placeholder="Enter client token">
 
     </div>
-    <input value="Sign In" class="blue-font register-button" type="submit" />
-
+            <!--<a href="#" class="btn btn-primary register-button" type="submit">Sign In</a>-->
+    <input value="Sign In" class="register-button" type="submit"/>
+        </div>
+    </div>
+    </div>
 </form>
-</div>
+
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
