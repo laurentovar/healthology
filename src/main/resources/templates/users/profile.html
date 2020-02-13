@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragment/header :: main-header">
-<!--need to add header tag here-->
+<head>
+    <meta class="fsapi" th:content="${fsapi}">
+    <th:block th:include="fragment/header :: main-header"/>
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-
 <div class="container profile-container">
 
-<div class="card p-4 mt-5 blue-font" id="profile-card">
+    <div class="card p-4 mt-5 blue-font" id="profile-card">
         <h2 class="card-title">Welcome to your profile, <span th:text="${user.username}">user</span>!</h2>
         <div class="card-text media">
             <img th:src="${user.profile_img}" alt="profile" class="img-fluid align-self-center mr-3" width="25%" height="25%">
@@ -24,7 +24,9 @@
         </p>
 </div>
 
-<!--<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>-->
+
+        <!--<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>-->
+    
 
 
 
@@ -33,7 +35,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">About Me:</h5>
+                <h5 class="modal-title">Edit Picture:</h5>
                 <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -41,7 +43,7 @@
             <div class="form-group">
                 <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST">
                     <div class="modal-body" id="image">
-                        <th:block th:include="fragment/photoUpload :: upload"></th:block>
+                        <th:block th:include="fragment/photoUpload :: upload"/>
                     </div>
                     <div class="modal-footer">
                     <button type="submit" class="btn btn-primary form-control">Save Picture</button>
@@ -79,6 +81,9 @@
                     <button type="submit" class="btn btn-primary form-control">Save Edits</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+                </form>
+                <form th:action="@{'/users/' + ${user.id} + '/delete'}" th:method="POST">
+                    <button>Delete Profile</button>
                 </form>
             </div>
         </div>
@@ -122,16 +127,17 @@
                         <input class="form-control" id="title" type ="text" th:field="*{title}" placeholder="Enter title">
                     </div>
                     <div class="form-row mt-1">
-                        <label for="body" class="col-form-label">Body</label>
-                        <textarea class="form-control" id="body" th:field="*{entry}" placeholder="Enter body"></textarea>
+                        <label for="body" class="col-form-label">Tell us about your day..</label>
+                        <textarea class="form-control" id="body" th:field="*{entry}"
+                                  placeholder="How are you feeling today?"></textarea>
                     </div>
                     <div class="form-row mt-1">
                         <label for="rating" class="col-form-label">Rating</label>
-                        <input class="form-control" id="rating" th:field="*{rating}" placeholder="Enter body">
+                        <input class="form-control" id="rating" th:field="*{rating}" placeholder="Enter rating">
                     </div>
                     <div class="form-row mt-1">
                         <label for="date" class="col-form-label">Date (YYYY-MM-DD) </label>
-                        <input class="form-control" id="date" th:field="*{date}" placeholder="Enter body">
+                        <input class="form-control" id="date" th:field="*{date}" placeholder="Enter date">
                     </div>
                     </div>
                     <div class="modal-footer">

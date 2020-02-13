@@ -27,6 +27,9 @@ public class  Client {
     @OneToOne(mappedBy = "client_id", cascade = CascadeType.ALL)
     private Client_contact client_contact;
 
+    @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL)
+    private List<Group_client> group_clients;
+
 
     public Client() {}
 
@@ -78,6 +81,15 @@ public class  Client {
 
     public void setClient_contact(Client_contact client_contact) {
         this.client_contact = client_contact;
+    }
+
+
+    public List<Group_client> getGroup_clients() {
+        return group_clients;
+    }
+
+    public void setGroup_clients(List<Group_client> group_clients) {
+        this.group_clients = group_clients;
     }
 
 }

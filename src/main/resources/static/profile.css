@@ -14,3 +14,20 @@
     background-color: rgb(96, 150, 180) !important;
     color: white !important;
 }
+
+/*[type=radio] {*/
+/*    position: absolute;*/
+/*    opacity: 0;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*}*/
+
+/*!* IMAGE STYLES *!*/
+/*[type=radio] + img {*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*!* CHECKED STYLES *!*/
+/*[type=radio]:checked + img {*/
+/*    outline: 2px solid rgb(96, 150, 180);*/
+/*}*/

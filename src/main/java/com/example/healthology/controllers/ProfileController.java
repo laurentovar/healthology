@@ -6,6 +6,9 @@ import com.example.healthology.models.User;
 import com.example.healthology.repositories.ClientRepository;
 import com.example.healthology.repositories.JournalRepository;
 import com.example.healthology.repositories.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +23,9 @@ public class ProfileController {
     private ClientRepository clientDao;
 
 
+    @Value("${filestack.api.key}")
+    private String fsapi;
+
     public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao) {
         this.journalDao = journalDao;
         this.userDao = userDao;
@@ -32,6 +38,7 @@ public class ProfileController {
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
+        model.addAttribute("fsapi", fsapi);
 
         if (user.getUsername().equalsIgnoreCase("admin2")){
             return "redirect:/admin_profile";
@@ -39,8 +46,14 @@ public class ProfileController {
         }
         else {
             return "users/profile";
-
         }
+    }
+
+    @GetMapping("/profile/{id}")
+    public String otherProfile(@PathVariable long id, Model model){
+        model.addAttribute("user", userDao.getOne(id));
+            return "users/otherProfile";
+
     }
 
     @PostMapping("/users/{id}/edit")
@@ -60,13 +73,15 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-//    @PostMapping("/users/{id}/photo")
-//    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
-//        User updatedUser = userDao.getOne(id);
-//        updatedUser.setProfile_img(user.getProfile_img());
-//        userDao.save(updatedUser);
-//        return "redirect:/profile";
-//    }
+
+    @PostMapping("/users/{id}/delete")
+    public String deleteProfile(@PathVariable long id, @ModelAttribute User user){
+//        clientDao.deleteById(user.getClient().getId());
+        userDao.deleteById(id);
+        return "redirect:/";
+    }
+
+
 
 
     @PostMapping("/journal/create")

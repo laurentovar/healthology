@@ -14,12 +14,11 @@
                     Home
                 </a>
 
-
                 <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="navbar-item">
                     Profile
                 </a>
 
-                <a  sec:authorize="isAuthenticated()" class="navbar-item">
+                <a  sec:authorize="isAuthenticated()" class="navbar-item" th:href="@{/chatroom}">
                     Chat
                 </a>
 
