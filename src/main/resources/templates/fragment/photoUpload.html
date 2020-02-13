@@ -15,8 +15,6 @@
             crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-            // let key = document.querySelector('meta').content;
-            // console.log(key);
             const client = filestack.init(document.querySelector('meta.fsapi').content);
             const options = {
                 onUploadDone: (res) =>

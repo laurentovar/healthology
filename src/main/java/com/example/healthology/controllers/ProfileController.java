@@ -22,8 +22,6 @@ public class ProfileController {
     private UsersRepository userDao;
     private ClientRepository clientDao;
 
-    @Autowired
-    private Environment env;
 
     @Value("${filestack.api.key}")
     private String fsapi;
@@ -40,7 +38,6 @@ public class ProfileController {
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
-        model.addAttribute("env", env);
         model.addAttribute("fsapi", fsapi);
 
         if (user.getUsername().equalsIgnoreCase("admin")){
