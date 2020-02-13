@@ -8,10 +8,6 @@
 <div th:include="fragment/navbar.html :: main-nav"></div>
 <div class="container profile-container">
 
-    <form th:action="@{/client_setup/}" th:method="get">
-        <button class="btn btn-light" id="completeProfile" type="submit">Complete Set up</button>
-    </form>
-
     <div class="card p-4 mt-5 blue-font" id="profile-card">
         <h2 class="card-title">Welcome to your profile, <span th:text="${user.username}">user</span>!</h2>
         <div class="card-text media">
@@ -85,6 +81,9 @@
                     <button type="submit" class="btn btn-primary form-control">Save Edits</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+                </form>
+                <form th:action="@{'/users/' + ${user.id} + '/delete'}" th:method="POST">
+                    <button>Delete Profile</button>
                 </form>
             </div>
         </div>
