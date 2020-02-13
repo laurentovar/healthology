@@ -39,7 +39,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">About Me:</h5>
+                <h5 class="modal-title">Edit Picture:</h5>
                 <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -128,8 +128,9 @@
                         <input class="form-control" id="title" type ="text" th:field="*{title}" placeholder="Enter title">
                     </div>
                     <div class="form-row mt-1">
-                        <label for="body" class="col-form-label">Body</label>
-                        <textarea class="form-control" id="body" th:field="*{entry}" placeholder="Enter body"></textarea>
+                        <label for="body" class="col-form-label">Tell us about your day..</label>
+                        <textarea class="form-control" id="body" th:field="*{entry}"
+                                  placeholder="How are you feeling today?"></textarea>
                     </div>
                     <div class="form-row mt-1">
                         <label for="rating" class="col-form-label">Rating</label>

@@ -31,6 +31,7 @@ public class ChatroomController {
             model.addAttribute("user3", user3);
             User user4 = userDao.getOne(4L);
             model.addAttribute("user4", user4);
+            model.addAttribute("tjapi", tjapi);
             return "chatroom";
         } else {
             return "users/login";

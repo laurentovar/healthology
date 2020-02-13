@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <th:block th:include="fragment/header :: main-header"/>
+    <meta class="tjapi" th:content="${tjapi}">
 </head>
 <body>
 <script src="js/keys.js"></script>
@@ -22,18 +22,20 @@
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
+    
+    console.log(document.querySelector('meta.tjapi').content);
     /*<![CDATA[*/
     Talk.ready.then(function() {
         var me = new Talk.User({
             id: [[${user.id}]],
             name: [[${user.username}]],
             email: [[${user.email}]],
-            // photoUrl: [[${user.profile_img}]],
+            photoUrl: [[${user.profile_img}]],
             welcomeMessage: [[${user.username}]] + " has joined the chat"
         });
         window.talkSession = new Talk.Session({
             //--------------talkJS key
-            appId: talkJsKey,
+            appId: document.querySelector('meta.tjapi').content,
             me: me
         });
         var other1 = new Talk.User({
@@ -50,19 +52,11 @@
             // photoUrl: [[${user3.profile_img}]],
             welcomeMessage: [[${user3.username}]] + " has joined the chat"
         });
-        var other3 = new Talk.User({
-            id: [[${user4.id}]],
-            name: [[${user4.username}]],
-            email: [[${user4.email}]],
-            // photoUrl: [[${user4.profile_img}]],
-            welcomeMessage: [[${user4.username}]] + " has joined the chat"
-        });
 
         var conversation = window.talkSession.getOrCreateConversation("PTSD Support");
         conversation.setParticipant(me);
         conversation.setParticipant(other1);
         conversation.setParticipant(other2);
-        conversation.setParticipant(other3);
         var inbox = talkSession.createInbox({selected: conversation});
         inbox.mount(document.getElementById("talkjs-container"));
 
