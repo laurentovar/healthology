@@ -32,7 +32,7 @@ public class LoginController {
 
         //check to see if user is an admin
         if (username.equalsIgnoreCase("admin")){
-            return "admin/admin_profile";
+            return "redirect:/admin_profile";
         }
         else {
             return "users/profile";
