@@ -52,6 +52,7 @@ public class UserController {
             user.setProfile_img("https://lh3.googleusercontent.com/proxy/mOGvVuB_7FjJpyb_MpwVHlNqhbfPJvH5jyJGyZr3v65CnJhb2IcP1dL_Ye_pyaa8Aevcrce1_vHLHX8YBUW4luYy34T2mRdrDVh8qA01d0xwHl48Uz4w2aGNX_iR6pCgForjYA");
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             usersDao.save(user);
+            authenticate(user);
 
 
             return "redirect:/client_setup/"; // Redirect directly to whatever path your home page is
