@@ -37,7 +37,7 @@ public class AdminController {
 
         ArrayList<User> x = new ArrayList<>();
         x.add(adminList.get(0).getUser_id());
-        x.add(adminList.get(1).getUser_id());
+//        x.add(adminList.get(1).getUser_id());
         //try find all in admins (.findall)
 
         //Get all the users that do not have these adminIDS

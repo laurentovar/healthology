@@ -40,13 +40,20 @@ public class ProfileController {
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
-        if (user.getUsername().equalsIgnoreCase("admin2")){
+        if (user.getUsername().equalsIgnoreCase("admin")){
             return "redirect:/admin_profile";
             //return "admin/admin_profile";
         }
         else {
             return "users/profile";
         }
+    }
+
+    @GetMapping("/profile/{id}")
+    public String otherProfile(@PathVariable long id, Model model){
+        model.addAttribute("user", userDao.getOne(id));
+            return "users/otherProfile";
+
     }
 
     @PostMapping("/users/{id}/edit")
@@ -65,6 +72,15 @@ public class ProfileController {
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
+
+
+    @PostMapping("/users/{id}/delete")
+    public String deleteProfile(@PathVariable long id, @ModelAttribute User user){
+//        clientDao.deleteById(user.getClient().getId());
+        userDao.deleteById(id);
+        return "redirect:/";
+    }
+
 
 
 
