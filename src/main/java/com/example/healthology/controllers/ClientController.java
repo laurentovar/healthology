@@ -54,7 +54,7 @@ public class ClientController {
         //Check if they agreed to terms, if they have do the rest
         if(!client.getAgreed_to_terms()){
             //temp
-            return "redirect:/register";
+            return "redirect:/client_setup/";
         }
         // Get the current User
          User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -177,7 +177,6 @@ public class ClientController {
         groupOptions.add(Insomnia);
         groupOptions.add(Postpartum);
 
-        //Need to check if an option was at all before doing loop
 
         for (int i=0; i <= groupOptions.size() - 1; i++){
             if (groupOptions.get(i) != null){
