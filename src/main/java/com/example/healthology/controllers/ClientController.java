@@ -155,7 +155,8 @@ public class ClientController {
                                    @RequestParam(name = "OCD",required = false) String OCD,
                                    @RequestParam(name = "Eating disorders",required = false) String Eatingdisorders,
                                    @RequestParam(name = "Insomnia",required = false) String Insomnia,
-                                   @RequestParam(name = "Postpartum",required = false) String Postpartum) {
+                                   @RequestParam(name = "Postpartum",required = false) String Postpartum)
+    {
 
         //Get the current user
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -177,8 +178,8 @@ public class ClientController {
         groupOptions.add(Postpartum);
 
 
-        for (int i = 0; i <= groupOptions.size() - 1; i++) {
-            if (groupOptions.get(i) != null) {
+        for (int i=0; i <= groupOptions.size() - 1; i++){
+            if (groupOptions.get(i) != null){
                 System.out.println(groupOptions.get(i));
 
                 //Create Instance of Group_client
@@ -196,11 +197,11 @@ public class ClientController {
                 //Save Group_Client
                 groupClientDao.save(group_client);
 
-                return "redirect:/profile";
-            } else if (groupOptions.get(i) == null) {
-                return "redirect:/client_groupSelection";
             }
+
         }
-        return "users/profile";
+
+        return "redirect:/profile";
+
     }
 }
