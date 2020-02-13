@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragment/header :: main-header">
-<!--need to add header tag here-->
+<head>
+    <meta class="fsapi" th:content="${fsapi}">
+    <th:block th:include="fragment/header :: main-header"/>
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-
 <div class="container profile-container">
 
     <form th:action="@{/client_setup/}" th:method="get">
@@ -30,6 +30,7 @@
 
 
         <!--<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>-->
+    
 
 
 
@@ -46,7 +47,7 @@
             <div class="form-group">
                 <form th:action="@{'/users/' + ${user.id} + '/photo'}" th:method="POST">
                     <div class="modal-body" id="image">
-                        <th:block th:include="fragment/photoUpload :: upload"></th:block>
+                        <th:block th:include="fragment/photoUpload :: upload"/>
                     </div>
                     <div class="modal-footer">
                     <button type="submit" class="btn btn-primary form-control">Save Picture</button>

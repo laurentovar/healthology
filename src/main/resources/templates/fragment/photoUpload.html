@@ -15,7 +15,7 @@
             crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-            const client = filestack.init(filestackKey);
+            const client = filestack.init(document.querySelector('meta.fsapi').content);
             const options = {
                 onUploadDone: (res) =>
                         $('#image').append(`<input type="text" name="profile_img" value="https://cdn.filestackcontent.com/${res.filesUploaded[0].handle}">`),
