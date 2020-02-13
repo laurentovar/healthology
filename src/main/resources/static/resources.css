@@ -8,7 +8,7 @@
     box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
 }
 
-.card{
+.marg-push{
     /*border-radius: 20% !important;*/
     margin-top: 1%;
     /*margin-left: -7% !important;*/
@@ -34,7 +34,7 @@
 .small-text{
     font-size: 110% !important;
 }
-.card-body{
+.shadow{
     box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
     padding: 5% !important;
 }
@@ -54,7 +54,7 @@
 
 .card-1-title{
     margin-top: 5%;
-    margin-left: 30%;
+    margin-left: 23%;
 }
 
 
