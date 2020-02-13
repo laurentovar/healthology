@@ -66,13 +66,6 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
-//    @PostMapping("/users/{id}/photo")
-//    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
-//        User updatedUser = userDao.getOne(id);
-//        updatedUser.setProfile_img(user.getProfile_img());
-//        userDao.save(updatedUser);
-//        return "redirect:/profile";
-//    }
 
 
     @PostMapping("/journal/create")

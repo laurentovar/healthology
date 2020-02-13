@@ -5,6 +5,7 @@
     <meta class="tjapi" th:content="${tjapi}">
 </head>
 <body>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 <script src="js/keys.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
@@ -63,5 +64,6 @@
     });
     /*]]>*/
 </script>
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
