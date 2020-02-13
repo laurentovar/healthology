@@ -40,7 +40,7 @@ public class ProfileController {
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
-        if (user.getUsername().equalsIgnoreCase("admin2")){
+        if (user.getUsername().equalsIgnoreCase("admin")){
             return "redirect:/admin_profile";
             //return "admin/admin_profile";
         }
