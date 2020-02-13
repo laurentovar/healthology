@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class ProfileController {
 
@@ -74,10 +76,10 @@ public class ProfileController {
     }
 
     @PostMapping("/users/{id}/delete")
-    public String deleteProfile(@PathVariable long id, @ModelAttribute User user){
-//        clientDao.deleteById(user.getClient().getId());
+    public String deleteProfile(@PathVariable long id, @ModelAttribute User user, HttpSession session){
         userDao.deleteById(id);
-        return "redirect:/";
+        session.invalidate();
+        return "redirect:/login";
     }
 
 //    @PostMapping("/users/{id}/photo")
