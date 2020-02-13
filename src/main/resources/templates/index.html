@@ -5,5 +5,8 @@
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
 <h1>Welcome to Healthology</h1>
+
+<th:block th:replace="fragment/scripts :: scripts" />
+
 </body>
 </html>
