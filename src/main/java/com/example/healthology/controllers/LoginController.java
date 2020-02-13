@@ -1,6 +1,9 @@
 package com.example.healthology.controllers;
 
 import com.example.healthology.models.Client;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +15,13 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "users/login";
+        Authentication token = SecurityContextHolder.getContext().getAuthentication();
+        if (token instanceof AnonymousAuthenticationToken) return "users/login";
+
+        // Redirect to the configured home page
+        return String.format("redirect:%s", "/profile");
     }
+
 
     @PostMapping("/login")
     public String loggedIn (@RequestParam String username,
@@ -23,7 +31,7 @@ public class LoginController {
         model.addAttribute("password", password);
 
         //check to see if user is an admin
-        if (username.equalsIgnoreCase("admin2")){
+        if (username.equalsIgnoreCase("admin")){
             return "admin/admin_profile";
         }
         else {

@@ -45,7 +45,6 @@ public class ClientController {
 
         //model.addAttribute("userinfo", userDao.findUserById(Long.parseLong(id)));
 
-
         return "client/client_setup";
     }
 

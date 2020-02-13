@@ -66,6 +66,13 @@ public class ProfileController {
         return "redirect:/profile";
     }
 
+    @PostMapping("/users/{id}/delete")
+    public String deleteProfile(@PathVariable long id, @ModelAttribute User user){
+//        clientDao.deleteById(user.getClient().getId());
+        userDao.deleteById(id);
+        return "redirect:/";
+    }
+
 //    @PostMapping("/users/{id}/photo")
 //    public String editPhoto(@PathVariable long id, @ModelAttribute User user){
 //        User updatedUser = userDao.getOne(id);
