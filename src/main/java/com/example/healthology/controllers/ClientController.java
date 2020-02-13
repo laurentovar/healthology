@@ -60,6 +60,7 @@ public class ClientController {
         // Get the current User
          User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
          //User user = new User((User) userDao.findTopByOrderByIdDesc());
+
          //User user = userDao.findUserById(Long.parseLong(id));
 
         //Update the client's user_id using the current user
