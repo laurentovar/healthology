@@ -49,6 +49,13 @@ public class ProfileController {
         }
     }
 
+    @GetMapping("/profile/{id}")
+    public String otherProfile(@PathVariable long id, Model model){
+        model.addAttribute("user", userDao.getOne(id));
+            return "users/otherProfile";
+
+    }
+
     @PostMapping("/users/{id}/edit")
     public String editProfile(@PathVariable long id, @ModelAttribute User user){
         User updatedUser = userDao.getOne(id);
