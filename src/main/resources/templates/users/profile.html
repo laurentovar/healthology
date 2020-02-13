@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragment/header :: main-header">
-<!--need to add header tag here-->
+<head>
+    <th:block th:include="fragment/header :: main-header"/>
+    <meta class="fsapi" th:content="${fsapi}">
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-
 <div class="container profile-container">
 
 <div class="card p-4 mt-5 blue-font" id="profile-card">

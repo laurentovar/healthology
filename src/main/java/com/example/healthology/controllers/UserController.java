@@ -2,6 +2,9 @@ package com.example.healthology.controllers;
 
 import com.example.healthology.models.User;
 import com.example.healthology.repositories.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +19,13 @@ public class UserController {
     // These two next steps are often called dependency injection, where we create a Repository instance and initialize it in the controller class constructor.
     private final UsersRepository usersDao;
     private PasswordEncoder passwordEncoder;
+
+
+//    @Value("${filestack.api.key}")
+//    private String fsAPI;
+//
+//    @Value("${talkjs.api.key}")
+//    private String tjAPI;
 
     public UserController(UsersRepository usersDao, PasswordEncoder passwordEncoder) {
         this.usersDao = usersDao;

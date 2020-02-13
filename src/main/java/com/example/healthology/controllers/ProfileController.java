@@ -6,6 +6,9 @@ import com.example.healthology.models.User;
 import com.example.healthology.repositories.ClientRepository;
 import com.example.healthology.repositories.JournalRepository;
 import com.example.healthology.repositories.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,11 @@ public class ProfileController {
     private UsersRepository userDao;
     private ClientRepository clientDao;
 
+    @Autowired
+    private Environment env;
+
+    @Value("${filestack.api.key}")
+    private String fsapi;
 
     public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao) {
         this.journalDao = journalDao;
@@ -32,6 +40,8 @@ public class ProfileController {
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journalDao.findAll());
         model.addAttribute("journal", new Journal());
+        model.addAttribute("env", env);
+        model.addAttribute("fsapi", fsapi);
 
         if (user.getUsername().equalsIgnoreCase("admin")){
             return "redirect:/admin_profile";
@@ -39,7 +49,6 @@ public class ProfileController {
         }
         else {
             return "users/profile";
-
         }
     }
 
