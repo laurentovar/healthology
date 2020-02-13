@@ -17,27 +17,40 @@ public class ClientController {
     private final ClientContactRepository clientContactDao;
     private final GroupClientRepository groupClientDao;
     private final GroupRepository groupDao;
+    private final UsersRepository userDao;
 
-    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao, GroupClientRepository groupClientDao, GroupRepository groupDao) {
+    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao, GroupClientRepository groupClientDao, GroupRepository groupDao, UsersRepository userDao) {
         this.clientDao = clientDao;
         this.clientHistoryDao = clientHistoryDao;
         this.clientContactDao = clientContactDao;
         this.groupClientDao = groupClientDao;
         this.groupDao = groupDao;
+        this.userDao = userDao;
     }
 
 
     //======Client agree to terms=====
     @GetMapping("/client_setup/")
-    public String showClientSetup( Model model) {
+    public String showClientSetup( Model model ){    //, @PathVariable String id) {
+//      User user1 = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //User user = new User((User) userDao.findTopByOrderByIdDesc());
+
+//      User user1 = new User((User) userDao.findOne());
+
+        //.getOne
+
+
         Client client = new Client();
         model.addAttribute("clients", client);
+
+        //model.addAttribute("userinfo", userDao.findUserById(Long.parseLong(id)));
+
 
         return "client/client_setup";
     }
 
     @PostMapping("/client_setup/")
-    public String termCheck(@ModelAttribute Client client){
+    public String termCheck(@ModelAttribute Client client ){
 
         //Check if they agreed to terms, if they have do the rest
         if(!client.getAgreed_to_terms()){
@@ -45,7 +58,9 @@ public class ClientController {
             return "redirect:/register";
         }
         // Get the current User
-        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+         //User user = new User((User) userDao.findTopByOrderByIdDesc());
+         //User user = userDao.findUserById(Long.parseLong(id));
 
         //Update the client's user_id using the current user
         client.setUser(currentUser);
@@ -63,6 +78,9 @@ public class ClientController {
     //=======Client History======
     @GetMapping("/client_history")
     public String showClientHistory(Model model) {
+        User user = new User((User) userDao.findTopByOrderByIdDesc());
+
+
         Client_history client_history = new Client_history();
         model.addAttribute("clients_history", client_history);
 

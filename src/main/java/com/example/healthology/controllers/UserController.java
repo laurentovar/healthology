@@ -38,10 +38,11 @@ public class UserController {
             String hash = passwordEncoder.encode(user.getPassword());
             user.setPassword(hash);
             usersDao.saveAndFlush(user);
-            //Users createdUser = usersDao.findByUsername(user.getUsername());
 
+            User createdUser = usersDao.findByUsername(user.getUsername());
             //System.out.println(createdUser.getId());
-            return "redirect:/login";// + createdUser.getId();
+            //return "redirect:/client_setup/";// + createdUser.getId();
+            return "redirect:/login";
         }
 
         //Else
