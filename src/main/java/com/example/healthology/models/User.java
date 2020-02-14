@@ -37,7 +37,8 @@ public class User {
 
     public User() {}
 
-    public User(String first_name, String last_name, String profile_img, String password, String phone_number, String email, String about_me, String username, List<Client> user) {
+    public User(String first_name, String last_name, String profile_img, String password, String phone_number,
+                String email, String about_me, String username, Client client) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.profile_img = profile_img;

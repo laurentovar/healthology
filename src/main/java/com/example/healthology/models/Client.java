@@ -67,6 +67,16 @@ public class  Client {
         this.user_id = user;
     }
 
+    public List<Journal> getJournals() {
+        return journals;
+    }
+
+    public void setJournals(List<Journal> journals) {
+        this.journals = journals;
+    }
+
+
+
     public Client_history getClient_history() {
         return client_history;
     }

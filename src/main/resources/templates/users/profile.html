@@ -9,7 +9,8 @@
 <div class="container profile-container">
 
     <div class="card p-4 mt-5 blue-font" id="profile-card">
-        <h2 class="card-title">Welcome to your profile, <span th:text="${user.username}">user</span>!</h2>
+        <h2 class="card-title text-center p-3">Welcome to your profile, <span th:text="${user.username}">user</span>!
+        </h2>
         <div class="card-text media">
             <img th:src="${user.profile_img}" alt="profile" class="img-fluid align-self-center mr-3" width="25%" height="25%">
             <div class="media-body">
