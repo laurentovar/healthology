@@ -1,4 +1,5 @@
 package com.example.healthology.controllers;
+
 import com.example.healthology.models.*;
 import com.example.healthology.repositories.*;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,7 +32,7 @@ public class ClientController {
 
     //======Client agree to terms=====
     @GetMapping("/client_setup/")
-    public String showClientSetup( Model model ){    //, @PathVariable String id) {
+    public String showClientSetup(Model model) {    //, @PathVariable String id) {
 //      User user1 = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //User user = new User((User) userDao.findTopByOrderByIdDesc());
 
@@ -49,7 +50,7 @@ public class ClientController {
     }
 
     @PostMapping("/client_setup/")
-    public String termCheck(@ModelAttribute Client client ){
+    public String termCheck(@ModelAttribute Client client) {
 
         //Check if they agreed to terms, if they have do the rest
 //        if(!client.getAgreed_to_terms()){
@@ -57,10 +58,10 @@ public class ClientController {
 //            return "redirect:/client_setup/";
 //        }
         // Get the current User
-         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-         //User user = new User((User) userDao.findTopByOrderByIdDesc());
+        User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //User user = new User((User) userDao.findTopByOrderByIdDesc());
 
-         //User user = userDao.findUserById(Long.parseLong(id));
+        //User user = userDao.findUserById(Long.parseLong(id));
 
         //Update the client's user_id using the current user
         client.setUser(currentUser);
@@ -86,7 +87,6 @@ public class ClientController {
 
         return "client/client_history";
     }
-
 
 
     @PostMapping("/client_history")
@@ -149,14 +149,13 @@ public class ClientController {
 
     @PostMapping("/client_groupSelection")
     public String clientGroupCheck(//@ModelAttribute Group_client group_client,
-                                   @RequestParam(name = "Depression",required = false) String Depression,
-                                   @RequestParam(name = "PTSD",required = false) String PTSD,
-                                   @RequestParam(name = "Anxiety",required = false) String Anxiety,
-                                   @RequestParam(name = "OCD",required = false) String OCD,
-                                   @RequestParam(name = "Eating disorders",required = false) String Eatingdisorders,
-                                   @RequestParam(name = "Insomnia",required = false) String Insomnia,
-                                   @RequestParam(name = "Postpartum",required = false) String Postpartum)
-    {
+                                   @RequestParam(name = "Depression", required = false) String Depression,
+                                   @RequestParam(name = "PTSD", required = false) String PTSD,
+                                   @RequestParam(name = "Anxiety", required = false) String Anxiety,
+                                   @RequestParam(name = "OCD", required = false) String OCD,
+                                   @RequestParam(name = "Eating disorders", required = false) String Eatingdisorders,
+                                   @RequestParam(name = "Insomnia", required = false) String Insomnia,
+                                   @RequestParam(name = "Postpartum", required = false) String Postpartum) {
 
         //Get the current user
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -178,8 +177,8 @@ public class ClientController {
         groupOptions.add(Postpartum);
 
 
-        for (int i=0; i <= groupOptions.size() - 1; i++){
-            if (groupOptions.get(i) != null){
+        for (int i = 0; i <= groupOptions.size() - 1; i++) {
+            if (groupOptions.get(i) != null) {
                 System.out.println(groupOptions.get(i));
 
                 //Create Instance of Group_client

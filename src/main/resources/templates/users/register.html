@@ -46,7 +46,8 @@
 
     <div class="form-group">
         <label for="phone_number" class="blue-font">Phone Number</label>
-        <input id="phone_number"  th:field="*{phone_number}"  class="form-control" placeholder="Enter phone number">
+        <input id="phone_number" type="tel" th:field="*{phone_number}"  class="form-control "
+               placeholder="ex.. 210-555-0199" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
     </div>
 
 
