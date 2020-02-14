@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -48,15 +50,20 @@ public class UserController {
     @PostMapping("/register")
 
     public String saveUser(@ModelAttribute User user, @RequestParam(name = "client_token") String client_token) {
-        if (client_token.equals("ABC")) {
-            user.setProfile_img("https://lh3.googleusercontent.com/proxy/mOGvVuB_7FjJpyb_MpwVHlNqhbfPJvH5jyJGyZr3v65CnJhb2IcP1dL_Ye_pyaa8Aevcrce1_vHLHX8YBUW4luYy34T2mRdrDVh8qA01d0xwHl48Uz4w2aGNX_iR6pCgForjYA");
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            usersDao.save(user);
-            authenticate(user);
+        if (usersDao.findByUsername(user.getUsername()) == null && usersDao.findUserByEmail(user.getEmail()) == null) {
+
+            if (client_token.equals("ABC")) {
+                user.setProfile_img("https://lh3.googleusercontent.com/proxy/mOGvVuB_7FjJpyb_MpwVHlNqhbfPJvH5jyJGyZr3v65CnJhb2IcP1dL_Ye_pyaa8Aevcrce1_vHLHX8YBUW4luYy34T2mRdrDVh8qA01d0xwHl48Uz4w2aGNX_iR6pCgForjYA");
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                usersDao.save(user);
+                authenticate(user);
 
 
-            return "redirect:/client_setup/"; // Redirect directly to whatever path your home page is
-        }else {
+                return "redirect:/client_setup/"; // Redirect directly to whatever path your home page is
+            } else {
+                return "redirect:/register";
+            }
+        } else {
             return "redirect:/register";
         }
     }
