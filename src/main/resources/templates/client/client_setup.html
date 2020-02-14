@@ -20,9 +20,16 @@
         <h3 class="blue-font">Informed Consent</h3>
         <p>I understand that I can contact the clinician and leave Healthology whenever I see fit. I understand that all information shared in the group should remain in the group. I understand that the clinician has certain duties to protect everyone in the group.</p>
 
-         <input type="checkbox" id="agreed_to_terms" name="agreed_to_terms" th:checked="${isChecked}">
-        <label for="agreed_to_terms" > I AGREE</label><br><br>
 
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="agreed_to_terms" name="agreed_to_terms" th:checked="${isChecked}" required>
+                    <label class="form-check-label" for="agreed_to_terms">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
 
         <button type="submit" class="bg-info text-white center-block" >Next</button>
             </div>

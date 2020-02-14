@@ -21,5 +21,8 @@ public interface UsersRepository extends JpaRepository<User, Long> {
     @Query("from User u where u.id = :id")
     User findUserById(Long id);
 
+    @Query("from User u where u.email = :email")
+    User findUserByEmail(String email);
+
     Object findTopByOrderByIdDesc();
 }

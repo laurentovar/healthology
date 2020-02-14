@@ -52,10 +52,10 @@ public class ClientController {
     public String termCheck(@ModelAttribute Client client ){
 
         //Check if they agreed to terms, if they have do the rest
-        if(!client.getAgreed_to_terms()){
-            //temp
-            return "redirect:/client_setup/";
-        }
+//        if(!client.getAgreed_to_terms()){
+//            //temp
+//            return "redirect:/client_setup/";
+//        }
         // Get the current User
          User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
          //User user = new User((User) userDao.findTopByOrderByIdDesc());
