@@ -4,7 +4,7 @@
 
 </head>
 <body>
-<div th:insert="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 <h1>This is the group selection page</h1>
 <form th:action="@{/client_groupSelection/}" method="POST" th:object="${clients_group}">
 

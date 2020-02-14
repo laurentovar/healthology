@@ -1,5 +1,5 @@
 USE healthology_db;
-# DROP database healthology_db;
+DROP database healthology_db;
 
 #
 # insert into client (agreed_to_terms, user_id)

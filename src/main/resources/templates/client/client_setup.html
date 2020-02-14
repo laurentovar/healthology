@@ -4,7 +4,7 @@
 
 </head>
 <body>
-    <div th:insert="fragment/navbar.html :: main-nav"></div>
+    <div th:include="fragment/navbar.html :: main-nav"></div>
 
     <form th:action="@{/client_setup/}" method="POST" th:object="${clients}">
 
