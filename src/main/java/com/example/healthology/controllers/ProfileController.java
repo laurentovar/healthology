@@ -1,5 +1,6 @@
 package com.example.healthology.controllers;
 
+import com.example.healthology.models.Admin;
 import com.example.healthology.models.Client;
 import com.example.healthology.models.Journal;
 import com.example.healthology.models.User;
@@ -15,6 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -37,8 +41,14 @@ public class ProfileController {
     @GetMapping("/profile")
     public String postsIndex(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Client client = clientDao.findClientByUser_id(user);
+
+        System.out.println(client.getId());
+        List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
+
         model.addAttribute("user", userDao.getOne(user.getId()));
-        model.addAttribute("journals", journalDao.findAll());
+        model.addAttribute("journals", journals);
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
@@ -56,6 +66,15 @@ public class ProfileController {
         model.addAttribute("user", userDao.getOne(id));
             return "users/otherProfile";
 
+    }
+
+    @GetMapping("/test/j")
+    public String testJournal(){
+        List<Journal> journals = journalDao.getAllJournalsByClientId(1L);
+        for (int i = 0; i < journals.size(); i++){
+            System.out.println(journals.get(i).getId());
+        }
+        return "/aboutMe";
     }
 
     @PostMapping("/users/{id}/edit")
