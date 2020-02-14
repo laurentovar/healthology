@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -16,15 +18,13 @@ public class ClientController {
     private final ClientRepository clientDao;
     private final ClientHistoryRepository clientHistoryDao;
     private final ClientContactRepository clientContactDao;
-    private final GroupClientRepository groupClientDao;
     private final GroupRepository groupDao;
     private final UsersRepository userDao;
 
-    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao, GroupClientRepository groupClientDao, GroupRepository groupDao, UsersRepository userDao) {
+    public ClientController(ClientRepository clientDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao,  GroupRepository groupDao, UsersRepository userDao) {
         this.clientDao = clientDao;
         this.clientHistoryDao = clientHistoryDao;
         this.clientContactDao = clientContactDao;
-        this.groupClientDao = groupClientDao;
         this.groupDao = groupDao;
         this.userDao = userDao;
     }
@@ -138,24 +138,24 @@ public class ClientController {
 
     }
 
-    //========Client group selection======
+   // ========Client group selection======
     @GetMapping("/client_groupSelection")
     public String clientGroups(Model model) {
-        Group_client group_client = new Group_client();
-        model.addAttribute("clients_group", group_client);
+        Group group = new Group();
+        model.addAttribute("group", group);
 
         return "client/client_groupSelection";
     }
 
     @PostMapping("/client_groupSelection")
     public String clientGroupCheck(//@ModelAttribute Group_client group_client,
-                                   @RequestParam(name = "Depression", required = false) String Depression,
-                                   @RequestParam(name = "PTSD", required = false) String PTSD,
-                                   @RequestParam(name = "Anxiety", required = false) String Anxiety,
-                                   @RequestParam(name = "OCD", required = false) String OCD,
-                                   @RequestParam(name = "Eating disorders", required = false) String Eatingdisorders,
-                                   @RequestParam(name = "Insomnia", required = false) String Insomnia,
-                                   @RequestParam(name = "Postpartum", required = false) String Postpartum) {
+                                   @RequestParam(name = "Depression", required = false) Group Depression,
+                                   @RequestParam(name = "PTSD", required = false) Group PTSD,
+                                   @RequestParam(name = "Anxiety", required = false) Group Anxiety,
+                                   @RequestParam(name = "OCD", required = false) Group OCD,
+                                   @RequestParam(name = "Eating disorders", required = false) Group Eatingdisorders,
+                                   @RequestParam(name = "Insomnia", required = false) Group Insomnia,
+                                   @RequestParam(name = "Postpartum", required = false) Group Postpartum) {
 
         //Get the current user
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -166,8 +166,11 @@ public class ClientController {
         //Set The client ID for groupClient
         //group_client.setClient_id(client);
 
+
         //Set the groupID group Client
-        ArrayList<String> groupOptions = new ArrayList<String>();
+        List<Group> groupOptions = new ArrayList<>();
+
+        //"Depression", "PTSD", "Anxiety", "OCD", "Eatingdisorders", "Insomnia", "Postpartum";
         groupOptions.add(Depression);
         groupOptions.add(PTSD);
         groupOptions.add(Anxiety);
@@ -177,26 +180,16 @@ public class ClientController {
         groupOptions.add(Postpartum);
 
 
-        for (int i = 0; i <= groupOptions.size() - 1; i++) {
-            if (groupOptions.get(i) != null) {
+            for (int i = 0; i < groupOptions.size(); i++) {
+            if (groupOptions.get(i)  != null) {
                 System.out.println(groupOptions.get(i));
 
-                //Create Instance of Group_client
-                Group_client group_client = new Group_client();
 
-                //Set Group_client.clientId to the client found outside loop
-                group_client.setClient_id(client);
-
-                //Get the group by ID
-                Group group = groupDao.getOne(Long.parseLong(groupOptions.get(i)));
-
-                //Set Group_client.group_id to the group found above
-                group_client.setGroup_id(group);
-
-                //Save Group_Client
-                groupClientDao.save(group_client);
+                client.setGroups(groupOptions);
 
             }
+
+            clientDao.save(client);
 
         }
 
