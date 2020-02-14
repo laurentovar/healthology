@@ -4,7 +4,9 @@
 
 </head>
 <body>
+  
 <div th:insert="fragment/navbar.html :: main-nav"></div>
+
 <form th:action="@{/client_groupSelection/}" method="POST" th:object="${clients_group}">
     <div class="card register-mainBox">
         <div class="card-body box-box">

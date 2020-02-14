@@ -1,0 +1,59 @@
+
+.right-colu2{
+    margin-top: -30%;
+    margin-right: 18%;
+    float:right;
+
+
+}
+
+.right-colu3{
+    width: 45%;
+    padding: 3%;
+    margin-top: -29%;
+    margin-left: 49%;
+    /*float:right;*/
+
+
+}
+.landing-pic{
+    margin-top: 2%;
+    margin-left: 10%;
+    width: 40%;
+}
+.fadein1{
+/*#fadein1{*/
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    animation-delay: 6s;
+    animation: fadein 5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+#fadein2{
+    transition-property: width;
+    transition-duration: 10s;
+    transition-timing-function: linear;
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+    /*-moz-animation: fadein 2s; !* Firefox < 16 *!*/
+    animation-delay: 2s !important;
+    /*animation-delay: 2s !important;*/
+    animation: fadein 5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.main-paragraph{
+    color: #49484A;
+    font-size: 130%;
+}
