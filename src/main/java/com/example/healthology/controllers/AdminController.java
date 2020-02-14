@@ -43,8 +43,21 @@ public class AdminController {
         //Get all the users that do not have these adminIDS
         List<User> allUsersList = userDao.getNonAdminUsers(x);
 
-        model.addAttribute("users", allUsersList);
+        //Empty List for users with clients
+        ArrayList<User> usersWithClient = new ArrayList<>();
 
+        for (int i =0; i <= allUsersList.size()-1; i++){
+            //Check if they have client, client history and client contact. If they exist add to list
+            if (allUsersList.get(i).getClient() != null
+                    && allUsersList.get(i).getClient().getClient_history() != null
+                    && allUsersList.get(i).getClient().getClient_contact() != null
+                    && allUsersList.get(i).getClient().getGroup_clients() != null
+            ){
+                usersWithClient.add(allUsersList.get(i));
+            }
+        }
+
+        model.addAttribute("users", usersWithClient);
 
 
         return "admin/admin_profile";
