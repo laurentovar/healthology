@@ -37,13 +37,18 @@
     to   { opacity: 1; }
 }
 
-#fadein2{
+/*#test{*/
+    /*visibility: hidden;*/
+/*}*/
+
+.fadein2{
     transition-property: width;
     transition-duration: 10s;
     transition-timing-function: linear;
     -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
     /*-moz-animation: fadein 2s; !* Firefox < 16 *!*/
     animation-delay: 2s !important;
+    /*visibility: visible;*/
     /*animation-delay: 2s !important;*/
     animation: fadein 5s;
 }
