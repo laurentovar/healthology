@@ -66,7 +66,7 @@ public class ChatroomController {
                 if (allUsersList.get(i).getClient() != null
                         && allUsersList.get(i).getClient().getClient_history() != null
                         && allUsersList.get(i).getClient().getClient_contact() != null
-                        && allUsersList.get(i).getClient().getGroup_clients() != null
+                        && allUsersList.get(i).getClient().getGroups() != null
                 ){
                     usersWithClient.add(allUsersList.get(i));
                 }

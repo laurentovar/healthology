@@ -1,5 +1,6 @@
 package com.example.healthology.models;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name= "groups")
@@ -19,12 +20,17 @@ public class Group {
     @JoinColumn(name = "admin_id")
     private Admin admin;
 
+    @ManyToMany(mappedBy = "groups")
+    private List<Client> clients;
+
 
     public Group(){}
 
-    public Group(String group_name, String category_name) {
+    public Group(String group_name, String category_name, Admin admin, List<Client> clients) {
         this.group_name = group_name;
         this.category_name = category_name;
+        this.admin = admin;
+        this.clients = clients;
     }
 
     public long getId() {
@@ -57,5 +63,13 @@ public class Group {
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
     }
 }

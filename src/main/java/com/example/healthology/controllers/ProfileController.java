@@ -44,7 +44,7 @@ public class ProfileController {
 
         Client client = clientDao.findClientByUser_id(user);
 
-        System.out.println(client.getId());
+//        System.out.println(client.getId());
         List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
 
         model.addAttribute("user", userDao.getOne(user.getId()));
@@ -97,9 +97,9 @@ public class ProfileController {
 
     @PostMapping("/users/{id}/delete")
     public String deleteProfile(@PathVariable long id, @ModelAttribute User user, HttpSession session){
-        userDao.deleteById(id);
+        userDao.delete(user);
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 

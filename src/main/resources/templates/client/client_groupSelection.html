@@ -7,7 +7,7 @@
 
 <div th:insert="fragment/navbar.html :: main-nav"></div>
 
-<form th:action="@{/client_groupSelection/}" method="POST" th:object="${clients_group}">
+<form th:action="@{/client_groupSelection/}" method="POST" th:object="${group}">
     <div class="card register-mainBox">
         <div class="card-body box-box">
             <H1 class="blue-font text-center">Group selection</H1>

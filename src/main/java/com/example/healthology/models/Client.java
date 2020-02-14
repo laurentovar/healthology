@@ -27,16 +27,23 @@ public class  Client {
     @OneToOne(mappedBy = "client_id", cascade = CascadeType.ALL)
     private Client_contact client_contact;
 
-    @OneToMany(mappedBy = "client_id", cascade = CascadeType.ALL)
-    private List<Group_client> group_clients;
-
+   @ManyToMany (cascade = CascadeType.ALL)
+   @JoinTable (
+           name= "group_client",
+           joinColumns = {@JoinColumn (name = "client_id")},
+           inverseJoinColumns = {@JoinColumn(name = "group_id")}
+   )
+   private List<Group> groups;
 
     public Client() {}
 
-    public Client(boolean agreed_to_terms, List<Journal> journals, User user) {
+    public Client(boolean agreed_to_terms, List<Journal> journals, User user_id, Client_history client_history, Client_contact client_contact, List<Group> groups) {
         this.agreed_to_terms = agreed_to_terms;
         this.journals = journals;
-        this.user_id = user;
+        this.user_id = user_id;
+        this.client_history = client_history;
+        this.client_contact = client_contact;
+        this.groups = groups;
     }
 
     public Client(boolean agreed_to_terms) {
@@ -93,13 +100,11 @@ public class  Client {
         this.client_contact = client_contact;
     }
 
-
-    public List<Group_client> getGroup_clients() {
-        return group_clients;
+    public List<Group> getGroups() {
+        return groups;
     }
 
-    public void setGroup_clients(List<Group_client> group_clients) {
-        this.group_clients = group_clients;
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
-
 }
