@@ -28,7 +28,7 @@
     transition-timing-function: linear;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */
-    animation-delay: 6s;
+    /*animation-delay: 6s;*/
     animation: fadein 2s;
 }
 
@@ -43,7 +43,7 @@
 
 .fadein2{
     transition-property: width;
-    transition-duration: 10s;
+    transition-duration: 5s;
     transition-timing-function: linear;
     -webkit-animation: fadein 5s;
     /* Safari, Chrome and Opera > 12.1 */
@@ -56,7 +56,7 @@
 
 @keyframes fadein {
     0% { opacity: 0; }
-    66%  { opacity: 0; }
+    50%  { opacity: 0; }
     100% {opacity: 1;}
 }
 
@@ -64,3 +64,4 @@
     color: #49484A;
     font-size: 130%;
 }
+
