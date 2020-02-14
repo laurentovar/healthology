@@ -60,6 +60,7 @@
         <th scope="col">Emergency contact phone number</th>
         <th scope="col">Provider name</th>
         <th scope="col">Provider contact number</th>
+        <th scope="col">Group contact</th>
     </tr>
     </thead>
     <tbody>
@@ -69,6 +70,7 @@
         <td th:text="${user.client.client_contact.emergency_contact_number}">Emergency contact phone number</td>
         <td th:text="${user.client.client_contact.provider_name}">Provider name </td>
         <td th:text="${user.client.client_contact.provider_contact_number}">Provider contact number</td>
+        <td th:text="${user.client.group_clients[0].group_id.category_name}">Group contact</td>
     </tr>
     </tbody>
 </table>

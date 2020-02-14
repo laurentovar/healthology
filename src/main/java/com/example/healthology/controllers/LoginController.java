@@ -30,20 +30,10 @@ public class LoginController {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
 
-        //check to see if user is an admin
 
-        if (username.equalsIgnoreCase("admin")){
-            return "redirect:/admin_profile";
-
-        }
-        else {
             return "users/profile";
 
         }
-
-        //check to see if they have done client terms, client history , client contact
-
         //direct to profile
-    }
 
 }
