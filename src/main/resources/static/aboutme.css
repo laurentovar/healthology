@@ -76,8 +76,13 @@
 }
 .fancy-card .caption .title{
     color: #222;
+    /*margin-top: 1%;*/
     /*margin: 0px 0px 15px 0px;*/
     font-size: 1.4rem;
+}
+
+.title{
+    margin-top: 10%;
 }
 .fancy-card .caption .button{
     display: inline-block;
@@ -108,3 +113,5 @@
     color: #fff;
     border: 0px;
 }
+
+
