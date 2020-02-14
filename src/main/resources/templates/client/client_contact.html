@@ -5,25 +5,32 @@
 </head>
 <body>
 <div th:insert="fragment/navbar.html :: main-nav"></div>
-<h1>Client Setup - Client Emergency Contact Information 3 of 3</h1>
-<form th:action="@{/client_contact}" method="POST" th:object="${clients_contact}">
+\<form th:action="@{/client_contact}" method="POST" th:object="${clients_contact}">
+    <div class="card register-mainBox" >
+        <div class="card-body box-box">
+            <h1 class="card-title blue-font text-center"> Client Contact Information</h1>
+            <div class="form-group">
+                <label for="emergency_contact_name" class="blue-font">Emergency contact name</label>
+                <input id="emergency_contact_name"  th:field="*{emergency_contact_name}" class="form-control" placeholder="Enter emergency contact name">
+            </div>
+            <div class="form-group">
+                <label for="emergency_contact_number" class="blue-font">Emergency contact number</label>
+                <input id="emergency_contact_number"  th:field="*{emergency_contact_number}" class="form-control" placeholder="Enter emergency contact number">
+            </div>
+            <div class="form-group">
+                <label for="provider_contact_name" class="blue-font">Provider contact name</label>
+                <input id="provider_contact_name"  th:field="*{provider_name}" class="form-control" placeholder="Enter provider contact name">
+            </div>
+            <div class="form-group">
+                <label for="provider_contact_phone" class="blue-font">Provider contact number</label>
+                <input id="provider_contact_phone"  th:field="*{provider_contact_number}" class="form-control" placeholder="Enter provider contact number">
+            </div>
 
-    <label for="emergency_contact_name">Please enter full name for your emergency contact</label>
-    <input id="emergency_contact_name" th:field="*{emergency_contact_name}" />
-
-    <label for="emergency_contact_number">Please enter a number for your emergency contact</label>
-    <input id="emergency_contact_number" th:field="*{emergency_contact_number}" />
-
-    <label for="provider_contact_name">Please enter full name for your provider</label>
-    <input id="provider_contact_name" th:field="*{provider_name}" />
-
-    <label for="provider_contact_phone">Please enter a number for your provider</label>
-    <input id="provider_contact_phone" th:field="*{provider_contact_number}" />
+    <input value="Next"  class="bg-info text-white center-block"  type="submit" />
 
 
-    <input value="Finish" type="submit" />
-
-
+        </div>
+    </div>
 
 </form>
 

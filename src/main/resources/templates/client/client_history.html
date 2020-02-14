@@ -7,17 +7,28 @@
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
-<h1>Client Setup - Client Information 2 of 3</h1>
 <form th:action="@{/client_history}" method="POST" th:object="${clients_history}">
-    <label for="description">Description about what you want to work on in these group sessions.</label>
-    <input id="description" th:field="*{description}" />
 
-    <label for="other_information">Other information that you think the clinician should know.</label>
-    <input id="other_information" th:field="*{otherInformation}" />
+    <div class="card register-mainBox" >
+        <div class="card-body box-box">
+            <h1 class="card-title blue-font text-center"> Client History</h1>
 
-    <label for="previous_counseling">List any previous counseling. List why you went, the place and clinician that you saw.</label>
-    <input id="previous_counseling" th:field="*{previousCounseling}" />
-    <input value="Next" type="submit" />
+            <div class="form-group">
+                <label for="description" class="blue-font">Please enter a description about what you want to work on in these group sessions</label>
+                <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="other_information" class="blue-font">Please enter other information that you think the clinician should know</label>
+                <textarea class="form-control" id="other_information" th:field="*{otherInformation}" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="previous_counseling" class="blue-font">Please list any previous counseling you've had. Write why you were in counseling. The place and the clinician that you saw.</label>
+                <textarea class="form-control" id="previous_counseling" th:field="*{previousCounseling}" rows="5"></textarea>
+            </div>
+
+    <input value="Next" class="bg-info text-white center-block" type="submit" />
+        </div>
+    </div>
 
 </form>
 <th:block th:replace="fragment/scripts :: scripts" />
