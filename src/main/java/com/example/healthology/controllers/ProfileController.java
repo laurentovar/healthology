@@ -95,12 +95,12 @@ public class ProfileController {
     }
 
 
-    @PostMapping("/users/{id}/delete")
-    public String deleteProfile(@PathVariable long id, @ModelAttribute User user, HttpSession session){
-        userDao.delete(user);
-        session.invalidate();
-        return "redirect:/";
-    }
+//    @PostMapping("/users/{id}/delete")
+//    public String deleteProfile(@PathVariable long id, @ModelAttribute User user, HttpSession session){
+//        userDao.delete(user);
+//        session.invalidate();
+//        return "redirect:/";
+//    }
 
 
 

@@ -9,28 +9,42 @@
 
 <form th:action="@{/client_history}" method="POST" th:object="${clients_history}">
 
-    <div class="card register-mainBox" >
+    <div class="card register-mainBox">
         <div class="card-body box-box">
+            <div class="arrow-steps clearfix">
+                <div class="step done"><span> Step 1</span></div>
+                <div class="step done"><span>Step 2</span></div>
+                <div class="step current"><span> Step 3</span></div>
+                <div class="step"><span>Step 4</span></div>
+                <div class="step"><span>Step 5</span></div>
+                <br><br>
+            </div>
+            <br>
             <h1 class="card-title blue-font text-center"> Client History</h1>
 
             <div class="form-group">
-                <label for="description" class="blue-font">Please enter a description about what you want to work on in these group sessions</label>
+                <label for="description" class="blue-font">Please enter a description about what you want to work on in
+                    these group sessions</label>
                 <textarea class="form-control" id="description" th:field="*{description}" rows="5"></textarea>
             </div>
             <div class="form-group">
-                <label for="other_information" class="blue-font">Please enter other information that you think the clinician should know</label>
-                <textarea class="form-control" id="other_information" th:field="*{otherInformation}" rows="5"></textarea>
+                <label for="other_information" class="blue-font">Please enter other information that you think the
+                    clinician should know</label>
+                <textarea class="form-control" id="other_information" th:field="*{otherInformation}"
+                          rows="5"></textarea>
             </div>
             <div class="form-group">
-                <label for="previous_counseling" class="blue-font">Please list any previous counseling you've had. Write why you were in counseling. The place and the clinician that you saw.</label>
-                <textarea class="form-control" id="previous_counseling" th:field="*{previousCounseling}" rows="5"></textarea>
+                <label for="previous_counseling" class="blue-font">Please list any previous counseling you've had. Write
+                    why you were in counseling. The place and the clinician that you saw.</label>
+                <textarea class="form-control" id="previous_counseling" th:field="*{previousCounseling}"
+                          rows="5"></textarea>
             </div>
 
-    <input value="Next" class="bg-info text-white center-block" type="submit" />
+            <input value="Next" class="bg-info text-white center-block" type="submit"/>
         </div>
     </div>
 
 </form>
-<th:block th:replace="fragment/scripts :: scripts" />
+<th:block th:replace="fragment/scripts :: scripts"/>
 </body>
 </html>
