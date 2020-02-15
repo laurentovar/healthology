@@ -60,8 +60,49 @@
     100% {opacity: 1;}
 }
 
+.fadein3{
+    transition-property: width;
+    transition-duration: 5s;
+    transition-timing-function: linear;
+    -webkit-animation: fadein 7s;
+    /* Safari, Chrome and Opera > 12.1 */
+    /*-moz-animation: fadein 2s; !* Firefox < 16 *!*/
+    /*animation-delay: 2s !important;*/
+    /*visibility: visible;*/
+    /*animation-delay: 2s !important;*/
+    animation: fadein 7s;
+
+}
+
+@keyframes fadein {
+
+    0% { opacity: 0; }
+    66%  { opacity: 0; }
+    100% {opacity: 1;}
+}
+
 .main-paragraph{
     color: #49484A;
     font-size: 130%;
 }
 
+.index-background-1{
+
+    background-color: rgb(231, 231, 231);
+    padding-bottom: 15%;
+}
+
+.down-arrow{
+    margin-bottom: -13%;
+    margin-left: 50%;
+    color: rgb(96, 150, 180) !important;
+}
+
+/*.down-arrow:hover{*/
+    /*width: 150%;*/
+/*}*/
+
+.down-arrow:hover{
+    transform: scale(1.5);
+    transition: all ease 500ms;
+}
