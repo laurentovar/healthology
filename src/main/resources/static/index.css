@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 .right-colu2{
     margin-top: -30%;
     margin-right: 18%;
@@ -20,6 +22,7 @@
     margin-top: 2%;
     margin-left: 10%;
     width: 40%;
+
 }
 .fadein1{
 /*#fadein1{*/
@@ -89,7 +92,7 @@
 .index-background-1{
 
     background-color: rgb(231, 231, 231);
-    padding-bottom: 15%;
+    padding-bottom: -6%;
 }
 
 .down-arrow{
@@ -98,11 +101,13 @@
     color: rgb(96, 150, 180) !important;
 }
 
-/*.down-arrow:hover{*/
-    /*width: 150%;*/
-/*}*/
-
 .down-arrow:hover{
     transform: scale(1.5);
     transition: all ease 500ms;
+}
+.index-image{
+    margin-top: 50%;
+    width: 100%;
+    height: 150%;
+    margin-bottom: -10%;
 }
