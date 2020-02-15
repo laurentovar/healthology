@@ -1,5 +1,14 @@
 html{
     scroll-behavior: smooth;
+
+}
+
+.bgtest{
+    background: url("/images/imagescontainer/bg1.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .right-colu2{
     margin-top: -25%;
@@ -93,7 +102,7 @@ html{
     /*background-image: url("/images/imagescontainer/bg1.png");*/
     /*width: 130%;*/
     /*height: 150%;*/
-    background-color: rgb(231, 231, 231);
+    /*background-color: rgb(231, 231, 231);*/
     padding-bottom: -6%;
 }
 
