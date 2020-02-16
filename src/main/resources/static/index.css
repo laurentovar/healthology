@@ -27,6 +27,7 @@ html{
     /*float:right;*/
 
 
+
 }
 .landing-pic{
     /*margin-top: 2%;*/
@@ -34,6 +35,12 @@ html{
     width: 75%;
 
 }
+
+.landing-pic2{
+    visibility: hidden;
+    width: 0%;
+}
+
 .fadein1{
 /*#fadein1{*/
     transition-property: width;
@@ -167,7 +174,10 @@ html{
         visibility: hidden;
     }
 
-    .container{
+    .landing-pic2{
+        visibility: visible;
+        width: 90%;
+        /*margin-top: -30%;*/
 
     }
 }

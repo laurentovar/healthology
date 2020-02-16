@@ -69,3 +69,38 @@ a{
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
 }
+
+
+/*------ media break ------ */
+
+@media only screen and (max-width: 600px) {
+
+    #index-navbar{
+        font-size: 25px !important;
+        /*margin-top: 10px;*/
+        padding: 0 !important;
+        margin-bottom: -5px;
+    }
+
+    .nav-background{
+        background-color: transparent !important;
+    }
+
+    #ology{
+
+        color: rgb(96, 150, 180) !important;
+    }
+
+    .navbar-item {
+        font-family: 'Raleway', sans-serif !important;
+        color: black !important;
+        font-size: 23px;
+        padding-right: 15px;
+    }
+
+    .navbar-brand {
+        width: 50% !important;
+    }
+
+
+}

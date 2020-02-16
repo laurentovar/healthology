@@ -4,13 +4,13 @@
 
 <nav th:fragment="main-nav">
     <nav class="d-flex flex-row navbar  navbar-expand-lg  navbar-lighter nav-background" id="nav-line">
-        <a id="index-navbar" href="/"><p class="navbar-brand health">HEALTH<span id="ology" >OLOGY</span></p></a>
+        <a id="index-navbar" href="/"><p class="navbar-brand health" id="health">HEALTH<span id="ology" >OLOGY</span></p></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">	&equiv; </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-                <a class="navbar-item" href="/">
+                <a class="navbar-item" id="mobile-home" href="/">
                     Home
                 </a>
 
@@ -22,20 +22,20 @@
                     Chat
                 </a>
 
-                <a class="navbar-item" th:href="@{/resources}">
+                <a class="navbar-item" th:href="@{/resources}" id="mobile-resource">
                     Crisis Resources
                 </a>
 
-                <a class="navbar-item" th:href="@{/aboutMe}">
+                <a class="navbar-item" th:href="@{/aboutMe}" id="mobile-about">
                     About
                 </a>
 
 
-                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item">
+                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item" id="mobile-reg">
                     Register
                 </a>
 
-                    <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item">
+                    <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item" id="mobile-login">
                         Login
                     </a>
 
