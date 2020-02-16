@@ -76,8 +76,13 @@
 }
 .fancy-card .caption .title{
     color: #222;
+    /*margin-top: 1%;*/
     /*margin: 0px 0px 15px 0px;*/
     font-size: 1.4rem;
+}
+
+.title{
+    margin-top: 10%;
 }
 .fancy-card .caption .button{
     display: inline-block;
@@ -107,4 +112,20 @@
     background: rgba(0,0,0,0.8);
     color: #fff;
     border: 0px;
+}
+
+
+.hover-blue:hover{
+    color: #6096B4;
+}
+
+.aboutus-header{
+margin-top: 4%;
+    margin-left: 45%;
+}
+
+.abboutus-p{
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 150%;
 }
