@@ -19,7 +19,7 @@ html{
 
 }
 
-.right-colu3{
+.main-paragraph{
     width: 45%;
     padding: 3%;
     margin-top: -25%;
@@ -135,4 +135,39 @@ html{
     padding-left: 20px;
     padding-right: 20px;
 
+}
+
+
+ /*------ media break ------ */
+
+@media only screen and (max-width: 600px) {
+
+    .right-colu2{
+        margin-top: -40%;
+        width: 75%;
+        font-weight: bold;
+    }
+    .main-paragraph{
+        margin-left:4%;
+        margin-top: -20%;
+        /*padding-right: 20% !important;*/
+        width: 80%;
+    }
+
+
+    .test{
+        width: 100%;
+    /*margin-right: 80% !important;*/
+        padding: 0 !important;
+         }
+
+
+    .landing-pic{
+
+        visibility: hidden;
+    }
+
+    .container{
+
+    }
 }
