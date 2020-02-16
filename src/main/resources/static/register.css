@@ -24,7 +24,9 @@
 
 }
 
-#description {
+.btn-secondary{
+    border: 1px solid #6096B4;
+
 }
 .clearfix:after {
     clear: both;
@@ -45,24 +47,9 @@
     vertical-align: middle;
 }
 
-/*.nav {*/
-/*    margin-top: 40px;*/
-/*}*/
-
 .pull-right {
     float: right;
 }
-
-/*a, a:active {*/
-/*    color: #333;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*a:hover {*/
-/*    color: #999;*/
-/*}*/
-
- /*Breadcrups CSS */
 
 .arrow-steps .step {
     font-size: 14px;
@@ -71,7 +58,7 @@
     cursor: default;
     margin: 0 3px;
     padding: 10px 10px 10px 30px;
-    min-width: 180px;
+    min-width: 160px;
     float: left;
     position: relative;
     background-color: #d9e3f7;
@@ -135,12 +122,13 @@
 
 .arrow-steps .step.current {
     color: #fff;
-    background-color: #23468c;
+    background-color: #6096B4;
 }
 .shadow2 {
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
     padding: 5% !important;
+}
 
 .arrow-steps .step.current:after {
-    border-left: 17px solid #23468c;
+    border-left: 17px solid #6096B4 !important;
 }
