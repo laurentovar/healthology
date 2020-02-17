@@ -15,19 +15,14 @@
     color: white !important;
 }
 
-/*[type=radio] {*/
-/*    position: absolute;*/
-/*    opacity: 0;*/
-/*    width: 0;*/
-/*    height: 0;*/
-/*}*/
+.radio_item{
+    display: none !important;
+}
 
-/*!* IMAGE STYLES *!*/
-/*[type=radio] + img {*/
-/*    cursor: pointer;*/
-/*}*/
+.label_item {
+    opacity: 0.1;
+}
 
-/*!* CHECKED STYLES *!*/
-/*[type=radio]:checked + img {*/
-/*    outline: 2px solid rgb(96, 150, 180);*/
-/*}*/
+.radio_item:checked + label {
+    opacity: 1;
+}
