@@ -41,9 +41,15 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String postsIndex(Model model){
+
+
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 
+        if (user.getUsername().equalsIgnoreCase("admin")){
+            return "redirect:/admin_profile";
+        }
+        else {
         Client client = clientDao.findClientByUser_id(user);
 
 
@@ -62,10 +68,7 @@ public class ProfileController {
         model.addAttribute("fsapi", fsapi);
 
 
-        if (user.getUsername().equalsIgnoreCase("admin")){
-            return "redirect:/admin_profile";
-        }
-        else {
+
 
             return "users/profile";
         }
