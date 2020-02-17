@@ -9,9 +9,7 @@
 
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
-<h1>This is the admin profile</h1>
-
-<h3>These are all the Users:</h3>
+<h3 class="blue-font">All users:</h3>
 
 <table class="table" th:value="Users">
     <thead class="thead-light">
@@ -22,13 +20,6 @@
         <th scope="col">Last Name</th>
         <th scope="col">Phone number</th>
         <th scope="col">Client information</th>
-<!--        <th scope="col">Client information</th>-->
-<!--        <th scope="col">Previous counseling</th>-->
-<!--        <th scope="col">Emergency contact name</th>-->
-<!--        <th scope="col">Emergency contact phone number</th>-->
-<!--        <th scope="col">Provider name</th>-->
-<!--        <th scope="col">Provider contact number</th>-->
-
     </tr>
     </thead>
     <tbody>
@@ -42,14 +33,14 @@
         <td data-toggle="modal" data-target="#myModalAdmin"
             th:data-user-id="${user.id}"
             th:data-history-description="${user.client.client_history.description}"
-        >View Client information</td>
-<!--        <td th:text="${user.client.client_history.description}">history</td>-->
-<!--        <td th:text="${user.client.client_history.otherInformation}">other info</td>-->
-<!--        <td th:text="${user.client.client_history.previousCounseling}">previous counseling</td>-->
-<!--        <td th:text="${user.client.client_contact.emergency_contact_name}">Emergency contact name </td>-->
-<!--        <td th:text="${user.client.client_contact.emergency_contact_number}">Emergency contact phone number</td>-->
-<!--        <td th:text="${user.client.client_contact.provider_name}">Provider name </td>-->
-<!--        <td th:text="${user.client.client_contact.provider_contact_number}">Provider contact number</td>-->
+            th:data-history-other="${user.client.client_history.otherInformation}"
+            th:data-history-previous="${user.client.client_history.previousCounseling}"
+
+            th:data-history-name="${user.client.client_contact.emergency_contact_name}"
+            th:data-history-number="${user.client.client_contact.emergency_contact_number}"
+            th:data-history-provider="${user.client.client_contact.provider_name}"
+            th:data-history-phone="${user.client.client_contact.provider_contact_number}">
+        View Client information</td>
     </tr>
     </tbody>
 </table>
@@ -59,7 +50,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"></h5>
+                <h5 class="modal-title">Client Information</h5>
                 <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -67,14 +58,40 @@
             <div class="form-group">
                     <div class="modal-body">
                         <div class="form-row mt-1">
-<!--&lt;!&ndash;                            <label for="about_me" class="col-form-label">Username: <span th:text="${user.username}">user</span></label>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <p class="form-control" id="about_me" name="test" type ="text"></p>&ndash;&gt;-->
-<!--                            <p>Client ID:</p>-->
-
-                            <p>Client History:</p>
+                            <p>Client summary on what they want from the groups:</p>
                             <textarea class="form-control" id="client_history" name="clientHistory" disabled type ="text"></textarea>
-
                         </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client summary on any other information:</p>
+                            <textarea class="form-control" id="client_other" name="clientOther" disabled type ="text"></textarea>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client previous counseling information:</p>
+                            <textarea class="form-control" id="client_previous" name="clientPrevious" disabled type ="text"></textarea>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client emergency contact name:</p>
+                            <input class="form-control" id="client_emergencyName" name="clientEmergencyName" disabled type ="text"></input>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client emergency contact number:</p>
+                            <input class="form-control" id="client_emergencyNumber" name="clientEmergencyNumber" disabled type ="text"></input>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client provider name:</p>
+                            <input class="form-control" id="client_providerName" name="clientProviderName" disabled type ="text"></input>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <p>Client provider number:</p>
+                            <input class="form-control" id="client_providerNumber" name="clientProviderNumber" disabled type ="text"></input>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -94,6 +111,24 @@
 
         var historyDescription = $(e.relatedTarget).data('history-description');
         $(e.currentTarget).find('textarea[name="clientHistory"]').val(historyDescription);
+
+        var historyOther = $(e.relatedTarget).data('history-other');
+        $(e.currentTarget).find('textarea[name="clientOther"]').val(historyOther);
+
+        var historyPrevious = $(e.relatedTarget).data('history-previous');
+        $(e.currentTarget).find('textarea[name="clientPrevious"]').val(historyPrevious);
+
+        var historyEmergencyName = $(e.relatedTarget).data('history-name');
+        $(e.currentTarget).find('input[name="clientEmergencyName"]').val(historyEmergencyName);
+
+        var historyEmergencyNumber = $(e.relatedTarget).data('history-number');
+        $(e.currentTarget).find('input[name="clientEmergencyNumber"]').val(historyEmergencyNumber);
+
+        var historyProviderName = $(e.relatedTarget).data('history-provider');
+        $(e.currentTarget).find('input[name="clientProviderName"]').val(historyProviderName);
+
+        var historyProviderNumber = $(e.relatedTarget).data('history-phone');
+        $(e.currentTarget).find('input[name="clientProviderNumber"]').val(historyProviderNumber);
 
 
     });
