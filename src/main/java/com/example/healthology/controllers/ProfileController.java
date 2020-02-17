@@ -41,24 +41,25 @@ public class ProfileController {
     @GetMapping("/profile")
     public String postsIndex(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        Client client = clientDao.findClientByUser_id(user);
-
-//        System.out.println(client.getId());
-        List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
-
-        model.addAttribute("user", userDao.getOne(user.getId()));
-        model.addAttribute("journals", journals);
-        model.addAttribute("journal", new Journal());
-        model.addAttribute("fsapi", fsapi);
-
         if (user.getUsername().equalsIgnoreCase("admin")){
             return "redirect:/admin_profile";
             //return "admin/admin_profile";
         }
         else {
+            Client client = clientDao.findClientByUser_id(user);
+
+//        System.out.println(client.getId());
+            List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
+
+            model.addAttribute("user", userDao.getOne(user.getId()));
+            model.addAttribute("journals", journals);
+            model.addAttribute("journal", new Journal());
+            model.addAttribute("fsapi", fsapi);
+
             return "users/profile";
         }
+
+
     }
 
     @GetMapping("/profile/{id}")

@@ -34,6 +34,4 @@ public class LoginController {
             return "users/profile";
 
         }
-        //direct to profile
-
 }

@@ -4,6 +4,9 @@
 
 </head>
 <body>
+
+
+
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
 <h1>This is the admin profile</h1>
@@ -18,6 +21,13 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Phone number</th>
+        <th scope="col">Client information</th>
+<!--        <th scope="col">Client information</th>-->
+<!--        <th scope="col">Previous counseling</th>-->
+<!--        <th scope="col">Emergency contact name</th>-->
+<!--        <th scope="col">Emergency contact phone number</th>-->
+<!--        <th scope="col">Provider name</th>-->
+<!--        <th scope="col">Provider contact number</th>-->
 
     </tr>
     </thead>
@@ -28,54 +38,66 @@
         <td th:text="${user.first_name}">first Name</td>
         <td th:text="${user.last_name}">last Name</td>
         <td th:text="${(user.phone_number)}">phone</td>
-    </tr>
-    </tbody>
-</table>
 
-<table class="table" th:value="Users">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Username</th>
-        <th scope="col">Client history</th>
-        <th scope="col">Client information</th>
-        <th scope="col">Previous counseling</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.username}">username</td>
-                <td th:text="${user.client.client_history.description}">history</td>
-                <td th:text="${user.client.client_history.otherInformation}">other info</td>
-                <td th:text="${user.client.client_history.previousCounseling}">previous counseling</td>
+        <td data-toggle="modal" data-target="#myModalAdmin"
+            th:data-user-id="${user.id}"
+            th:data-history-description="${user.client.client_history.description}"
+        >View Client information</td>
+<!--        <td th:text="${user.client.client_history.description}">history</td>-->
+<!--        <td th:text="${user.client.client_history.otherInformation}">other info</td>-->
+<!--        <td th:text="${user.client.client_history.previousCounseling}">previous counseling</td>-->
+<!--        <td th:text="${user.client.client_contact.emergency_contact_name}">Emergency contact name </td>-->
+<!--        <td th:text="${user.client.client_contact.emergency_contact_number}">Emergency contact phone number</td>-->
+<!--        <td th:text="${user.client.client_contact.provider_name}">Provider name </td>-->
+<!--        <td th:text="${user.client.client_contact.provider_contact_number}">Provider contact number</td>-->
     </tr>
     </tbody>
 </table>
 
 
-<table class="table" th:value="Users">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Username</th>
-        <th scope="col">Emergency contact name</th>
-        <th scope="col">Emergency contact phone number</th>
-        <th scope="col">Provider name</th>
-        <th scope="col">Provider contact number</th>
-        <th scope="col">Group contact</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.username}">username</td>
-        <td th:text="${user.client.client_contact.emergency_contact_name}">Emergency contact name </td>
-        <td th:text="${user.client.client_contact.emergency_contact_number}">Emergency contact phone number</td>
-        <td th:text="${user.client.client_contact.provider_name}">Provider name </td>
-        <td th:text="${user.client.client_contact.provider_contact_number}">Provider contact number</td>
-        <td th:text="${user.client.group_clients[0].group_id.category_name}">Group contact</td>
-    </tr>
-    </tbody>
-</table>
+<div class="edit-modal modal" id="myModalAdmin" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="form-group">
+                    <div class="modal-body">
+                        <div class="form-row mt-1">
+<!--&lt;!&ndash;                            <label for="about_me" class="col-form-label">Username: <span th:text="${user.username}">user</span></label>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <p class="form-control" id="about_me" name="test" type ="text"></p>&ndash;&gt;-->
+<!--                            <p>Client ID:</p>-->
+
+                            <p>Client History:</p>
+                            <textarea class="form-control" id="client_history" name="clientHistory" disabled type ="text"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
+<th:block th:replace="fragment/scripts :: scripts" />
+
+<script>
+    $('#myModalAdmin').on('show.bs.modal', function(e) {
+        var userId = $(e.relatedTarget).data('user-id');
+        $(e.currentTarget).find('p[name="clientId"]').val(userId);
+
+        var historyDescription = $(e.relatedTarget).data('history-description');
+        $(e.currentTarget).find('textarea[name="clientHistory"]').val(historyDescription);
+
+
+    });
+</script>
 
 </body>
 </html>
