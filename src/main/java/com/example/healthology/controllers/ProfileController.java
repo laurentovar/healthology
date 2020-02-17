@@ -80,14 +80,6 @@ public class ProfileController {
 
     }
 
-//    @GetMapping("/test/j")
-//    public String testJournal(){
-//        List<Journal> journals = journalDao.getAllJournalsByClientId(1L);
-//        for (int i = 0; i < journals.size(); i++){
-//            System.out.println(journals.get(i).getId());
-//        }
-//        return "/aboutMe";
-//    }
 
     @PostMapping("/users/{id}/edit")
     public String editProfile(@PathVariable long id, @ModelAttribute User user,
@@ -96,13 +88,21 @@ public class ProfileController {
         updatedUser.setAbout_me(user.getAbout_me());
 
         Client updatedClient = clientDao.findClientByUser_id(updatedUser);
+        Client_history updatedHistory = clientHistoryDao.getOne(updatedClient.getId());
+        Client_contact updatedContact = clientContactDao.getOne(updatedClient.getId());
 
-        client_history.setClient(updatedClient);
-        client_contact.setClient_id(updatedClient);
+        updatedHistory.setDescription(client_history.getDescription());
+        updatedHistory.setOtherInformation(client_history.getOtherInformation());
+        updatedHistory.setPreviousCounseling(client_history.getPreviousCounseling());
 
-        clientDao.save(updatedClient);
-        clientHistoryDao.save(client_history);
-        clientContactDao.save(client_contact);
+        updatedContact.setEmergency_contact_name(client_contact.getEmergency_contact_name());
+        updatedContact.setEmergency_contact_number(client_contact.getEmergency_contact_number());
+        updatedContact.setProvider_name(client_contact.getProvider_name());
+        updatedContact.setProvider_contact_number(client_contact.getProvider_contact_number());
+
+
+        clientHistoryDao.save(updatedHistory);
+        clientContactDao.save(updatedContact);
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
