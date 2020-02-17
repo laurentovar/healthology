@@ -23,17 +23,20 @@ public class ProfileController {
     private UsersRepository userDao;
     private ClientRepository clientDao;
     private GroupRepository groupDao;
+    private ClientHistoryRepository clientHistoryDao;
+    private ClientContactRepository clientContactDao;
 
 
     @Value("${filestack.api.key}")
     private String fsapi;
 
-    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao,
-                             GroupRepository groupDao) {
+    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao, GroupRepository groupDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao) {
         this.journalDao = journalDao;
         this.userDao = userDao;
         this.clientDao = clientDao;
         this.groupDao = groupDao;
+        this.clientHistoryDao = clientHistoryDao;
+        this.clientContactDao = clientContactDao;
     }
 
     @GetMapping("/profile")
@@ -42,15 +45,18 @@ public class ProfileController {
 
         Client client = clientDao.findClientByUser_id(user);
 
-//        System.out.println(client.getId());
+
         List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
         List<Group> groups = groupDao.getAllGroupsByClients(client);
 
+        Client_history client_history = client.getClient_history();
+        Client_contact client_contact = client.getClient_contact();
 
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journals);
         model.addAttribute("groups", groups);
-        model.addAttribute("client", client);
+        model.addAttribute("client_history", client_history);
+        model.addAttribute("client_contact", client_contact);
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
@@ -80,15 +86,18 @@ public class ProfileController {
 //    }
 
     @PostMapping("/users/{id}/edit")
-    public String editProfile(@PathVariable long id, @ModelAttribute User user, @ModelAttribute Client client){
+    public String editProfile(@PathVariable long id, @ModelAttribute User user,
+                              @ModelAttribute Client_history client_history, @ModelAttribute Client_contact client_contact){
         User updatedUser = userDao.getOne(id);
         updatedUser.setAbout_me(user.getAbout_me());
 
-        Client updatedClient = clientDao.getOne(updatedUser.getClient().getId());
+        Client updatedClient = clientDao.findClientByUser_id(updatedUser);
 
-        updatedClient.setClient_contact(client.getClient_contact());
-        updatedClient.setClient_history(client.getClient_history());
-        user.setClient(updatedClient);
+        client_history.setClient(updatedClient);
+        client_contact.setClient_id(updatedClient);
+
+        clientHistoryDao.save(client_history);
+        clientContactDao.save(client_contact);
         userDao.save(updatedUser);
         return "redirect:/profile";
     }

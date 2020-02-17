@@ -78,7 +78,7 @@
                         <textarea class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
                                   placeholder="Tell us about you..."></textarea>
                     </div>
-                    <div class="form-row mt-1" th:object="${client.client_contact}">
+                    <div class="form-row mt-1" th:object="${client_contact}">
                         <label for="contact_name" class="col-form-label">Emergency Contact Name:</label>
                         <input class="form-control" id="contact_name" name="contact_name" type ="text"
                                   th:field="*{emergency_contact_name}">
@@ -92,7 +92,7 @@
                         <input class="form-control" id="provider_number" name="provider_number" type ="text"
                                th:field="*{provider_contact_number}">
                     </div>
-                    <div class="form-row mt-1" th:object="${client.client_history}">
+                    <div class="form-row mt-1" th:object="${client_history}">
                         <label for="description" class="col-form-label">Please enter a description about what you
                             want to work on in these group sessions:</label>
                         <textarea class="form-control" id="description" name="description" type ="text"
