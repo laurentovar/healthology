@@ -8,6 +8,7 @@
 <div th:include="fragment/navbar.html :: main-nav"></div>
 <div class="container profile-container">
 
+<!--    PROFILE CARD    -->
     <div class="card p-4 mt-5 blue-font" id="profile-card">
         <h2 class="card-title text-center p-3">Welcome to your profile, <span th:text="${user.username}">user</span>!
         </h2>
@@ -16,8 +17,13 @@
             <div class="media-body">
                 <h4 class="mt-0">About Me:</h4>
                 <p><span th:text="${user.about_me}"></span></p>
+                <h4>Here are your groups: </h4>
+                <span th:each="group: ${groups}">
+                <span th:text="${group.category_name}"></span>
+                </span>
             </div>
         </div>
+        
         <p class="align-self-end">
             <button type="button" class="btn btn-light" data-toggle="modal" id="add-picture" data-target="#pictureModal">Edit
                 Picture</button>
@@ -25,12 +31,7 @@
         </p>
 </div>
 
-
-        <!--<h1>Welcome to your profile, <span th:text="${user.username}">user</span>!</h1>-->
-    
-
-
-
+<!--    PHOTO UPLOAD MODAL  -->
 
 <div class="picture-modal modal" id="pictureModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -64,7 +65,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">About Me:</h5>
+                <h5 class="modal-title">Edit Profile:</h5>
                 <button type="button" class="edit-modal-close close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -77,14 +78,39 @@
                         <textarea class="form-control" id="about_me" name="aboutMe" type ="text" th:field="*{about_me}"
                                   placeholder="Tell us about you..."></textarea>
                     </div>
+                    <div class="form-row mt-1" th:object="${client.client_contact}">
+                        <label for="contact_name" class="col-form-label">Emergency Contact Name:</label>
+                        <input class="form-control" id="contact_name" name="contact_name" type ="text"
+                                  th:field="*{emergency_contact_name}">
+                        <label for="contact_number" class="col-form-label">Emergency Contact Number:</label>
+                        <input class="form-control" id="contact_number" name="contact_number" type ="text"
+                                  th:field="*{emergency_contact_number}">
+                        <label for="provider_name" class="col-form-label">Provider Name:</label>
+                        <input class="form-control" id="provider_name" name="provider_name" type ="text"
+                               th:field="*{provider_name}">
+                        <label for="provider_number" class="col-form-label">Provider Number:</label>
+                        <input class="form-control" id="provider_number" name="provider_number" type ="text"
+                               th:field="*{provider_contact_number}">
+                    </div>
+                    <div class="form-row mt-1" th:object="${client.client_history}">
+                        <label for="description" class="col-form-label">Please enter a description about what you
+                            want to work on in these group sessions:</label>
+                        <textarea class="form-control" id="description" name="description" type ="text"
+                                  th:field="*{description}"></textarea>
+                        <label for="other-info" class="col-form-label">Please enter other information that you think
+                            the clinician should know:</label>
+                        <textarea class="form-control" id="other-info" name="other-info" type ="text"
+                                  th:field="*{otherInformation}"></textarea>
+                        <label for="counsel" class="col-form-label">Please list any previous counseling you've
+                            had, why you were in counseling and the place and the clinician that you saw:</label>
+                        <textarea class="form-control" id="counsel" name="counsel" type ="text"
+                                  th:field="*{previousCounseling}"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary form-control">Save Edits</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
-                </form>
-                <form th:action="@{'/users/' + ${user.id} + '/delete'}" th:method="POST">
-                    <button>Delete Profile</button>
                 </form>
             </div>
         </div>

@@ -1,12 +1,7 @@
 package com.example.healthology.controllers;
 
-import com.example.healthology.models.Admin;
-import com.example.healthology.models.Client;
-import com.example.healthology.models.Journal;
-import com.example.healthology.models.User;
-import com.example.healthology.repositories.ClientRepository;
-import com.example.healthology.repositories.JournalRepository;
-import com.example.healthology.repositories.UsersRepository;
+import com.example.healthology.models.*;
+import com.example.healthology.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -27,15 +22,18 @@ public class ProfileController {
     private JournalRepository journalDao;
     private UsersRepository userDao;
     private ClientRepository clientDao;
+    private GroupRepository groupDao;
 
 
     @Value("${filestack.api.key}")
     private String fsapi;
 
-    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao) {
+    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao,
+                             GroupRepository groupDao) {
         this.journalDao = journalDao;
         this.userDao = userDao;
         this.clientDao = clientDao;
+        this.groupDao = groupDao;
     }
 
     @GetMapping("/profile")
@@ -46,9 +44,13 @@ public class ProfileController {
 
 //        System.out.println(client.getId());
         List<Journal> journals = journalDao.getAllJournalsByClientId(client.getId());
+        List<Group> groups = groupDao.getAllGroupsByClients(client);
+
 
         model.addAttribute("user", userDao.getOne(user.getId()));
         model.addAttribute("journals", journals);
+        model.addAttribute("groups", groups);
+        model.addAttribute("client", client);
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
@@ -68,19 +70,25 @@ public class ProfileController {
 
     }
 
-    @GetMapping("/test/j")
-    public String testJournal(){
-        List<Journal> journals = journalDao.getAllJournalsByClientId(1L);
-        for (int i = 0; i < journals.size(); i++){
-            System.out.println(journals.get(i).getId());
-        }
-        return "/aboutMe";
-    }
+//    @GetMapping("/test/j")
+//    public String testJournal(){
+//        List<Journal> journals = journalDao.getAllJournalsByClientId(1L);
+//        for (int i = 0; i < journals.size(); i++){
+//            System.out.println(journals.get(i).getId());
+//        }
+//        return "/aboutMe";
+//    }
 
     @PostMapping("/users/{id}/edit")
-    public String editProfile(@PathVariable long id, @ModelAttribute User user){
+    public String editProfile(@PathVariable long id, @ModelAttribute User user, @ModelAttribute Client client){
         User updatedUser = userDao.getOne(id);
         updatedUser.setAbout_me(user.getAbout_me());
+
+        Client updatedClient = clientDao.getOne(updatedUser.getClient().getId());
+
+        updatedClient.setClient_contact(client.getClient_contact());
+        updatedClient.setClient_history(client.getClient_history());
+        user.setClient(updatedClient);
         userDao.save(updatedUser);
         return "redirect:/profile";
     }
