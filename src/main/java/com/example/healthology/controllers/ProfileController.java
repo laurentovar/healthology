@@ -96,6 +96,7 @@ public class ProfileController {
         client_history.setClient(updatedClient);
         client_contact.setClient_id(updatedClient);
 
+        clientDao.save(updatedClient);
         clientHistoryDao.save(client_history);
         clientContactDao.save(client_contact);
         userDao.save(updatedUser);
