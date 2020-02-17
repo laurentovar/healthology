@@ -40,8 +40,7 @@
             </div>
 
             <div class="form-group">
-                <span th:if="${param.error_username}" class="text-danger text-center">Username exists</span>
-                <br>
+                <p th:if="${param.error_username}" class="text-danger text-center">Username exists</p>
                 <label for="username" class="blue-font">Username </label>
                 <input id="username" th:field="*{username}" class="form-control" placeholder="Enter username">
 
@@ -54,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                <span th:if="${param.error_email}" class="text-danger text-center">Email exists</span> <br>
+                <p th:if="${param.error_email}" class="text-danger text-center">Email exists</p>
                 <label for="email" class="blue-font">Email</label>
                 <input id="email" th:field="*{email}" type="email" class="form-control"
                        placeholder="Enter email">
