@@ -158,9 +158,29 @@
                         <textarea class="form-control" id="body" th:field="*{entry}"
                                   placeholder="How are you feeling today?"></textarea>
                     </div>
-                    <div class="form-row mt-1">
-                        <label for="rating" class="col-form-label">Rating</label>
-                        <input class="form-control" id="rating" th:field="*{rating}" placeholder="Enter rating">
+                    <div class="form-row mt-3 d-flex justify-content-around">
+    
+                        <!--RADIO 1: GREAT -->
+                        <input type="radio" class="radio_item" value="5" name="item" id="great" th:field="*{rating}">
+                        <label class="label_item" for="great"><i class="far fa-smile-beam fa-2x"></i></label>
+    
+                        <!--RADIO 2: GOOD-->
+                        <input type="radio" class="radio_item" value="4" name="item" id="good" th:field="*{rating}">
+                        <label class="label_item" for="good"><i class="far fa-meh fa-2x"></i></label>
+    
+                        <!--RADIO 3: OKAY-->
+                        <input type="radio" class="radio_item" value="3" name="item" id="okay" th:field="*{rating}">
+                        <label class="label_item" for="okay"><i class="far fa-frown-open fa-2x"></i></label>
+    
+                        <!--RADIO 4: NOT GREAT-->
+                        <input type="radio" class="radio_item" value="2" name="item" id="not-great"
+                               th:field="*{rating}">
+                        <label class="label_item" for="not-great"><i class="far fa-sad-tear fa-2x"></i></label>
+    
+                        <!--RADIO 5: BAD-->
+                        <input type="radio" class="radio_item" value="1" name="item" id="bad" th:field="*{rating}">
+                        <label class="label_item" for="bad"><i class="far fa-tired fa-2x"></i></label>
+    
                     </div>
                     <div class="form-row mt-1">
                         <label for="date" class="col-form-label">Date (YYYY-MM-DD) </label>
