@@ -5,28 +5,42 @@
 </head>
 <body>
 <div th:insert="fragment/navbar.html :: main-nav"></div>
-\<form th:action="@{/client_contact}" method="POST" th:object="${clients_contact}">
-    <div class="card register-mainBox" >
+
+<form th:action="@{/client_contact}" method="POST" th:object="${clients_contact}">
+    <div class="card register-mainBox">
         <div class="card-body box-box">
+            <div class="arrow-steps clearfix">
+                <div class="step done"><span> Step 1</span></div>
+                <div class="step done"><span>Step 2</span></div>
+                <div class="step done"><span> Step 3</span></div>
+                <div class="step current"><span>Step 4</span></div>
+                <div class="step"><span>Step 5</span></div>
+                <br><br>
+            </div>
+            <br>
             <h1 class="card-title blue-font text-center"> Client Contact Information</h1>
             <div class="form-group">
                 <label for="emergency_contact_name" class="blue-font">Emergency contact name</label>
-                <input id="emergency_contact_name"  th:field="*{emergency_contact_name}" class="form-control" placeholder="Enter emergency contact name">
+                <input id="emergency_contact_name" th:field="*{emergency_contact_name}" class="form-control"
+                       placeholder="Enter emergency contact name">
             </div>
             <div class="form-group">
                 <label for="emergency_contact_number" class="blue-font">Emergency contact number</label>
-                <input id="emergency_contact_number"  th:field="*{emergency_contact_number}" class="form-control" placeholder="Enter emergency contact number">
+                <input id="emergency_contact_number" th:field="*{emergency_contact_number}" class="form-control"
+                       placeholder="Enter emergency contact number">
             </div>
             <div class="form-group">
                 <label for="provider_contact_name" class="blue-font">Provider contact name</label>
-                <input id="provider_contact_name"  th:field="*{provider_name}" class="form-control" placeholder="Enter provider contact name">
+                <input id="provider_contact_name" th:field="*{provider_name}" class="form-control"
+                       placeholder="Enter provider contact name">
             </div>
             <div class="form-group">
                 <label for="provider_contact_phone" class="blue-font">Provider contact number</label>
-                <input id="provider_contact_phone"  th:field="*{provider_contact_number}" class="form-control" placeholder="Enter provider contact number">
+                <input id="provider_contact_phone" th:field="*{provider_contact_number}" class="form-control"
+                       placeholder="Enter provider contact number">
             </div>
 
-    <input value="Next"  class="bg-info text-white center-block"  type="submit" />
+            <input value="Next" class="bg-info text-white center-block pull-right btn btn-secondary" type="submit"/>
 
 
         </div>
@@ -34,6 +48,6 @@
 
 </form>
 
-<th:block th:replace="fragment/scripts :: scripts" />
+<th:block th:replace="fragment/scripts :: scripts"/>
 </body>
 </html>

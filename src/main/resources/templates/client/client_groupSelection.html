@@ -10,10 +10,19 @@
 <form th:action="@{/client_groupSelection/}" method="POST" th:object="${group}">
     <div class="card register-mainBox">
         <div class="card-body box-box">
+            <div class="arrow-steps clearfix">
+                <div class="step done"><span> Step 1</span></div>
+                <div class="step done"><span>Step 2</span></div>
+                <div class="step done"><span> Step 3</span></div>
+                <div class="step done"><span>Step 4</span></div>
+                <div class="step current"><span>Step 5</span></div>
+                <br><br>
+            </div>
+            <br>
+            <br>
             <H1 class="blue-font text-center">Group selection</H1>
             <p>Select the support groups you would like to join. Make sure the groups you select are relevant to you.
                 You do not have to join every group.</p>
-
 
 
             <input type="checkbox" id="Depression" name="Depression" th:value="1 ">
@@ -38,7 +47,7 @@
             <input type="checkbox" id="Postpartum" name="Postpartum" th:value="7">
             <label for="Postpartum"> Postpartum </label><br><br>
 
-            <button type="submit" class="bg-info text-white center-block">Submit</button>
+            <button type="submit" class="bg-info text-white center-block pull-right btn btn-secondary">Submit</button>
         </div>
     </div>
 

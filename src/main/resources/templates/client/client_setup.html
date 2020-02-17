@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragment/header :: main-header">
-
 </head>
+
 <body>
-    <div th:include="fragment/navbar.html :: main-nav"></div>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 
-    <form th:action="@{/client_setup/}" method="POST" th:object="${clients}">
+<form th:action="@{/client_setup/}" method="POST" th:object="${clients}">
 
-        <div class="card register-mainBox">
-            <div class="card-body box-box">
-        <H1 class="blue-font text-center">Consent Form</H1>
+    <div class="card register-mainBox">
+        <div class="card-body box-box">
 
-        <h3 class="blue-font">Confidentiality</h3>
-        <p>Healthology values privacy of clients and acts accordingly. No information about you will be shared without your permission and disclosure. The clinician involved in your group is obligated by law or professional ethics to report incidents of threat to self, threat to others, child abuse/neglect, elderly or dependent adult abuse/neglect, or client abuse. In the event of litigation case is filed that concerns your information, your records may be subpoenaed and we may be obligated to honor these subpoenas.</p>
-        <h3 class="blue-font">Emergency information</h3>
-        <p>If the clinician is worried about you they have the right to contact you via phone. If you do not answer the phone the clinician will take the next steps to contact your emergency contacts provided. They will also contact your primary physician to talk about your well being.</p>
-        <h3 class="blue-font">Informed Consent</h3>
-        <p>I understand that I can contact the clinician and leave Healthology whenever I see fit. I understand that all information shared in the group should remain in the group. I understand that the clinician has certain duties to protect everyone in the group.</p>
-
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="agreed_to_terms" name="agreed_to_terms" th:checked="${isChecked}" required>
-                    <label class="form-check-label" for="agreed_to_terms">
-                        Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                        You must agree before submitting.
-                    </div>
-                </div>
-
-        <button type="submit" class="bg-info text-white center-block" >Next</button>
+            <div class="arrow-steps clearfix">
+                <div class="step done"><span> Step 1</span></div>
+                <div class="step current"><span>Step 2</span></div>
+                <div class="step"><span> Step 3</span></div>
+                <div class="step"><span>Step 4</span></div>
+                <div class="step"><span>Step 5</span></div>
+                <br><br>
             </div>
-        </div>
+            <br>
+            <H1 class="blue-font text-center">Consent Form</H1>
 
-    </form>
-    <th:block th:replace="fragment/scripts :: scripts" />
+            <h3 class="blue-font">Confidentiality</h3>
+            <p>Healthology values privacy of clients and acts accordingly. No information about you will be shared
+                without your permission and disclosure. The clinician involved in your group is obligated by law or
+                professional ethics to report incidents of threat to self, threat to others, child abuse/neglect,
+                elderly or dependent adult abuse/neglect, or client abuse. In the event of litigation case is filed that
+                concerns your information, your records may be subpoenaed and we may be obligated to honor these
+                subpoenas.</p>
+            <h3 class="blue-font">Emergency information</h3>
+            <p>If the clinician is worried about you they have the right to contact you via phone. If you do not answer
+                the phone the clinician will take the next steps to contact your emergency contacts provided. They will
+                also contact your primary physician to talk about your well being.</p>
+            <h3 class="blue-font">Informed Consent</h3>
+            <p>I understand that I can contact the clinician and leave Healthology whenever I see fit. I understand that
+                all information shared in the group should remain in the group. I understand that the clinician has
+                certain duties to protect everyone in the group.</p>
+
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="agreed_to_terms" name="agreed_to_terms"
+                       th:checked="${isChecked}" required>
+                <label class="form-check-label" for="agreed_to_terms">
+                    Agree to terms and conditions
+                </label><br><br>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+            <button type="submit" class="bg-info text-white center-block pull-right btn btn-secondary">Next</button>
+        </div>
+    </div>
+
+</form>
+
+<th:block th:replace="fragment/scripts :: scripts"/>
 </body>
 </html>

@@ -68,3 +68,15 @@
     float:right;
     margin-left: 25% !important;
 }
+
+
+/*------ media break ------ */
+
+@media only screen and (max-width: 600px) {
+    .right-colu{
+       visibility: hidden;
+        height: 0%;
+    }
+
+
+}
