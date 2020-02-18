@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="emergency_contact_number" class="blue-font">Emergency contact number</label>
                 <input id="emergency_contact_number" th:field="*{emergency_contact_number}" class="form-control"
-                       placeholder="Enter emergency contact number">
+                       placeholder="ex.. 210-555-0199" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
             <div class="form-group">
                 <label for="provider_contact_name" class="blue-font">Provider contact name</label>
@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label for="provider_contact_phone" class="blue-font">Provider contact number</label>
                 <input id="provider_contact_phone" th:field="*{provider_contact_number}" class="form-control"
-                       placeholder="Enter provider contact number">
+                       placeholder="ex.. 210-555-0199" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
 
             <input value="Next" class="bg-info text-white center-block pull-right btn btn-secondary" type="submit"/>
