@@ -106,13 +106,7 @@ html{
     font-size: 130%;
 }
 
-.index-background-1{
-    /*background-image: url("/images/imagescontainer/bg1.png");*/
-    /*width: 130%;*/
-    /*height: 150%;*/
-    /*background-color: rgb(231, 231, 231);*/
-    /*padding-bottom: -6%;*/
-}
+
 
 .down-arrow{
     margin-bottom: -13%;
@@ -120,27 +114,47 @@ html{
     color: rgb(96, 150, 180) !important;
 }
 
-.down-arrow:hover{
+.down-arrow, .down-arrow2:hover{
     transform: scale(1.5);
     transition: all ease 500ms;
 }
+
+.down-arrow2{
+    margin-bottom: 1%;
+    margin-left: 50%;
+    color: rgb(96, 150, 180) !important;
+}
 .index-image{
     margin-top: 15%;
-    width: 100%;
+    width: 110%;
     height: 150%;
     margin-bottom: -10%;
+    /*position:absolute;*/
+    z-index: -1 !important;
+
+}
+
+.landing-pic{
+    /*margin-top: 2%;*/
+    margin-left: -19%;
+    width: 75%;
+    /*position: absolute;*/
+    z-index: -1 !important;
+
 }
 
 
 #indexblurb2{
 
     /*position: absolute;*/
-    bottom: 20px;
-    right: 20px;
+    /*bottom: 20px;*/
+    /*right: 20px;*/
+    margin-top: 50%;
     background-color: black;
     color: white;
-    padding-left: 20px;
-    padding-right: 20px;
+    z-index: 1;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
 
 }
 

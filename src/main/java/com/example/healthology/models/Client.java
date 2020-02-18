@@ -1,5 +1,7 @@
 package com.example.healthology.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class  Client {
     private boolean agreed_to_terms;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Journal> journals;
 
     @OneToOne
