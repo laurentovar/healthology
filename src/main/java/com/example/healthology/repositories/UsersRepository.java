@@ -15,7 +15,7 @@ public interface UsersRepository extends JpaRepository<User, Long> {
     User findByName(@Param("firstName") String firstName, @Param("lastName") String lastName);
 
 
-    @Query(value = "SELECT * FROM USERS WHERE id not in (?1)", nativeQuery = true)
+    @Query(value = "SELECT * FROM users WHERE id not in (?1)", nativeQuery = true)
     List<User> getNonAdminUsers(@Param("id") List<User> id);
 
     @Query("from User u where u.id = :id")
