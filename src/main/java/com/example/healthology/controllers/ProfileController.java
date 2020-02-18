@@ -69,7 +69,6 @@ public class ProfileController {
 
 
 
-
             return "users/profile";
         }
 
