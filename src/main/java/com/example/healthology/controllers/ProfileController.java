@@ -64,9 +64,15 @@ public class ProfileController {
         model.addAttribute("groups", groups);
         model.addAttribute("client_history", client_history);
         model.addAttribute("client_contact", client_contact);
+        model.addAttribute("client_id", client.getId());
         model.addAttribute("journal", new Journal());
         model.addAttribute("fsapi", fsapi);
 
+
+            for (int i = 0; i <= journals.size() - 1; i++) {
+                System.out.println(journals.get(i).getRating());
+//                System.out.println(journals.get(i).getDate());
+        }
 
 
             return "users/profile";
@@ -136,6 +142,12 @@ public class ProfileController {
         journal.setClient(client);
         journalDao.saveAndFlush(journal);
         return "redirect:/profile";
+    }
+
+    @GetMapping("/journals.json/{id}")
+    @ResponseBody
+    public List<Journal> journalObjects (@PathVariable Long id) {
+        return journalDao.getAllJournalsByClientId(id);
     }
 
 

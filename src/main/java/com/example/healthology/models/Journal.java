@@ -1,5 +1,8 @@
 package com.example.healthology.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +25,7 @@ public class Journal {
 
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")
+    @JsonIgnore
     private Client client;
 
     public Journal() {}
