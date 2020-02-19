@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<th:block th:include="fragment/header :: main-header"/>
+	<meta class="tjapi" th:content="${tjapi}">
+</head>
+<body>
+<div th:include="fragment/navbar.html :: main-nav"></div>
+<h1>PTSD Chat</h1>
+<script src="../../static/js/keys.js"></script>
+<script
+		src="https://code.jquery.com/jquery-2.2.4.js"
+		integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+		crossorigin="anonymous"></script>
+<script>
+    (function(t,a,l,k,j,s){
+        s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+        ;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+                    .push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+</script>
+
+<!-- container element in which TalkJS will display a chat UI -->
+<div id="talkjs-container" style="width: 90%; margin: 30px; height: 90vh"><i>Loading chat...</i></div>
+
+<!-- TalkJS initialization code, which we'll customize in the next steps -->
+<script th:inline="javascript">
+    console.log(document.querySelector('meta.tjapi').content);
+    /*<![CDATA[*/
+    Talk.ready.then(function() {
+        console.log([[${user.id}]]);
+        var me = new Talk.User({
+            id: [[${user.id}]],
+            name: [[${user.username}]],
+            email: [[${user.email}]]
+        });
+        window.talkSession = new Talk.Session({
+            //--------------talkJS key
+            appId: document.querySelector('meta.tjapi').content,
+            me: me
+        });
+
+        let talkUsers = [];
+        (function($) {
+            let request = $.ajax({'url': '/users.json/7'});
+            request.done(function (users) {
+                users.forEach(function(user) {
+                    talkUsers.push(new Talk.User({
+                        id: user.id,
+                        name: user.username,
+                        email: user.email
+                    }));
+                });
+            });
+
+            var conversation = window.talkSession.getOrCreateConversation("Postpartum Group");
+
+            conversation.setParticipant(me);
+
+            for (let i = 0; i < talkUsers.length; i++) {
+                conversation.setParticipant(talkUsers[i]);
+            }
+
+            var chatbox = talkSession.createChatbox(conversation);
+            chatbox.mount(document.getElementById("talkjs-container"));
+
+        })(jQuery);
+    });
+    /*]]>*/
+</script>
+
+
+<table class="table" th:value="Users">
+	<thead class="thead-light">
+	<tr>
+		<th scope="col">People in this group</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr th:each="member : ${members}">
+		<td><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></td>
+	</tr>
+	</tbody>
+</table>
+<th:block th:replace="fragment/scripts :: scripts" />
+</body>
+</html>
+
+
