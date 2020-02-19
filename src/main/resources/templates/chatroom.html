@@ -31,9 +31,7 @@
         var me = new Talk.User({
             id: [[${user.id}]],
             name: [[${user.username}]],
-            email: [[${user.email}]],
-            photoUrl: [[${user.profile_img}]],
-            welcomeMessage: [[${user.username}]] + " has joined the chat"
+            email: [[${user.email}]]
         });
         window.talkSession = new Talk.Session({
             //--------------talkJS key
@@ -43,19 +41,15 @@
         var other1 = new Talk.User({
             id: [[${user2.id}]],
             name: [[${user2.username}]],
-            email: [[${user2.email}]],
-            photoUrl: [[${user2.profile_img}]],
-            welcomeMessage: [[${user2.username}]] + " has joined the chat"
+            email: [[${user2.email}]]
         });
         var other2 = new Talk.User({
             id: [[${user3.id}]],
             name: [[${user3.username}]],
-            email: [[${user3.email}]],
-            photoUrl: [[${user3.profile_img}]],
-            welcomeMessage: [[${user3.username}]] + " has joined the chat"
+            email: [[${user3.email}]]
         });
 
-        var conversation = window.talkSession.getOrCreateConversation("PTSD Support");
+        var conversation = window.talkSession.getOrCreateConversation("Support");
         conversation.setParticipant(me);
         conversation.setParticipant(other1);
         conversation.setParticipant(other2);
@@ -67,18 +61,18 @@
 </script>
 
 
-<table class="table" th:value="Users">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">People in this group</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="user : ${users}">
-        <td><a th:href="@{/profile/{path}(path=${user.id})}" th:text="${user.username}">username</a></td>
-    </tr>
-    </tbody>
-</table>
+<!--<table class="table" th:value="Users">-->
+<!--    <thead class="thead-light">-->
+<!--    <tr>-->
+<!--        <th scope="col">People in this group</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="user : ${users}">-->
+<!--        <td><a th:href="@{/profile/{path}(path=${user.id})}" th:text="${user.username}">username</a></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>

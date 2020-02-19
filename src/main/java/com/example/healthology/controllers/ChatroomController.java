@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -172,7 +171,7 @@ public class ChatroomController {
         }
     }
 
-    @GetMapping("/EatingDisorders")
+    @GetMapping("/Eating-Disorders")
     public String eatingChatroom(Model model){
 
         Group eating = groupDao.getOne(5L);
@@ -189,7 +188,7 @@ public class ChatroomController {
 
             model.addAttribute("members", allClientsWithED );
 
-            return "groups/EatingDisorders";
+            return "groups/Eating-Disorders";
         } else {
             return "users/login";
         }

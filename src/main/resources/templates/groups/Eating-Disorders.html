@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1>PTSD Chat</h1>
+<h1 class="text-center mt-1">Eating Disorder Support Chat</h1>
 <script src="../../static/js/keys.js"></script>
 <script
 		src="https://code.jquery.com/jquery-2.2.4.js"
@@ -20,7 +20,7 @@
 </script>
 
 <!-- container element in which TalkJS will display a chat UI -->
-<div id="talkjs-container" style="width: 90%; margin: 30px; height: 90vh"><i>Loading chat...</i></div>
+<div id="talkjs-container" class="mx-auto mb-3" style="width: 90%;height: 90vh"><i>Loading chat...</i></div>
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
