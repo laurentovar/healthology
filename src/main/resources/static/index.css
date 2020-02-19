@@ -22,7 +22,7 @@ html{
     width: 45%;
     padding: 3%;
     margin-top: -25%;
-    margin-left: 52%;
+    margin-left: 49%;
 
 
 
@@ -169,7 +169,7 @@ html{
     overflow-x: hidden;
     overflow-y: scroll;
 }
-.background2 {
+.background {
     background-position: center;
     background-size: cover;
     display: flex;
