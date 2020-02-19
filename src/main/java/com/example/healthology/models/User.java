@@ -1,5 +1,7 @@
 package com.example.healthology.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -30,9 +32,11 @@ public class User {
 
 
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Admin admin;
 
     @OneToOne(mappedBy = "user_id", cascade = CascadeType.ALL) //, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Client client;
 
     public User() {}

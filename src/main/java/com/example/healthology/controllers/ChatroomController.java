@@ -1,9 +1,6 @@
 package com.example.healthology.controllers;
 
-import com.example.healthology.models.Admin;
-import com.example.healthology.models.Client;
-import com.example.healthology.models.Group;
-import com.example.healthology.models.User;
+import com.example.healthology.models.*;
 import com.example.healthology.repositories.AdminRepository;
 import com.example.healthology.repositories.ClientRepository;
 import com.example.healthology.repositories.GroupRepository;
@@ -13,6 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,10 +85,9 @@ public class ChatroomController {
 
     @GetMapping("/Depression")
     public String depressionChatroom(Model model){
+        model.addAttribute("group", groupDao.getOne(1L));
 
-        Group depression = groupDao.getOne(1L);
-
-        List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(depression);
+        List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(groupDao.getOne(1L));
 
 
 
@@ -100,6 +98,15 @@ public class ChatroomController {
         }
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("user", user);
+//            User user2 = userDao.getOne(2L);
+//            model.addAttribute("user2", user2);
+//            User user3 = userDao.getOne(3L);
+//            model.addAttribute("user3", user3);
+//            User user4 = userDao.getOne(4L);
+//            model.addAttribute("user4", user4);
+            model.addAttribute("tjapi", tjapi);
+
             //Get all the admin userIDs;
             List<Admin> adminList = adminDao.findAll();
             //List<Long> adminUserIds = adminDao.GetAllAdminUserIDs();
@@ -112,33 +119,19 @@ public class ChatroomController {
             //Get all the users that do not have these adminIDS
             List<User> allUsersList = userDao.getNonAdminUsers(x);
 
-
-
             //Empty List for users with clients
             ArrayList<User> usersWithClient = new ArrayList<>();
-                model.addAttribute(user.getUsername(), user);
-            for (int i = 0; i < allUsersList.size()-1; i++) {
-                User other = allUsersList.get(i);
-                model.addAttribute(other.getUsername(), other);
+
+            for (int i =0; i <= allUsersList.size()-1; i++){
+                //Check if they have client, client history and client contact. If they exist add to list
+                if (allUsersList.get(i).getClient() != null
+                        && allUsersList.get(i).getClient().getClient_history() != null
+                        && allUsersList.get(i).getClient().getClient_contact() != null
+                        && allUsersList.get(i).getClient().getGroups() != null
+                ){
+                    usersWithClient.add(allUsersList.get(i));
+                }
             }
-
-//            User user3 = userDao.getOne(3L);
-//            model.addAttribute("user3", user3);
-//            User user4 = userDao.getOne(4L);
-//            model.addAttribute("user4", user4);
-            model.addAttribute("tjapi", tjapi);
-
-
-//            for (int i =0; i <= allUsersList.size()-1; i++){
-//                //Check if they have client, client history and client contact. If they exist add to list
-//                if (allUsersList.get(i).getClient() != null
-//                        && allUsersList.get(i).getClient().getClient_history() != null
-//                        && allUsersList.get(i).getClient().getClient_contact() != null
-//                        && allUsersList.get(i).getClient().getGroups() != null
-//                ){
-//                    usersWithClient.add(allUsersList.get(i));
-//                }
-//            }
 
             model.addAttribute("users", allClientsWithDepression );
 
@@ -146,5 +139,16 @@ public class ChatroomController {
         } else {
             return "users/login";
         }
+    }
+
+    @GetMapping("/users.json/1")
+    @ResponseBody
+    public List<User> groupObjects () {
+        List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(groupDao.getOne(1L));
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < allClientsWithDepression.size(); i++) {
+            users.add(allClientsWithDepression.get(i).getUser());
+        }
+        return users;
     }
 }

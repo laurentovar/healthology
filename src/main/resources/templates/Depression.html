@@ -24,35 +24,47 @@
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
-
     console.log(document.querySelector('meta.tjapi').content);
     /*<![CDATA[*/
     Talk.ready.then(function() {
+        console.log([[${user.id}]]);
         var me = new Talk.User({
             id: [[${user.id}]],
             name: [[${user.username}]],
-            email: [[${user.email}]],
-            photoUrl: [[${user.profile_img}]],
+            email: [[${user.email}]]
         });
         window.talkSession = new Talk.Session({
             //--------------talkJS key
             appId: document.querySelector('meta.tjapi').content,
             me: me
         });
-        
-        var other = new Talk.User({
-            id: [[${other.id}]],
-            name: [[${other.username}]],
-            email: [[${other.email}]],
-            photoUrl: [[${other.profile_img}]],
+
+        let talkUsers = [];
+    (function($) {
+        let request = $.ajax({'url': '/users.json/1'});
+        request.done(function (users) {
+            console.log("================" + users.get(1).id);
+            users.forEach(function(user) {
+                talkUsers.push(new Talk.User({
+                    id: user.id,
+                    name: user.username,
+                    email: user.email
+            }));
+            });
         });
 
-        var conversation = window.talkSession.getOrCreateConversation("Depression Support");
+        var conversation = window.talkSession.getOrCreateConversation("Support Group");
+
         conversation.setParticipant(me);
-        conversation.setParticipant(other);
+
+        for (let i = 0; i < talkUsers.length; i++) {
+            conversation.setParticipant(talkUsers[i]);
+        }
+
         var chatbox = talkSession.createChatbox(conversation);
         chatbox.mount(document.getElementById("talkjs-container"));
 
+    })(jQuery);
     });
     /*]]>*/
 </script>
