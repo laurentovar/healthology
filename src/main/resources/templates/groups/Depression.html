@@ -7,7 +7,7 @@
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
 <h1>Depression Chat</h1>
-<script src="js/keys.js"></script>
+<script src="../../static/js/keys.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
         integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -77,12 +77,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="user : ${users}">
-        <td><a th:href="@{/profile/{path}(path=${user.id})}" th:text="${user.username}">username</a></td>
+    <tr th:each="member : ${members}">
+        <td><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></td>
     </tr>
     </tbody>
 </table>
-<th:block th:replace="fragment/scripts :: scripts" />
+<th:block th:replace="fragment/scripts :: scripts"/>
 </body>
 </html>
 

@@ -89,13 +89,6 @@ public class ChatroomController {
 
         List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(groupDao.getOne(1L));
 
-
-
-        for (int i = 0; i < allClientsWithDepression.size(); i++) {
-
-            System.out.println("Here is the username" + allClientsWithDepression.get(i).getUser().getUsername());
-
-        }
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             model.addAttribute("user", user);
@@ -133,9 +126,46 @@ public class ChatroomController {
                 }
             }
 
-            model.addAttribute("users", allClientsWithDepression );
+            model.addAttribute("members", allClientsWithDepression );
 
-            return "Depression";
+            return "groups/Depression";
+        } else {
+            return "users/login";
+        }
+    }
+
+    @GetMapping("/PTSD")
+    public String ptsdChatroom(Model model){
+
+        Group PTSD = groupDao.getOne(2L);
+
+        List<Client> allClientsWithPTSD = clientDao.getAllClientsByGroups(PTSD);
+
+        model.addAttribute("group", PTSD);
+
+
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("user", user);
+
+            model.addAttribute("tjapi", tjapi);
+
+
+            List<Admin> adminList = adminDao.findAll();
+
+            ArrayList<User> x = new ArrayList<>();
+            x.add(adminList.get(0).getUser_id());
+
+
+            List<User> allUsersList = userDao.getNonAdminUsers(x);
+
+            //Empty List for users with clients
+            ArrayList<User> usersWithClient = new ArrayList<>();
+
+
+            model.addAttribute("members", allClientsWithPTSD );
+
+            return "groups/PTSD";
         } else {
             return "users/login";
         }
@@ -143,11 +173,22 @@ public class ChatroomController {
 
     @GetMapping("/users.json/1")
     @ResponseBody
-    public List<User> groupObjects () {
+    public List<User> depressionObjects() {
         List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(groupDao.getOne(1L));
         List<User> users = new ArrayList<>();
         for (int i = 0; i < allClientsWithDepression.size(); i++) {
             users.add(allClientsWithDepression.get(i).getUser());
+        }
+        return users;
+    }
+
+    @GetMapping("/users.json/2")
+    @ResponseBody
+    public List<User> PTSDObjects() {
+        List<Client> allClientsWithPTSD = clientDao.getAllClientsByGroups(groupDao.getOne(2L));
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < allClientsWithPTSD.size(); i++) {
+            users.add(allClientsWithPTSD.get(i).getUser());
         }
         return users;
     }
