@@ -19,7 +19,7 @@
                 <p><span th:text="${user.about_me}"></span></p>
                 <h4>Here are your groups: </h4>
                 <span th:each="group: ${groups}">
-                <span th:text="${group.category_name}"></span>
+                <a th:href="@{'/' + ${group.category_name}}"><span th:text="${group.category_name}">Group name</span></a>
                 </span>
             </div>
         </div>

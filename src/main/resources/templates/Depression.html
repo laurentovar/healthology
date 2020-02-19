@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1>Standard</h1>
+<h1>Depression Chat</h1>
 <script src="js/keys.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
@@ -24,7 +24,7 @@
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
-    
+
     console.log(document.querySelector('meta.tjapi').content);
     /*<![CDATA[*/
     Talk.ready.then(function() {
@@ -33,34 +33,24 @@
             name: [[${user.username}]],
             email: [[${user.email}]],
             photoUrl: [[${user.profile_img}]],
-            welcomeMessage: [[${user.username}]] + " has joined the chat"
         });
         window.talkSession = new Talk.Session({
             //--------------talkJS key
             appId: document.querySelector('meta.tjapi').content,
             me: me
         });
-        var other1 = new Talk.User({
-            id: [[${user2.id}]],
-            name: [[${user2.username}]],
-            email: [[${user2.email}]],
-            photoUrl: [[${user2.profile_img}]],
-            welcomeMessage: [[${user2.username}]] + " has joined the chat"
-        });
-        var other2 = new Talk.User({
-            id: [[${user3.id}]],
-            name: [[${user3.username}]],
-            email: [[${user3.email}]],
-            photoUrl: [[${user3.profile_img}]],
-            welcomeMessage: [[${user3.username}]] + " has joined the chat"
+        var other = new Talk.User({
+            id: [[${other.id}]],
+            name: [[${other.username}]],
+            email: [[${other.email}]],
+            photoUrl: [[${other.profile_img}]],
         });
 
-        var conversation = window.talkSession.getOrCreateConversation("PTSD Support");
+        var conversation = window.talkSession.getOrCreateConversation("Depression Support");
         conversation.setParticipant(me);
-        conversation.setParticipant(other1);
-        conversation.setParticipant(other2);
-        var inbox = talkSession.createInbox({selected: conversation});
-        inbox.mount(document.getElementById("talkjs-container"));
+        conversation.setParticipant(other);
+        var chatbox = talkSession.createChatbox(conversation);
+        chatbox.mount(document.getElementById("talkjs-container"));
 
     });
     /*]]>*/
