@@ -30,8 +30,12 @@
         <input id="password" name="password" type="password" class="form-control" placeholder="Password">
     </div>
 
+    <!--<button id="submit" type="submit" class="btn login-button">Login</button>-->
+<p><a class="login-text" th:href="@{/register}">Not a member? Sign up here!</a></p>
     <button id="submit" type="submit" class="btn login-button">Login</button>
-<!--<p><a th:href="@{/register}">Not a member? Sign up here!</a></p>-->
+
+    <!--<a class="login-text" th:href="@{/register}">Not a member? Sign up here!</a>-->
+
 </form>
 </div>
 <th:block th:replace="fragment/scripts :: scripts" />
