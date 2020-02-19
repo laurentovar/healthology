@@ -27,3 +27,10 @@
     opacity: 1;
 }
 
+.group-names{
+    font-size: 18px;
+}
+
+.group-names:hover{
+    color:  #49484A !important;
+}

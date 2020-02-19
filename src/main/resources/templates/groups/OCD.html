@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1 class="text-center mt-1">PTSD Support Chat</h1>
+<h1 class="text-center mt-1">OCD Support Chat</h1>
 <script src="../../static/js/keys.js"></script>
 <script
 		src="https://code.jquery.com/jquery-2.2.4.js"
@@ -20,7 +20,7 @@
 </script>
 
 <!-- container element in which TalkJS will display a chat UI -->
-<div id="talkjs-container" class="mx-auto mb-3" style="width: 90%;height: 90vh"><i>Loading chat...</i></div>
+<div id="talkjs-container" class="mx-auto mb-3" style="width: 90%; height: 90vh"><i>Loading chat...</i></div>
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
@@ -41,7 +41,7 @@
 
         let talkUsers = [];
         (function($) {
-            let request = $.ajax({'url': '/users.json/2'});
+            let request = $.ajax({'url': '/users.json/4'});
             request.done(function (users) {
                 users.forEach(function(user) {
                     talkUsers.push(new Talk.User({
@@ -52,7 +52,7 @@
                 });
             });
 
-            var conversation = window.talkSession.getOrCreateConversation("PTSD Group");
+            var conversation = window.talkSession.getOrCreateConversation("OCD Group");
 
             conversation.setParticipant(me);
 

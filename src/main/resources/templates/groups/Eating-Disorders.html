@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1 class="text-center mt-1">PTSD Support Chat</h1>
+<h1 class="text-center mt-1">Eating Disorder Support Chat</h1>
 <script src="../../static/js/keys.js"></script>
 <script
 		src="https://code.jquery.com/jquery-2.2.4.js"
@@ -41,7 +41,7 @@
 
         let talkUsers = [];
         (function($) {
-            let request = $.ajax({'url': '/users.json/2'});
+            let request = $.ajax({'url': '/users.json/5'});
             request.done(function (users) {
                 users.forEach(function(user) {
                     talkUsers.push(new Talk.User({
@@ -52,7 +52,7 @@
                 });
             });
 
-            var conversation = window.talkSession.getOrCreateConversation("PTSD Group");
+            var conversation = window.talkSession.getOrCreateConversation("ED Group");
 
             conversation.setParticipant(me);
 
