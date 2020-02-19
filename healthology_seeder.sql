@@ -24,7 +24,7 @@ INSERT INTO `groups` (category_name, group_name, admin_id) VALUES
     ('PTSD', 'PTSD support group', 1),
     ('Anxiety', 'Anxiety support group', 1),
     ('OCD', 'OCD support group', 1),
-    ('Eating disorders', 'Eating disorders support group', 1),
+    ('Eating-Disorders', 'Eating disorders support group', 1),
     ('Insomnia','Insomnia support group', 1),
     ('Postpartum', 'Postpartum support group', 1);
 
