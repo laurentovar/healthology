@@ -1,9 +1,12 @@
 package com.example.healthology.controllers;
 
 import com.example.healthology.models.Admin;
+import com.example.healthology.models.Client;
+import com.example.healthology.models.Group;
 import com.example.healthology.models.User;
 import com.example.healthology.repositories.AdminRepository;
 import com.example.healthology.repositories.ClientRepository;
+import com.example.healthology.repositories.GroupRepository;
 import com.example.healthology.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,16 +24,17 @@ public class ChatroomController {
     private final AdminRepository adminDao;
     private final UsersRepository userDao;
     private final ClientRepository clientDao;
+    private GroupRepository groupDao;
 
     @Value("${talkjs.api.key}")
     private String tjapi;
 
 
-
-    public ChatroomController(AdminRepository adminDao, UsersRepository userDao, ClientRepository clientDao) {
+    public ChatroomController(AdminRepository adminDao, UsersRepository userDao, ClientRepository clientDao, GroupRepository groupDao) {
         this.adminDao = adminDao;
         this.userDao = userDao;
         this.clientDao = clientDao;
+        this.groupDao = groupDao;
     }
 
     @GetMapping("/chatroom")
@@ -82,6 +86,18 @@ public class ChatroomController {
 
     @GetMapping("/Depression")
     public String depressionChatroom(Model model){
+
+        Group depression = groupDao.getOne(1L);
+
+        List<Client> allClientsWithDepression = clientDao.getAllClientsByGroups(depression);
+
+
+
+        for (int i = 0; i < allClientsWithDepression.size(); i++) {
+
+            System.out.println("Here is the username" + allClientsWithDepression.get(i).getUser().getUsername());
+
+        }
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() != "anonymousUser") {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             //Get all the admin userIDs;
@@ -96,6 +112,8 @@ public class ChatroomController {
             //Get all the users that do not have these adminIDS
             List<User> allUsersList = userDao.getNonAdminUsers(x);
 
+
+
             //Empty List for users with clients
             ArrayList<User> usersWithClient = new ArrayList<>();
                 model.addAttribute(user.getUsername(), user);
@@ -104,25 +122,25 @@ public class ChatroomController {
                 model.addAttribute(other.getUsername(), other);
             }
 
-            User user3 = userDao.getOne(3L);
-            model.addAttribute("user3", user3);
-            User user4 = userDao.getOne(4L);
-            model.addAttribute("user4", user4);
+//            User user3 = userDao.getOne(3L);
+//            model.addAttribute("user3", user3);
+//            User user4 = userDao.getOne(4L);
+//            model.addAttribute("user4", user4);
             model.addAttribute("tjapi", tjapi);
 
 
-            for (int i =0; i <= allUsersList.size()-1; i++){
-                //Check if they have client, client history and client contact. If they exist add to list
-                if (allUsersList.get(i).getClient() != null
-                        && allUsersList.get(i).getClient().getClient_history() != null
-                        && allUsersList.get(i).getClient().getClient_contact() != null
-                        && allUsersList.get(i).getClient().getGroups() != null
-                ){
-                    usersWithClient.add(allUsersList.get(i));
-                }
-            }
+//            for (int i =0; i <= allUsersList.size()-1; i++){
+//                //Check if they have client, client history and client contact. If they exist add to list
+//                if (allUsersList.get(i).getClient() != null
+//                        && allUsersList.get(i).getClient().getClient_history() != null
+//                        && allUsersList.get(i).getClient().getClient_contact() != null
+//                        && allUsersList.get(i).getClient().getGroups() != null
+//                ){
+//                    usersWithClient.add(allUsersList.get(i));
+//                }
+//            }
 
-            model.addAttribute("users", usersWithClient);
+            model.addAttribute("users", allClientsWithDepression );
 
             return "Depression";
         } else {
