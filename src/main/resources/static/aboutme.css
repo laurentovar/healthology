@@ -29,15 +29,15 @@
 }
 
 .andrew-pic{
-    background-image: url("/images/imagescontainer/andrewheadshot.jpg");
+    background-image: url("/images/imagescontainer/AndrewSwint.jpg");
 }
 
 .alyssa-pic{
-    background-image: url("/images/imagescontainer/alyssa.png");
+    background-image: url("/images/imagescontainer/AlyssaBriggs.jpg");
 }
 
 .lauren-pic{
-    background-image: url("/images/imagescontainer/lauren-tovar.jpg");
+    background-image: url("/images/imagescontainer/LaurenTovar.jpg");
 }
 .fancy-card .top{
     z-index: 3;
@@ -125,6 +125,7 @@ margin-top: 4%;
 }
 
 .abboutus-p{
+    margin-top: 1%;
     margin-left: 10%;
     margin-right: 10%;
     font-size: 150%;

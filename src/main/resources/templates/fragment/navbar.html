@@ -18,21 +18,12 @@
                     Profile
                 </a>
 
-                <a  sec:authorize="isAuthenticated()" class="navbar-item" th:href="@{/chatroom}">
-                    Chat
-                </a>
-
                 <a class="navbar-item" th:href="@{/resources}" id="mobile-resource">
                     Crisis Resources
                 </a>
 
                 <a class="navbar-item" th:href="@{/aboutMe}" id="mobile-about">
                     About
-                </a>
-
-
-                <a sec:authorize="!isAuthenticated()" th:href="@{/register}" class="navbar-item" id="mobile-reg">
-                    Register
                 </a>
 
                     <a sec:authorize="!isAuthenticated()" th:href="@{/login}" class="login navbar-item" id="mobile-login">

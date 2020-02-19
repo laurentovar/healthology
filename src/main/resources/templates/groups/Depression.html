@@ -6,8 +6,8 @@
 </head>
 <body>
 <div th:include="fragment/navbar.html :: main-nav"></div>
-<h1>Standard</h1>
-<script src="js/keys.js"></script>
+<h1 class="text-center mt-1">Depression Support Chat</h1>
+<script src="../../static/js/keys.js"></script>
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
         integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -20,14 +20,14 @@
 </script>
 
 <!-- container element in which TalkJS will display a chat UI -->
-<div id="talkjs-container" style="width: 90%; margin: 30px; height: 90vh"><i>Loading chat...</i></div>
+<div id="talkjs-container" class="mx-auto mb-3" style="width: 90%; height: 90vh"><i>Loading chat...</i></div>
 
 <!-- TalkJS initialization code, which we'll customize in the next steps -->
 <script th:inline="javascript">
-
     console.log(document.querySelector('meta.tjapi').content);
     /*<![CDATA[*/
     Talk.ready.then(function() {
+        console.log([[${user.id}]]);
         var me = new Talk.User({
             id: [[${user.id}]],
             name: [[${user.username}]],
@@ -38,42 +38,51 @@
             appId: document.querySelector('meta.tjapi').content,
             me: me
         });
-        var other1 = new Talk.User({
-            id: [[${user2.id}]],
-            name: [[${user2.username}]],
-            email: [[${user2.email}]]
-        });
-        var other2 = new Talk.User({
-            id: [[${user3.id}]],
-            name: [[${user3.username}]],
-            email: [[${user3.email}]]
+
+        let talkUsers = [];
+    (function($) {
+        let request = $.ajax({'url': '/users.json/1'});
+        request.done(function (users) {
+            console.log("================" + users.get(1).id);
+            users.forEach(function(user) {
+                talkUsers.push(new Talk.User({
+                    id: user.id,
+                    name: user.username,
+                    email: user.email
+            }));
+            });
         });
 
-        var conversation = window.talkSession.getOrCreateConversation("Support");
+        var conversation = window.talkSession.getOrCreateConversation("Support Group");
+
         conversation.setParticipant(me);
-        conversation.setParticipant(other1);
-        conversation.setParticipant(other2);
-        var inbox = talkSession.createInbox({selected: conversation});
-        inbox.mount(document.getElementById("talkjs-container"));
 
+        for (let i = 0; i < talkUsers.length; i++) {
+            conversation.setParticipant(talkUsers[i]);
+        }
+
+        var chatbox = talkSession.createChatbox(conversation);
+        chatbox.mount(document.getElementById("talkjs-container"));
+
+    })(jQuery);
     });
     /*]]>*/
 </script>
 
 
-<!--<table class="table" th:value="Users">-->
-<!--    <thead class="thead-light">-->
-<!--    <tr>-->
-<!--        <th scope="col">People in this group</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr th:each="user : ${users}">-->
-<!--        <td><a th:href="@{/profile/{path}(path=${user.id})}" th:text="${user.username}">username</a></td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--</table>-->
-<th:block th:replace="fragment/scripts :: scripts" />
+<table class="table" th:value="Users">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">People in this group</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${members}">
+        <td><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></td>
+    </tr>
+    </tbody>
+</table>
+<th:block th:replace="fragment/scripts :: scripts"/>
 </body>
 </html>
 
