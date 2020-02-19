@@ -127,7 +127,12 @@
                 <span th:text="${journal.title}"></span></a>
             </h5>
             <p>Posted on <span th:text="${journal.date}">date goes here</span></p>
-            <p>Rating: <span th:text="${journal.rating}"></span></p>
+            <p><span th:if="${journal.rating == '5'}"><i class="far fa-smile-beam fa-2x"></i></span></span></p>
+            <p><span th:if="${journal.rating == '4'}"><i class="far fa-meh fa-2x"></i></span></span></p>
+            <p><span th:if="${journal.rating == '3'}"><i class="far fa-frown-open fa-2x"></i></span></span></p>
+            <p><span th:if="${journal.rating == '2'}"><i class="far fa-sad-tear fa-2x"></i></span></span></p>
+            <p><span th:if="${journal.rating == '1'}"><i class="far fa-tired fa-2x"></i></span></span></p>
+<!--            <p>Rating: <span th:text="${journal.rating}"></span></p>-->
             <p class="card-text" th:text="${journal.entry}"></p>
         </div>
     </div>
