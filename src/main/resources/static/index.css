@@ -144,7 +144,7 @@ html{
 }
 
 .picture-about{
-    font-size: 120%;
+    font-size: 140%;
 }
 
 #indexblurb2{
@@ -232,6 +232,14 @@ html{
 .picture-about {
     margin-top: 50px;
     padding: 0;
+}
+
+#white-anchor{
+    color:white;
+}
+
+#white-anchor:hover{
+    color: rgb(222, 237, 246)
 }
 
  /*------ media break ------ */
