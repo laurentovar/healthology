@@ -18,7 +18,6 @@ USE healthology_db;
 
 INSERT INTO admins (qualifications, user_id) VALUES ('I graduated from UT Austin inb 2008, with my doctorate in clinical psychology. I did my residency at the 59th Medical Wing, which is clinical psychology intership with the Airforce. I make my goal in life to understanding human behaviour and providing psychological services. I typically have worked with people that are in the military or are veterans. I work with individuals that are suffering from depression, PTSD and anxiety. I believe that having a support group can be beneficial and brighten your day to day life.', 1);
 
-
 INSERT INTO `groups` (category_name, group_name, admin_id) VALUES
     ('Depression','Depression support group', 1),
     ('PTSD', 'PTSD support group', 1),

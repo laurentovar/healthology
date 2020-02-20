@@ -2,8 +2,10 @@ package com.example.healthology.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "journal")
@@ -13,13 +15,17 @@ public class Journal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column()
     private Long id;
+
     @Column(nullable = false, length = 300)
     private String title;
+
     @Column(nullable = false, length = 10)
     private String rating;
+
     @Column(nullable = false, columnDefinition = "DATE")
-//    YYYY-MM-DD
-    private String date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
+
     @Column(nullable = false, columnDefinition = "BLOB")
     private String entry;
 
@@ -30,7 +36,7 @@ public class Journal {
 
     public Journal() {}
 
-    public Journal(String title, String rating, String date, String entry) {
+    public Journal(String title, String rating, Date date, String entry) {
         this.title = title;
         this.rating = rating;
         this.date = date;
@@ -61,11 +67,11 @@ public class Journal {
         this.rating = rating;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
