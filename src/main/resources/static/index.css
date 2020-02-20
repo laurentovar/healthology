@@ -242,6 +242,11 @@ html{
     color: rgb(222, 237, 246)
 }
 
+
+.landingpagephototest{
+    margin-top: 70% !important;
+}
+
  /*------ media break ------ */
 
 @media only screen and (max-width: 600px) {
