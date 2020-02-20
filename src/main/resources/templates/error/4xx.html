@@ -6,27 +6,28 @@
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
 <div class="card register-mainBox">
-    <div class="card-body box-box">
+    <div class="card-body box-box text-center">
 <th:block th:switch="${error}">
     <div th:case="'Not Found'">
         <h1>404 Not Found</h1>
         <p>This error indicates that the server could not find the file that the visitor requested. This commonly occurs when a URL is mistyped.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <br>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Forbidden'">
         <h1>403 Forbidden</h1>
         <p>This error indicates that the server will not allow the visitor to access the requested file. If a visitor receives this code unexpectedly, you should check the file's permission settings, or check whether the file has been protected.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Bad Request'">
         <h1>400 Bad Request</h1>
         <p>This error indicates that the user's request contains incorrect syntax.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Unauthorized'">
         <h1>401 Unauthorized</h1>
         <p>This error indicates that the requested file requires authentication (a username and password).</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
 </th:block>
     </div>

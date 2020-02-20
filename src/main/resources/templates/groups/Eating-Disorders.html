@@ -69,18 +69,32 @@
 </script>
 
 
-<table class="table" th:value="Users">
-	<thead class="thead-light">
-	<tr>
-		<th scope="col">People in this group</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr th:each="member : ${members}">
-		<td><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></td>
-	</tr>
-	</tbody>
-</table>
+
+<h3>People in this group</h3>
+
+<div th:value="Users" class="d-flex flex-wrap">
+	<div th:each="member : ${members}">
+		<div class="card" style="width: 18rem;">
+			<img th:src="${member.user.profile_img}" alt="" class="card-img-top img-fluid align-self-center mr-3" width="25%" height="25%">
+			<div class="card-body">
+				<h5 class="card-title"><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></h5>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--<table class="table" th:value="Users">-->
+<!--	<thead class="thead-light">-->
+<!--	<tr>-->
+<!--		<th scope="col">People in this group</th>-->
+<!--	</tr>-->
+<!--	</thead>-->
+<!--	<tbody>-->
+<!--	<tr th:each="member : ${members}">-->
+<!--		<td><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></td>-->
+<!--	</tr>-->
+<!--	</tbody>-->
+<!--</table>-->
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
