@@ -30,7 +30,8 @@ public class ProfileController {
     @Value("${filestack.api.key}")
     private String fsapi;
 
-    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao, GroupRepository groupDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao) {
+    public ProfileController(JournalRepository journalDao, UsersRepository userDao, ClientRepository clientDao,
+                             GroupRepository groupDao, ClientHistoryRepository clientHistoryDao, ClientContactRepository clientContactDao) {
         this.journalDao = journalDao;
         this.userDao = userDao;
         this.clientDao = clientDao;

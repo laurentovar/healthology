@@ -6,7 +6,7 @@ import com.example.healthology.models.Client_history;
 import com.example.healthology.models.User;
 import com.example.healthology.repositories.AdminRepository;
 import com.example.healthology.repositories.ClientRepository;
-import com.example.healthology.repositories.UsersRepository;
+import com.example.healthology.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ import java.util.List;
 public class AdminController {
 
     private final AdminRepository adminDao;
-    private final UsersRepository userDao;
+    private UsersRepository userDao;
     private final ClientRepository clientDao;
 
 
