@@ -136,10 +136,14 @@ margin-top: 4%;
 @media only screen and (max-width: 600px) {
 
     #aboutus{
-       margin-top: 10%;
-        margin-left: 30%;
-        /*margin-left: % !important;*/
+       margin-top: 13% !important;
+       margin-left: 30%;
     }
-
+    .aboutusRow{
+        margin-right: 14px !important;
+    }
+    .abboutus-p{
+        margin-right: 0!important;
+    }
 
 }
