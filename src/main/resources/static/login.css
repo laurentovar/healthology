@@ -49,6 +49,12 @@
 
 }
 
+.error-btn {
+    background-color: rgb(96, 150, 180) !important;
+    color: white !important;
+}
+
+
 @media (max-width: 998px) and (orientation: portrait) {
     .picture-desc {
         padding: 1.5rem 20px;
@@ -85,6 +91,11 @@
     .login-button{
         margin-left: 40%;
         margin-top: 0;
+    }
+
+    .error-btn {
+        background-color: rgb(96, 150, 180) !important;
+        color: white !important;
     }
 
 
