@@ -5,10 +5,12 @@
 <body class="bgtest">
 
 <div class="index-background-1">
-    <a name="top"></a>
+    <!--<a name="top"></a>-->
     <div th:include="fragment/navbar.html :: main-nav"></div>
+
     <!--<h1>Here to Help</h1>-->
     <div class="parallax-wrapper">
+        <a name="top"></a>
     <div class="testing">
         <div class="container">
             <img src="/images/imagescontainer/laptoptest.png" alt="phone" class="landing-pic fadein1">
@@ -65,9 +67,11 @@
             <div class="desc-wrapper">
 
                 <p class="picture-about">We know life can be hard, and that's why we want to help. We are a tight-knit team dedicated to making your life just a little bit easier with always accessible help. Find out more about us <a th:href="@{/aboutMe}" id="white-anchor">here</a>.</p>
+                <a href="#top">Back to top of page</a>
             </div>
+            <!--<a href="#top">Back to top of page</a>-->
         </section>
-        <a href="#top">Back to top of page</a>
+
     </div>
     </div>
     
