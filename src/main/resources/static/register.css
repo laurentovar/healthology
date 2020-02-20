@@ -132,3 +132,36 @@
 .arrow-steps .step.current:after {
     border-left: 17px solid #6096B4 !important;
 }
+
+/*=======BREAK POINT====*/
+@media only screen and (max-width: 600px) {
+    .register-mainBox{
+        margin-right: -20% !important;
+        margin-left: -20% !important;
+    }
+
+    .arrow-steps .step {
+        min-width: 10px !important;
+    }
+    .register-label {
+        margin-left: 5px !important;
+    }
+    .register-header .consent-header .history-header .contact-header {
+        font-size: 39px !important;
+    }
+    .client-one-h3 {
+        margin-top: 9px !important;
+        text-align: center !important;
+        font-size: 26px !important;
+    }
+    .history-label {
+       margin-left: 3.9px !important;
+    }
+    .contact-label {
+        margin-left: 3px !important;
+    }
+    .group-header {
+        font-size: 38px; !important;
+    }
+
+}
