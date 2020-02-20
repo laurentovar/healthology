@@ -20,7 +20,7 @@
 }
 
 .label_item {
-    opacity: 0.1;
+    opacity: 0.5;
 }
 
 .radio_item:checked + label {
@@ -34,3 +34,6 @@
 .group-names:hover{
     color:  #49484A !important;
 }
+
+
+
