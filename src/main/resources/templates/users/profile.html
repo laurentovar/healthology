@@ -122,7 +122,7 @@
 
 <!--JOURNAL ENTRY CARDS-->
 <!--    <h1>-->
-        <h4 class="text-center">Journal Mood Tracker</h4>
+        <h4 class="text-center blue-font">Journal Mood Tracker</h4>
         <div id="chart_div" class="d-flex justify-content-around">
         
         </div>
@@ -136,7 +136,7 @@
             <h5 class="card-title">
                 <span th:text="${journal.title}"></span></a>
             </h5>
-            <p>Posted on <span th:text="${journal.date}">date goes here</span></p>
+            <p>Posted on <span th:text="${#dates.format(journal.date, 'MM/dd/YYYY')}">date goes here</span></p>
             <p><span th:if="${journal.rating == '5'}"><i class="far fa-smile-beam fa-2x"></i></span></span></p>
             <p><span th:if="${journal.rating == '4'}"><i class="far fa-meh fa-2x"></i></span></span></p>
             <p><span th:if="${journal.rating == '3'}"><i class="far fa-frown-open fa-2x"></i></span></span></p>
@@ -197,8 +197,8 @@
     
                     </div>
                     <div class="form-row mt-1">
-                        <label for="date" class="col-form-label">Date (YYYY-MM-DD) </label>
-                        <input class="form-control" id="date" th:field="*{date}" placeholder="Enter date">
+                        <label for="date" class="col-form-label">Date: </label>
+                        <input class="form-control" type="date" id="date" th:field="*{date}" placeholder="Enter date">
                     </div>
                     </div>
                     <div class="modal-footer">
