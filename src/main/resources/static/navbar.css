@@ -134,9 +134,9 @@ a{
         padding-right: 15px;
 
     }
-/*#ology,  {*/
-        /*font-size: 90% !important;*/
-    /*}*/
 
+    #logout-btn{
+        color:red !important;
+    }
 
 }

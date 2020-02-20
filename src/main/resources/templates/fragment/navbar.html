@@ -10,10 +10,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-                <a class="navbar-item" id="mobile-home" href="/">
-                    Home
-                </a>
 
+                <a sec:authorize="!isAuthenticated()"class="navbar-item" th:href="@{/register}" id="mobile-reg">
+                    Register
+                </a>
                 <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="navbar-item">
                     Profile
                 </a>
@@ -32,7 +32,7 @@
 
 
                     <form sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                        <button class="navbar-brand btn-warning" id="logout-btn" type="submit">Logout</button>
+                        <button class="navbar-brand btn-warning navbar-item" id="logout-btn" type="submit">Logout</button>
                     </form>
 
             </ul>
