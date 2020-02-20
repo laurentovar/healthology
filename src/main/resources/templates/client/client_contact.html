@@ -18,24 +18,24 @@
                 <br><br>
             </div>
             <br>
-            <h1 class="card-title blue-font text-center"> Client Contact Information</h1>
+            <h1 class="card-title blue-font text-center contact-header"> Client Contact Information</h1>
             <div class="form-group">
-                <label for="emergency_contact_name" class="blue-font">Emergency contact name</label>
+                <label for="emergency_contact_name" class="blue-font contact-label">Emergency contact name</label>
                 <input id="emergency_contact_name" th:field="*{emergency_contact_name}" class="form-control"
                        placeholder="Enter emergency contact name">
             </div>
             <div class="form-group">
-                <label for="emergency_contact_number" class="blue-font">Emergency contact number</label>
+                <label for="emergency_contact_number" class="blue-font contact-label">Emergency contact number</label>
                 <input id="emergency_contact_number" th:field="*{emergency_contact_number}" class="form-control"
                        placeholder="ex.. 210-555-0199" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
             <div class="form-group">
-                <label for="provider_contact_name" class="blue-font">Provider contact name</label>
+                <label for="provider_contact_name" class="blue-font contact-label">Provider contact name</label>
                 <input id="provider_contact_name" th:field="*{provider_name}" class="form-control"
                        placeholder="Enter provider contact name">
             </div>
             <div class="form-group">
-                <label for="provider_contact_phone" class="blue-font">Provider contact number</label>
+                <label for="provider_contact_phone" class="blue-font contact-label">Provider contact number</label>
                 <input id="provider_contact_phone" th:field="*{provider_contact_number}" class="form-control"
                        placeholder="ex.. 210-555-0199" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
