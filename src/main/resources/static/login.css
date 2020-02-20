@@ -64,4 +64,27 @@
     .picture-about {
         margin-top: 20px;
     }
+
+    .login-box{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #login-main-header{
+        margin-left: 32%;
+    }
+    #login-sub-header{
+        margin-left: 31%;
+    }
+    #login-about{
+        margin-left: 7%;
+    }
+    .login-text{
+        margin-left: 24%;
+    }
+    .login-button{
+        margin-left: 40%;
+        margin-top: 0;
+    }
+
+
 }
