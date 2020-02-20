@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+<div th:include="fragment/navbar.html :: main-nav"></div>
 <div class="background-1">
     <div class="background-2">
-        <div th:include="fragment/navbar.html :: main-nav"></div>
+        
 
         <h2 class="card-1-title blue-font"><i class="fas fa-laptop-medical"></i> Seeking Help</h2>
         <div class="container">
@@ -194,8 +195,6 @@
     </div>
 
 </div>
-<script>
-
-</script>
+<th:block th:replace="fragment/scripts :: scripts" />
 </body>
 </html>
