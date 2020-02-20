@@ -5,7 +5,11 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.TimeZone;
 
 @Entity
 @Table(name = "journal")
@@ -67,7 +71,14 @@ public class Journal {
         this.rating = rating;
     }
 
-    public Date getDate() {
+    public Date getDate() throws ParseException {
+//        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+//        Date formattedDate = isoFormat.parse(this.date.toString());
+
+//        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+//        isoFormat.setTimeZone(TimeZone.getTimeZone("America/Chicago"));
+//        String formattedDate = isoFormat.format(this.date);
         return date;
     }
 
@@ -90,4 +101,10 @@ public class Journal {
     public void setClient(Client client) {
         this.client = client;
     }
+
+//    public static void main(String[] args) throws ParseException {
+//        Journal j = new Journal();
+//        j.setDate(new Date());
+//        System.out.println(j.getDate());
+//    }
 }
