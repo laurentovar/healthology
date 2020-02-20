@@ -2,9 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragment/header :: main-header">
 </head>
+<body class="bgtest">
+
 <div class="index-background-1">
 
-    <body class="bgtest">
     <div th:include="fragment/navbar.html :: main-nav"></div>
     <!--<h1>Here to Help</h1>-->
 
@@ -20,15 +21,14 @@
     </div>
 
 
-
     <div class="test">
         <p class=" main-paragraph fadein2" id="test">
-            Healthology is a safe, friendly environment where you can build bonds and help yourself grow. We are a text-based community that connects you to <strong>real</strong> doctors and people <em>just like you</em>. You're not alone.
+            Healthology is a safe, friendly environment where you can build bonds and help yourself grow. We are a
+            text-based community that connects you to <strong>real</strong> doctors and people <em>just like you</em>.
+            You're not alone.
         </p>
 
     </div>
-
-
 
 
     <img src="/images/imagescontainer/laptoptest.png" alt="phone" class="landing-pic2 fadein1">
@@ -45,17 +45,17 @@
         <a href="#middle"><i class="fas fa-sort-down fa-5x down-arrow fadein3"></i></a>
     </div>
 
-<!--    <div>-->
-<!--        <img src="images/imagescontainer/indexphotoone.jpeg" class="index-image" id="middle">-->
-<!--        <a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>-->
-<!--        <div>-->
+    <!--    <div>-->
+    <!--        <img src="images/imagescontainer/indexphotoone.jpeg" class="index-image" id="middle">-->
+    <!--        <a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>-->
+    <!--        <div>-->
 
-<!--            <div>-->
-<!--                &lt;!&ndash;<a id="middle"></a>&ndash;&gt;-->
-<!--                &lt;!&ndash;<a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>&ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+    <!--            <div>-->
+    <!--                &lt;!&ndash;<a id="middle"></a>&ndash;&gt;-->
+    <!--                &lt;!&ndash;<a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>&ndash;&gt;-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
 
 
     <div class="parallax-wrapper">
@@ -65,24 +65,28 @@
         <section class="picture-desc">
             <div class="desc-wrapper">
                 <!--            <h3 class="season&#45;&#45;title">title</h3>-->
-                <p class="picture-about">  Get in touch with real people who understand what you're going through at just the click of a button. Our chatrooms are moderated by certified doctors to make sure you're getting the right help you need, when you need it.</p>
+                <p class="picture-about"> Get in touch with real people who understand what you're going through at just
+                    the click of a button. Our chatrooms are moderated by certified doctors to make sure you're getting
+                    the right help you need, when you need it.</p>
             </div>
         </section>
         <div class="background background-secondPic">
-            <h2 class="title2">Real people. Real support.</h2>
+            <h2 class="title2">Get help anytime, anywhere.</h2>
         </div>
         <section class="picture-desc">
             <div class="desc-wrapper">
                 <!--            <h3 class="picture-title">title</h3>-->
-                <p class="picture-about">  Get in touch with real people who understand what you're going through at just the click of a button. Our chatrooms are moderated by certified doctors to make sure you're getting the right help you need, when you need it.</p>
+                <p class="picture-about">No more appointments, no more hours of operation. Get help when it's convenient
+                    for <strong>you</strong> with our always available chatrooms.</p>
             </div>
         </section>
 
     </div>
 
 
-    <th:block th:replace="fragment/scripts :: scripts" />
+    <th:block th:replace="fragment/scripts :: scripts"/>
     <!--<a id="bottom"></a>-->
-    </body>
 </div>
+</body>
+
 </html>
