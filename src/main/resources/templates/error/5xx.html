@@ -6,57 +6,57 @@
 <div th:include="fragment/navbar.html :: main-nav"></div>
 
 <div class="card register-mainBox">
-    <div class="card-body box-box">
+    <div class="card-body box-box text-center">
 <th:block th:switch="${error}">
     <div th:case="'Internal Server Error'">
         <h1>500 Internal Server Error</h1>
         <p>This error indicates that the server has encountered an unexpected condition. This often occurs when an application request cannot be fulfilled due to the application being configured incorrectly on the server.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Not Implemented'">
         <h1>501 Not Implemented</h1>
         <p>This error indicates that the HTTP method sent by the client is not supported by the server. This is most often caused by the server being out of date. It is a very rare error and generally requires that the web server be updated.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Bad Gateway'">
         <h1>502 Bad Gateway</h1>
         <p>This error is usually due to improperly configured proxy servers. However, the problem may also arise when there is poor IP communication between back—end computers, when the client's server is overloaded, or when a firewall is functioning improperly.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Service Unavailable'">
         <h1>503 Service Unavailable</h1>
         <p>This error occurs when the server is unable to handle requests due to a temporary overload or due to the server being temporarily closed for maintenance. The error indicates that the server will only temporarily be down. It is possible to receive other errors in place of 503.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Gateway Timeout'">
         <h1>504 Gateway Timeout</h1>
         <p>This error occurs when a server somewhere along the chain does not receive a timely response from a server further up the chain. The problem is caused entirely by slow communication between upstream computers.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'HTTP Version Not Supported'">
         <h1>505 HTTP Version Not Supported</h1>
         <p>This error occurs when the server refuses to support the HTTP protocol that has been specified by the client computer. This can be caused by the protocol not being specified properly by the client computer; for example, if an invalid version number has been specified.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Variant Also Negotiates'">
         <h1>506 Variant Also Negotiates</h1>
         <p>This error indicates that the server is not properly configured. Contact the system administrator to resolve this issue.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Insufficient Storage'">
         <h1>507 Insufficient Storage</h1>
         <p>This error indicates that the server is out of free memory. This is most likely to occur when an application that is being requested cannot allocate the necessary system resources to run.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Bandwidth Limit Exceeded'">
         <h1>509 Bandwidth Limit Exceeded</h1>
         <p>This error occurs when the bandwidth limit imposed by the system administrator has been reached. The only fix for this issue is to wait until the limit is reset in the following cycle.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
     <div th:case="'Not Extended'">
         <h1>510 Not Extended</h1>
         <p>This error occurs when an extension attached to the HTTP request is not supported by the web server.</p>
-        <a href="/"><button type="button" class="btn login-button">Back to Home</button></a>
+        <a href="/"><button type="button" class="btn error-btn">Back to Home</button></a>
     </div>
 </th:block>
     </div>
