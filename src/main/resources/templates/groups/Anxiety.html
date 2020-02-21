@@ -73,7 +73,7 @@
 
 <div th:value="Users" class="d-flex flex-wrap">
 	<div th:each="member : ${members}">
-		<div class="card" style="width: 18rem;">
+		<div class="card" style="width: 18rem; border: none;">
 			<img th:src="${member.user.profile_img}" alt="" class="card-img-top img-fluid align-self-center mr-3" width="25%" height="25%">
 			<div class="card-body">
 				<h5 class="card-title"><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></h5>
