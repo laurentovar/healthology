@@ -29,10 +29,13 @@
 
 .group-names{
     font-size: 18px;
+    color:  #49484A !important;
+    text-decoration: underline;
+
 }
 
 .group-names:hover{
-    color:  #49484A !important;
+    color:  rgb(96, 150, 180) !important;
 }
 
 

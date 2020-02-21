@@ -15,11 +15,11 @@
         <div class="card-text media">
             <img th:src="${user.profile_img}" alt="profile" class="img-fluid align-self-center mr-3" width="25%" height="25%">
             <div class="media-body">
-                <h4 class="mt-0">About Me:</h4>
+                <h3 class="mt-0">About Me:</h3>
                 <p><span th:text="${user.about_me}"></span></p>
-                <h4>Here are your groups: </h4>
+                <h3>Here are your groups: </h3>
                 <span th:each="group: ${groups}">
-                | <a class="group-names blue-font" th:href="@{'/' + ${group.category_name}}"><span
+                | <a class="group-names" th:href="@{'/' + ${group.category_name}}"><span
                         th:text="${group.category_name}">Group
                     name</span> </a>
                 </span>|
