@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Array;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,7 +134,11 @@ public class ProfileController {
 //        return "redirect:/";
 //    }
 
-
+    @GetMapping("/date/test")
+    @ResponseBody
+    public String testDate() throws ParseException {
+        return journalDao.getOne(10L).getDate().toString();
+    }
 
 
     @PostMapping("/journal/create")
