@@ -23,7 +23,7 @@ public class Journal {
     @Column(nullable = false, length = 10)
     private String rating;
 
-    @Column(nullable = false, columnDefinition = "DATE")
+    @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
