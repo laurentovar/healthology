@@ -7,7 +7,7 @@
 .fancy-cards .fancy-card{
     display: inline-block;
     position: relative;
-    top: 40px;
+    top: 200px;
     left: 20px;
     box-sizing: border-box;
 }
@@ -51,7 +51,7 @@
 .fancy-card .middle{
     position: absolute;
     background: #aaa;
-    top: 0px;
+    top: 0;
     z-index: 2;
     transform: rotate(0deg);
     transition: transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -59,7 +59,7 @@
 .fancy-card .bottom{
     position: absolute;
     background: #ccc;
-    top: 0px;
+    top: 0;
     z-index: 1;
     transform: rotate(0deg);
     transition: transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -70,8 +70,8 @@
     background: rgba(255,255,255,0.75);
     /*padding: 4px;*/
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
 }
 .fancy-card .caption .title{
@@ -119,31 +119,23 @@
     color: #6096B4;
 }
 
-.aboutus-header{
-margin-top: 4%;
-    margin-left: 45%;
-}
+/*.aboutus-header{*/
+/*    margin-top: 4%;*/
+/*    margin-left: 45%;*/
+/*}*/
 
-.abboutus-p{
-    margin-top: 1%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 150%;
-}
 
 /*------ media break ------ */
 
 @media only screen and (max-width: 600px) {
 
     #aboutus{
-       margin-top: 13% !important;
+       /*margin-top: 13% !important;*/
        margin-left: 30%;
     }
     .aboutusRow{
+        margin-top: -193px !important;
         margin-right: 14px !important;
-    }
-    .abboutus-p{
-        margin-right: 0!important;
     }
 
 }
