@@ -237,11 +237,12 @@ html{
 #white-anchor{
     color:white;
     text-decoration: underline;
-    font-size: 60% !important;
+    font-size: 100% !important;
 }
 
 #white-anchor:hover{
     color: rgb(222, 237, 246);
+font-size: 100% !important;
 
 }
 
