@@ -27,11 +27,11 @@
     opacity: 1;
 }
 
-.group-names {
-    color: #49484A !important;
-    text-decoration: underline;
-    font-size: 18px;
 
+.group-names{
+    font-size: 24px;
+    color:  #49484A !important;
+    text-decoration: underline;
 }
 
 
@@ -39,5 +39,22 @@
     color: rgb(96, 150, 180) !important;
 }
 
+/*=======BREAK POINT====*/
+@media only screen and (max-width: 600px) {
+    .profile-header{
+        font-size: 31px !important;
+    }
+    .profile-btns {
+        margin-top: 26px !important;
+    }
+    .group-names {
+        font-size: 21px !important;
+    }
+    .journal-title{
+        font-size: 28px !important;
+    }
+
+
+}
 
 
