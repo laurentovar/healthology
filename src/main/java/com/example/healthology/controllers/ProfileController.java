@@ -137,7 +137,7 @@ public class ProfileController {
     @GetMapping("/date/test")
     @ResponseBody
     public String testDate() throws ParseException {
-        return journalDao.getOne(7L).getDate().toString();
+        return journalDao.getOne(10L).getDate().toString();
     }
 
 
