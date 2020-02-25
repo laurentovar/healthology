@@ -12,8 +12,8 @@ html{
     background-size: cover;
 }
 .right-colu2{
-    margin-top: -25%;
-    margin-right: 15%;
+    margin-top: -25% !important;
+    margin-right: 7% !important;
     float:right;
 
 }
@@ -21,11 +21,9 @@ html{
 .main-paragraph{
     width: 45%;
     padding: 3%;
-    margin-top: -25%;
-    margin-left: 49%;
-
-
-
+    margin-top: -24%;
+    margin-left: 54%;
+    font-size: 177% !important;
 
 }
 
@@ -37,15 +35,16 @@ html{
 }
 .landing-pic{
     z-index: -1 !important;
-    margin-left: -15%;
-    width: 75%;
-
-
+    margin-left: -34% !important;
+    width: 94% !important;
 }
 
 .landing-pic2{
     visibility: hidden;
-    width: 0%;
+    width: 0;
+}
+.headTitle{
+    font-size: 42px !important;
 }
 
 .fadein1{
@@ -179,7 +178,7 @@ html{
 .title2{
     position: absolute;
     margin: 0;
-    top: 153%;
+    top: 148%;
     width: 100%;
     left: 0;
     right: 0;
@@ -192,16 +191,16 @@ html{
     background: rgba(0,0,0,0.4);
 }
 .about1{
-    font-size: 34px;
-    padding-top: 320px;
-    padding-left: 26px;
-    padding-right: 6px;
+    font-size: 45px;
+    padding-top: 389px;
+    padding-left: 30px;
+    padding-right: 10px;
     color: white;
 }
 .title3 {
     position: absolute;
     margin: 0;
-    top: 375%;
+    top: 334%;
     width: 100%;
     left: 0;
     right: 0;
@@ -214,19 +213,19 @@ html{
     background: rgba(0,0,0,0.4);
 }
 .about2{
-    font-size: 34px;
-    padding-top: 320px;
-    padding-left: 26px;
-    padding-right: 6px;
+    font-size: 45px;
+    padding-top: 425px;
+    padding-left: 30px;
+    padding-right: 12px;
     color: white;
 }
 #white-anchor{
-    font-size: 34px;
+    font-size: 45px;
     color:white;
 }
 .backTop {
-    font-size: 26px;
-    margin-left: 24px;
+    font-size: 45px;
+    margin-left: 30px;
 }
 
 /*------ media break ------ */
