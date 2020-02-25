@@ -28,6 +28,13 @@ html{
 
 
 }
+
+.navbar {
+
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+}
 .landing-pic{
     z-index: -1 !important;
     margin-left: -15%;
@@ -162,37 +169,39 @@ html{
 }
 
 /*parallax pictures*/
-.parallax-wrapper {
-    perspective: 1px;
-    transform-style: preserve-3d;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
+.parallax-window {
+    min-height: 900px;
+    background: transparent;
 }
-.background {
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex: 1 0 auto;
-    position: relative;
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    transform: translateZ(-1px) scale(2);
+.desc-wrapper {
+    background-color: #609AB4 !important;
 }
-.background-firstPic {
-    background-image: url('images/imagescontainer/indexphotoone.jpeg');
+.title2{
+        position: absolute;
+        margin: 0;
+        top: 153%;
+        width: 100%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        height: 100px;
+        color: white;
+        font-size: 5rem;
+        background: rgba(0,0,0,0.4);
 }
-.background-secondPic {
-    background-image: url('images/imagescontainer/woman-between-men-facing-mountains-1255062.jpg');
+.about1{
+    font-size: 34px;
+    padding-top: 320px;
+    padding-left: 26px;
+    padding-right: 6px;
+    color: white;
 }
-
-.title2 {
+.title3 {
     position: absolute;
     margin: 0;
-    top: calc(50% - 50px);
+    top: 375%;
     width: 100%;
     left: 0;
     right: 0;
@@ -204,51 +213,19 @@ html{
     font-size: 5rem;
     background: rgba(0,0,0,0.4);
 }
-
-.picture-desc {
-    z-index: 1;
-    position: relative;
-    background-color: #609AB4!important;
+.about2{
+    font-size: 34px;
+    padding-top: 320px;
+    padding-left: 26px;
+    padding-right: 6px;
     color: white;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    line-height: 2em;
-    padding: 3rem;
-    height: 100vh;
-    margin: 0;
-    display: flex;
 }
-.desc-wrapper {
-    margin: auto;
-    box-sizing: border-box;
-}
-.picture-title {
-    text-align: center;
-    font-size: 4rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin: 20px 0;
-}
-.picture-about {
-    margin-top: 50px;
-    padding: 0;
-}
-
 #white-anchor{
-    color:white;
-    text-decoration: underline;
-    font-size: 100% !important;
+    font-size: 34px;
 }
-
-#white-anchor:hover{
-    color: rgb(222, 237, 246);
-font-size: 100% !important;
-
-}
-
-
-.landingpagephototest{
-    margin-top: 70% !important;
+.backTop {
+    font-size: 34px;
+    margin-left: 24px;
 }
 
  /*------ media break ------ */
@@ -259,14 +236,8 @@ font-size: 100% !important;
         margin-top: -40%;
         width: 75%;
         font-weight: bold;
+        font-size: 1.75rem;
     }
-    .main-paragraph{
-        margin-left:4%;
-        margin-top: -20%;
-        /*padding-right: 20% !important;*/
-        width: 80%;
-    }
-
 
     .test{
         width: 100%;
@@ -274,7 +245,7 @@ font-size: 100% !important;
         padding: 0 !important;
          }
 
-
+    /*add*/
     .landing-pic{
 
         visibility: hidden;
@@ -287,16 +258,6 @@ font-size: 100% !important;
 
     }
     /*parallax media break*/
-    .title2 {
-        top: 3em !important;
-        text-align: left !important;
-        height: 300px !important;
-        font-size:63px !important;
-    }
-
-   .landing-pic2{
-       padding-bottom: 150% !important;
-   }
 
 
 }

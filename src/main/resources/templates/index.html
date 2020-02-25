@@ -9,7 +9,7 @@
     <div th:include="fragment/navbar.html :: main-nav"></div>
 
     <!--<h1>Here to Help</h1>-->
-    <div class="parallax-wrapper">
+    <div class="parallax-wrapper" style="height: 95vh">
         <a name="top"></a>
     <div class="testing">
         <div class="container">
@@ -49,47 +49,32 @@
 
     </div>
 
-    <!--    <div>-->
-    <!--        <img src="images/imagescontainer/indexphotoone.jpeg" class="index-image" id="middle">-->
-    <!--        <a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>-->
-    <!--        <div>-->
 
-    <!--            <div>-->
-    <!--                &lt;!&ndash;<a id="middle"></a>&ndash;&gt;-->
-    <!--                &lt;!&ndash;<a href="#bottom"><i class="fas fa-sort-down fa-5x down-arrow2 fadein3"></i></a>&ndash;&gt;-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-
-    <div class="parallax-wrapper">
-        <div class="background background-firstPic">
-            <h2 class="title2">Real people. Real support.</h2>
-        </div>
-        <section class="picture-desc">
-            <div class="desc-wrapper">
-                <!--            <h3 class="season&#45;&#45;title">title</h3>-->
-                <p class="picture-about"> Get in touch with real people who understand what you're going through at just
-                    the click of a button. Our chatrooms are moderated by certified doctors to make sure you're getting
-                    the right help you need, when you need it.</p>
-            </div>
-        </section>
-        <div class="background background-secondPic">
-            <h2 class="title2">Get help anytime, anywhere.</h2>
-        </div>
-        <section class="picture-desc">
-            <div class="desc-wrapper">
-                <!--            <h3 class="picture-title">title</h3>-->
-                <p class="picture-about">We know life can be hard, and that's why we want to help. We are a tight-knit team dedicated to making your life just a little bit easier with always accessible help. Find out more about us <a th:href="@{/aboutMe}" id="white-anchor">here</a>.</p>
-                <a href="#top">Back to top of page</a>
-            </div>
-            <!--<a href="#top">Back to top of page</a>-->
-        </section>
-
-    </div>
     
 </div>
 </div>
+
+<!--parallax scrolling-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="images/imagescontainer/indexphotoone.jpeg">
+    <h2 class="title2">Real people. Real support.</h2>
+</div>
+<div class="desc-wrapper" style="height: 100vh">
+    <!--            <h3 class="season&#45;&#45;title">title</h3>-->
+    <p class="about1"> Get in touch with real people who understand what you're going through at just
+        the click of a button. Our chatrooms are moderated by certified doctors to make sure you're getting
+        the right help you need, when you need it.</p>
+</div>
+
+<div class="parallax-window" data-parallax="scroll" data-image-src="images/imagescontainer/woman-between-men-facing-mountains-1255062.jpg">
+    <h2 class="title3">Get help anytime, anywhere.</h2>
+</div>
+
+<div class="desc-wrapper" style="height: 100vh">
+    <!--            <h3 class="picture-title">title</h3>-->
+    <p class="about2">We know life can be hard, and that's why we want to help. We are a tight-knit team dedicated to making your life just a little bit easier with always accessible help. Find out more about us <a th:href="@{/aboutMe}" id="white-anchor">here</a>.</p>
+    <a href="#top" class="backTop">Back to top of page</a>
+</div>
+
 <th:block th:replace="fragment/scripts :: scripts" />
 </body>
 
