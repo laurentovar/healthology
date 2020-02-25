@@ -8,6 +8,9 @@
     color: #609AB4 !important;
     margin-left: 1%;
 }
+.groupPic{
+    width: 10rem;
+}
 /*------ media break ------ */
 
 @media only screen and (max-width: 600px) {
@@ -20,4 +23,8 @@
     .groupPic{
         width: auto !important;
     }
+    /*.memberPic{*/
+    /*    width: 25%;*/
+    /*    height: 25%;*/
+    /*}*/
 }
