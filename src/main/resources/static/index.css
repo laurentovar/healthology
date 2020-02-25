@@ -222,9 +222,10 @@ html{
 }
 #white-anchor{
     font-size: 34px;
+    color:white;
 }
 .backTop {
-    font-size: 34px;
+    font-size: 26px;
     margin-left: 24px;
 }
 
@@ -259,5 +260,14 @@ html{
     }
     /*parallax media break*/
 
+    #test{
+        width: 80%;
+        margin-top: 1px;
+        margin-left: 8%;
+    }
+
+    .parallax-window, .title2, .desc-wrapper, .about1, .title3, .about2 {
+        display: none;
+    }
 
 }
