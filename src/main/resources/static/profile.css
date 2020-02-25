@@ -27,14 +27,16 @@
     opacity: 1;
 }
 
+
 .group-names{
     font-size: 24px;
     color:  #49484A !important;
     text-decoration: underline;
 }
 
+
 .group-names:hover{
-    color:  rgb(96, 150, 180) !important;
+    color: rgb(96, 150, 180) !important;
 }
 
 /*=======BREAK POINT====*/
