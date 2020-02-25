@@ -77,7 +77,7 @@
 	<div th:each="member : ${members}">
 		<div class="card groupPic" style="width: 10rem; border: none; background-color: transparent; text-align: center;
 		justify-content: space-evenly">
-			<img th:src="${member.user.profile_img}" alt="" class="card-img-top img-fluid mr-3"
+			<img th:src="${member.user.profile_img}" alt="" class="card-img-top memberPic img-fluid mr-3"
 			     height="25%" width="25%">
 			<div class="card-body">
 				<h5 class="card-title"><a th:href="@{/profile/{path}(path=${member.user.id})}" th:text="${member.user.username}">username</a></h5>
