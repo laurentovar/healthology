@@ -74,7 +74,9 @@
 
 <div th:value="Users" class="d-flex justify-content-around">
 	<div th:each="member : ${members}">
-		<div class="card" style="width: auto; border: none; background-color: transparent; text-align: center;
+
+		<div class="card groupPic" style="width: 10rem; border: none; background-color: transparent; text-align: center;
+
 		justify-content: space-evenly">
 			<img th:src="${member.user.profile_img}" alt="" class="card-img-top mr-3">
 			<div class="card-body">

@@ -17,4 +17,7 @@
     .peopleGroup{
         text-align: center;
     }
+    .groupPic{
+        width: auto !important;
+    }
 }
