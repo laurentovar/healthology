@@ -272,4 +272,9 @@ html{
     .headTitle{
         margin-top: -35% !important;
     }
+
+    .right-colu2{
+    width: 90% !important;
+        /*margin-right: -2% !important;*/
+    }
 }
