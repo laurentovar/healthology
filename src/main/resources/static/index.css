@@ -28,6 +28,13 @@ html{
 
 
 }
+
+.navbar {
+
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+}
 .landing-pic{
     z-index: -1 !important;
     margin-left: -15%;
@@ -42,7 +49,7 @@ html{
 }
 
 .fadein1{
-/*#fadein1{*/
+    /*#fadein1{*/
     transition-property: width;
     transition-duration: 2s;
     transition-timing-function: linear;
@@ -58,7 +65,7 @@ html{
 }
 
 /*#test{*/
-    /*visibility: hidden;*/
+/*visibility: hidden;*/
 /*}*/
 
 .fadein2{
@@ -162,37 +169,17 @@ html{
 }
 
 /*parallax pictures*/
-.parallax-wrapper {
-    perspective: 1px;
-    transform-style: preserve-3d;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
+.parallax-window {
+    min-height: 900px;
+    background: transparent;
 }
-.background {
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex: 1 0 auto;
-    position: relative;
-    z-index: -1;
-    height: 100vh;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    transform: translateZ(-1px) scale(2);
+.desc-wrapper {
+    background-color: #609AB4 !important;
 }
-.background-firstPic {
-    background-image: url('images/imagescontainer/indexphotoone.jpeg');
-}
-.background-secondPic {
-    background-image: url('images/imagescontainer/woman-between-men-facing-mountains-1255062.jpg');
-}
-
-.title2 {
+.title2{
     position: absolute;
     margin: 0;
-    top: calc(50% - 50px);
+    top: 153%;
     width: 100%;
     left: 0;
     right: 0;
@@ -204,54 +191,45 @@ html{
     font-size: 5rem;
     background: rgba(0,0,0,0.4);
 }
-
-.picture-desc {
-    z-index: 1;
-    position: relative;
-    background-color: #609AB4!important;
+.about1{
+    font-size: 34px;
+    padding-top: 320px;
+    padding-left: 26px;
+    padding-right: 6px;
     color: white;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    line-height: 2em;
-    padding: 3rem;
-    height: 100vh;
+}
+.title3 {
+    position: absolute;
     margin: 0;
-    display: flex;
-}
-.desc-wrapper {
-    margin: auto;
-    box-sizing: border-box;
-}
-.picture-title {
+    top: 375%;
+    width: 100%;
+    left: 0;
+    right: 0;
     text-align: center;
-    font-size: 4rem;
-    letter-spacing: 5px;
     text-transform: uppercase;
-    margin: 20px 0;
+    letter-spacing: 5px;
+    height: 100px;
+    color: white;
+    font-size: 5rem;
+    background: rgba(0,0,0,0.4);
 }
-.picture-about {
-    margin-top: 50px;
-    padding: 0;
+.about2{
+    font-size: 34px;
+    padding-top: 320px;
+    padding-left: 26px;
+    padding-right: 6px;
+    color: white;
 }
-
 #white-anchor{
+    font-size: 34px;
     color:white;
-    text-decoration: underline;
-    font-size: 100% !important;
+}
+.backTop {
+    font-size: 26px;
+    margin-left: 24px;
 }
 
-#white-anchor:hover{
-    color: rgb(222, 237, 246);
-font-size: 100% !important;
-
-}
-
-
-.landingpagephototest{
-    margin-top: 70% !important;
-}
-
- /*------ media break ------ */
+/*------ media break ------ */
 
 @media only screen and (max-width: 600px) {
 
@@ -259,22 +237,16 @@ font-size: 100% !important;
         margin-top: -40%;
         width: 75%;
         font-weight: bold;
+        font-size: 1.75rem;
     }
-    .main-paragraph{
-        margin-left:4%;
-        margin-top: -20%;
-        /*padding-right: 20% !important;*/
-        width: 80%;
-    }
-
 
     .test{
         width: 100%;
-    /*margin-right: 80% !important;*/
+        /*margin-right: 80% !important;*/
         padding: 0 !important;
-         }
+    }
 
-
+    /*add*/
     .landing-pic{
 
         visibility: hidden;
@@ -287,16 +259,15 @@ font-size: 100% !important;
 
     }
     /*parallax media break*/
-    .title2 {
-        top: 3em !important;
-        text-align: left !important;
-        height: 300px !important;
-        font-size:63px !important;
+
+    #test{
+        width: 80%;
+        margin-top: 1px;
+        margin-left: 8%;
     }
 
-   .landing-pic2{
-       padding-bottom: 150% !important;
-   }
-
+    .parallax-window, .title2, .desc-wrapper, .about1, .title3, .about2 {
+        display: none;
+    }
 
 }
