@@ -263,10 +263,18 @@ html{
         width: 80%;
         margin-top: 1px;
         margin-left: 8%;
+        font-size: 150% !important;
     }
 
     .parallax-window, .title2, .desc-wrapper, .about1, .title3, .about2 {
         display: none;
     }
+    .headTitle{
+        margin-top: -35% !important;
+    }
 
+    .right-colu2{
+    width: 90% !important;
+        /*margin-right: -2% !important;*/
+    }
 }
