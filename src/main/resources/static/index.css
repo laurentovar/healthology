@@ -219,14 +219,18 @@ html{
     padding-left: 30px;
     padding-right: 12px;
     color: white;
+    margin-bottom: 275px;
 }
 #white-anchor{
     font-size: 45px;
     color:white;
 }
 .backTop {
-    font-size: 45px;
-    margin-left: 30px;
+    font-size: 25px;
+}
+
+.backToTop{
+    text-align: center !important;
 }
 
 /*------ media break ------ */
