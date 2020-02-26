@@ -24,7 +24,7 @@
 }
 
 .radio_item:checked + label {
-    color: rgb(96, 150, 180) !important;
+    color: #08e8de !important;
     opacity: 1;
 }
 
