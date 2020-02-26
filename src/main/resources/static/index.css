@@ -175,6 +175,7 @@ html{
 }
 .desc-wrapper {
     background-color: #609AB4 !important;
+    margin-bottom: -2rem;
 }
 .title2{
     position: absolute;
@@ -219,7 +220,7 @@ html{
     padding-left: 30px;
     padding-right: 12px;
     color: white;
-    margin-bottom: 275px;
+    margin-bottom: 15rem;
 }
 #white-anchor{
     font-size: 45px;
