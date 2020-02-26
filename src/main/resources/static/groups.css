@@ -6,7 +6,7 @@
 }
 .peopleGroup{
     color: #609AB4 !important;
-    margin-left: 1%;
+    text-align: center;
 }
 .groupPic{
     width: 10rem;
@@ -23,8 +23,8 @@
     .groupPic{
         width: auto !important;
     }
-    /*.memberPic{*/
-    /*    width: 25%;*/
-    /*    height: 25%;*/
-    /*}*/
+    .memberPic{
+        width: 5rem;
+        height: 5rem;
+    }
 }
