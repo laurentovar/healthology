@@ -26,3 +26,4 @@ Mental illness affects nearly one in five adults in America, but only 41 percent
 -The therapists are able to see client information: The therapist views client information to get a better insight about their background and what they want to work on. The therapist uses this information to get in touch with clients emergency contact number and client current health care provider if a client is in a crisis. 
 
 -The therapist is an admin on the groups: The therapist assigned to a group gives advice and helpful tips to group members.
+# healthology
